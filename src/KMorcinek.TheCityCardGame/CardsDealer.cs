@@ -8,14 +8,14 @@ namespace KMorcinek.TheCityCardGame
         // CardsDealerCalculator
         public Board DealNewCards(Board board)
         {
-            var cardsToDeal = HowManyDeal(board.Player.PlayedCards);
+            var cardsToDeal = HowManyCanDeal(board.Player.PlayedCards);
             var newPlayer = new Player(board.Player.CardsInHand.Concat(board.Deck.Take(cardsToDeal)), board.Player.PlayedCards);
 
             var newBoard = new Board(newPlayer, board.Deck.Skip(cardsToDeal));
             return newBoard;
         }
 
-        public int HowManyDeal(IEnumerable<Card> playedCards)
+        public int HowManyCanDeal(IEnumerable<Card> playedCards)
         {
             return playedCards.Sum(c => c.CashPoints);
         }
