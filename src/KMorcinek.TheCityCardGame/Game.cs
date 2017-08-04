@@ -22,10 +22,12 @@ namespace KMorcinek.TheCityCardGame
 
         public Board StartGame()
         {
-            throw new NotImplementedException("UI needed");
-            var cardsInHand = Deck.GetShuffledDeck();
-            var player = new Player(DealStartingCards(cardsInHand), Enumerable.Empty<Card>());
-            var board = new Board(player, cardsInHand);
+            //throw new NotImplementedException("UI needed");
+            var wholeDeck = Deck.GetShuffledDeck();
+            var player = new Player(DealStartingCards(wholeDeck), Enumerable.Empty<Card>());
+            
+            // TODO: Board should not take wholeDeck
+            var board = new Board(player, wholeDeck);
             return board;
         }
 
