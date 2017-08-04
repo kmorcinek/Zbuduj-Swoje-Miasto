@@ -28,14 +28,8 @@ namespace KMorcinek.TheCityCardGame
             OneExtraCashPoint = oneExtraCashPoint;
         }
 
-        public static Card Busbahnhof
-        {
-            get { return new Card(CardEnum.Busbahnhof, 1, 0, 1, null, 1, 1 ); }
-        }
+        public static Card Busbahnhof => new Card(CardEnum.Busbahnhof, 1, 0, 1, null, 1, 1 );
 
-        public static Card Wohnhaus
-        {
-            get { return new Card(CardEnum.Wohnhaus, 1, 1, 0); }
-        }
+        public static Card Wohnhaus => new Card(CardEnum.Wohnhaus, 1, 1, 0);
     }
 }
