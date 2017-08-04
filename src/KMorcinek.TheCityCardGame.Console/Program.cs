@@ -42,6 +42,10 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             Console.WriteLine("Your Playedhand:");
 
             WriteCards(board.Player.PlayedCards);
+
+            int points = new Calculator().CalculateWinningPoints(board.Player.PlayedCards);
+
+            Console.WriteLine("\tPoints: " + points);
         }
 
         static void WriteCards(IEnumerable<Card> playerCardsInHand)

@@ -5,9 +5,9 @@ namespace KMorcinek.TheCityCardGame
 {
     public class Calculator
     {
-        public int CalculateWinningPoints(List<Card> cards)
+        public int CalculateWinningPoints(IEnumerable<Card> playedCards)
         {
-            int simplyWiningPoints = cards.Sum(p => p.WinPoints);
+            int simplyWiningPoints = playedCards.Sum(p => p.WinPoints);
 
             int extraAnyWinningPoints = 0;// cards.Sum(card => CalcOneCard(card, cards));
 
