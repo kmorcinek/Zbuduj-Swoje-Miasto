@@ -80,7 +80,7 @@ namespace KMorcinek.TheCityCardGame
 
         private static IEnumerable<Card> DealStartingCards(Deck deck)
         {
-            return deck.Take(4);
+            return deck.Take(5);
         }
     }
 }
