@@ -39,7 +39,7 @@ namespace KMorcinek.TheCityCardGame
                 throw new InvalidOperationException("Cannot play this card");
 
             var remainInHand = board.Player.CardsInHand.Where(card => card != playedCard);
-            var justPlayedHand = board.Player.PlayedCards.Concat(new[] { playedCard }).ToList();
+            var justPlayedHand = board.Player.PlayedCards.Concat(new[] {playedCard});
 
             var newBoard = new Board(
                 new Player(remainInHand, justPlayedHand), board.Deck);
