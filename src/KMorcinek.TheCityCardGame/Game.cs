@@ -30,7 +30,6 @@ namespace KMorcinek.TheCityCardGame
 
         public Board StartGame()
         {
-            //throw new NotImplementedException("UI needed");
             var wholeDeck = Deck.GetShuffledDeck();
             var player = new Player(DealStartingCards(wholeDeck), Enumerable.Empty<Card>());
             
