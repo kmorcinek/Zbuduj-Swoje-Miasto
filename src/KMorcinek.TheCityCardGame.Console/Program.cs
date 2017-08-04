@@ -29,8 +29,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         {
             string cardToPlayAsString = Console.ReadLine();
 
-            int cardIndexToPlay = int.Parse(cardToPlayAsString);
-            return cardIndexToPlay;
+            return int.Parse(cardToPlayAsString);
         }
 
         static void ShowYourHand(Board board)
