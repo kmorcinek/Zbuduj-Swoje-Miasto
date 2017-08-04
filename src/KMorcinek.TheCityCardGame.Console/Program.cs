@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
@@ -10,16 +11,48 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
             var board = game.StartGame();
 
+            while (true)
+            {
+                ShowYourHand(board);
+
+                var cardIndexToPlay = GetCardIndexToPlay();
+
+                board = game.NextTurn(board, cardIndexToPlay); 
+            }
+
+            ShowYourHand(board);
+
+            Console.ReadLine();
+        }
+
+        static int GetCardIndexToPlay()
+        {
+            string cardToPlayAsString = Console.ReadLine();
+
+            int cardIndexToPlay = int.Parse(cardToPlayAsString);
+            return cardIndexToPlay;
+        }
+
+        static void ShowYourHand(Board board)
+        {
+            Console.WriteLine();
             Console.WriteLine("Your Deck:");
 
-            foreach (var card in board.Player.CardsInHand)
+            WriteCards(board.Player.CardsInHand);
+
+            Console.WriteLine("Your Playedhand:");
+
+            WriteCards(board.Player.PlayedCards);
+        }
+
+        static void WriteCards(IEnumerable<Card> playerCardsInHand)
+        {
+            foreach (var card in playerCardsInHand)
             {
-                Console.WriteLine(card.CardEnum.ToString()); 
+                Console.WriteLine("\t" + card.CardEnum);
             }
 
             Console.WriteLine();
-
-            Console.ReadLine();
         }
     }
 }
