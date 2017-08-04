@@ -6,87 +6,108 @@ namespace KMorcinek.TheCityCardGame
 {
     public class Game
     {
-        private readonly RequiredCardsCalculator _requiredCardsCalculator;
-        private readonly Calculator _calculator;
-        private readonly CardsDealer _cardsDealer;
-
-        public Game(
-            RequiredCardsCalculator requiredCardsCalculator,
-            Calculator calculator,
-            CardsDealer cardsDealer)
+        static Board StartGame()
         {
-            _requiredCardsCalculator = requiredCardsCalculator;
-            _calculator = calculator;
-            _cardsDealer = cardsDealer;
+            Deck wholeDeck = Deck.GetShuffledDeck();
+
+            Player player = new Player(DrawStartingCards(wholeDeck));
+            Player secondPlayer = new Player(DrawStartingCards(wholeDeck));
+
+            return new Board(wholeDeck, player, secondPlayer);
         }
 
-        public Board StartGame()
+        static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)
         {
-            throw new NotImplementedException("UI needed");
-            var cardsInHand = Deck.GetShuffledDeck();
-            var player = new Player(DealStartingCards(cardsInHand), Enumerable.Empty<Card>());
-            var board = new Board(player, cardsInHand);
-            return board;
+            List<Card> cards = new List<Card>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                cards.Add(wholeDeck.Pop());
+            }
+
+            return cards;
         }
 
-        public Board NextTurn(Board board, int cardIndex)
+        public static void PlayGame()
         {
-            if (cardIndex >= board.Player.CardsInHand.Count())
-                throw new ArgumentOutOfRangeException("cardIndex");
+            var board = StartGame();
 
-            var playedCard = board.Player.CardsInHand.ElementAt(cardIndex);
-            if (_requiredCardsCalculator.CanBePlayed(playedCard, board.Player) == false)
-                throw new InvalidOperationException("Cannot play this card");
+            while (true)
+            {
+                ConsoleColor[] colors = { ConsoleColor.Blue, ConsoleColor.White };
 
-            var remainInHand = board.Player.CardsInHand.Where(card => card != playedCard);
-            var justPlayedHand = board.Player.PlayedCards.Concat(new[] { playedCard }).ToList();
+                for (int i = 0; i < board.Players.Count(); i++)
+                {
+                    using (new ConsoleColorChanger(colors[i]))
+                    {
+                        ShowCards(board.Players.ElementAt(i));
 
-            var newBoard = new Board(
-                new Player(remainInHand, justPlayedHand), board.Deck);
+                        int cardIndexToPlay = GetCardIndexToPlay();
+                        int[] cardsToDiscard = GetCardIndexesToDiscard();
 
-            return _cardsDealer.DealNewCards(newBoard);
+                        Card playedCard = board.Players.ElementAt(i).CardsInHand.ElementAt(cardIndexToPlay);
+
+                        board.PlayCard(i, cardIndexToPlay, cardsToDiscard);
+
+                        ShowPlayedCard(playedCard);
+                    }
+                }
+            }
         }
 
-        public int Play()
+        static void ShowPlayedCard(Card card)
         {
-            //var remainingCards = new Deck(new Card[0]);
-
-            //var firstPlayer = new Player(DealStartingCards(remainingCards));
-
-            //while (true)
-            //{
-            //    PlayCard(firstPlayer, remainingCards);
-            //    const int winingLimit = 20;
-            //    if (_calculator.CalculateWinningPoints(firstPlayer.PlayedCards) > winingLimit)
-            //    {
-            //        return 1;
-            //    }
-            //}
-            return 1;
+            Console.WriteLine($"\tPlayed card: {card.CardEnum}");
         }
 
-        //private void PlayCard(Player player, Deck deck)
-        //{
-        //    var choosenCard = player.CardsInHand.FirstOrDefault(card =>
-        //        _requiredCardsCalculator.CanBePlayed(card, player)
-        //        );
-
-        //    if (choosenCard != null)
-        //    {
-        //        player.CardsInHand.Remove(choosenCard);
-        //        player.PlayedCards.Add(choosenCard);
-        //        player.CardsInHand.Add(deck.Pop());
-        //    }
-        //    else
-        //    {
-        //        player.CardsInHand.Add(deck.Pop());
-        //        player.CardsInHand.Add(deck.Pop());
-        //    }
-        //}
-
-        private static IEnumerable<Card> DealStartingCards(Deck deck)
+        static int GetCardIndexToPlay()
         {
-            return deck.Take(4);
+            Console.Write("Choose card to play by index: ");
+
+            string cardToPlayAsString = Console.ReadLine();
+
+            return int.Parse(cardToPlayAsString);
+        }
+
+        static int[] GetCardIndexesToDiscard()
+        {
+            Console.Write("Choose cards to discard by indices (separated by space): ");
+
+            string asString = Console.ReadLine();
+
+            string[] strings = asString.Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
+
+            return strings.Select(int.Parse).ToArray();
+        }
+
+        static void ShowCards(Player player)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Your played cards:");
+
+            WriteCards(player.PlayedCards);
+
+            Console.WriteLine("\tPoints: " + player.Points);
+
+            Console.WriteLine();
+            Console.WriteLine("Cards in your hand:");
+
+            WriteCards(player.CardsInHand);
+        }
+
+        static void WriteCards(IEnumerable<Card> playerCardsInHand)
+        {
+            // TODO: add foreachWithIndex method
+
+            int i = 0;
+            foreach (var card in playerCardsInHand)
+            {
+                Console.WriteLine($"\t[{i}]{card.CardEnum} ({card.Cost})");
+
+                i++;
+            }
+
+            Console.WriteLine();
         }
     }
 }
