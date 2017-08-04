@@ -10,6 +10,14 @@ namespace KMorcinek.TheCityCardGame
         private readonly Calculator _calculator;
         private readonly CardsDealer _cardsDealer;
 
+        public static Game Create()
+        {
+            return new Game(
+                new RequiredCardsCalculator(), 
+                null,
+                new CardsDealer());
+        }
+
         public Game(
             RequiredCardsCalculator requiredCardsCalculator,
             Calculator calculator,
