@@ -14,6 +14,11 @@ namespace KMorcinek.TheCityCardGame
             var deck = new Card[]
             {
                 Card.Busbahnhof,
+                Card.Wohnhaus,
+                Card.Busbahnhof,
+                Card.Wohnhaus,
+                Card.Busbahnhof,
+                Card.Wohnhaus,
                 Card.Busbahnhof,
                 Card.Wohnhaus,
             };
