@@ -32,17 +32,20 @@ namespace KMorcinek.TheCityCardGame
         public Board NextTurn(Board board, int cardIndex)
         {
             if (cardIndex >= board.Player.CardsInHand.Count())
+            {
                 throw new ArgumentOutOfRangeException("cardIndex");
+            }
 
             var playedCard = board.Player.CardsInHand.ElementAt(cardIndex);
             if (_requiredCardsCalculator.CanBePlayed(playedCard, board.Player) == false)
+            {
                 throw new InvalidOperationException("Cannot play this card");
+            }
 
             var remainInHand = board.Player.CardsInHand.Where(card => card != playedCard);
             var justPlayedHand = board.Player.PlayedCards.Concat(new[] {playedCard});
 
-            var newBoard = new Board(
-                new Player(remainInHand, justPlayedHand), board.Deck);
+            var newBoard = new Board(new Player(remainInHand, justPlayedHand), board.Deck);
 
             return _cardsDealer.DealNewCards(newBoard);
         }
