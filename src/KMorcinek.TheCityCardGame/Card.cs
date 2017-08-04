@@ -5,15 +5,15 @@ namespace KMorcinek.TheCityCardGame
 {
     public class Card
     {
-        public CardEnum CardEnum { get; private set; }
-        public int Cost { get; private set; }
-        public int CashPoints { get; private set; }
-        public int WinPoints { get; private set; }
-        public IEnumerable<Card> RequiredCards { get; private set; }
-        public int CommercePoints { get; private set; }
-        public int EnjoyPoints { get; private set; }
-        public int CarPoints { get; private set; }
-        public CardEnum? OneExtraCashPoint { get; private set; } 
+        public CardEnum CardEnum { get; }
+        public int Cost { get; }
+        public int CashPoints { get; }
+        public int WinPoints { get; }
+        public IEnumerable<Card> RequiredCards { get; }
+        public int CommercePoints { get; }
+        public int EnjoyPoints { get; }
+        public int CarPoints { get; }
+        public CardEnum? OneExtraCashPoint { get; } 
 
         public Card(CardEnum cardEnum, int cost, int cashPoints, int winPoints, IEnumerable<Card> requiredCards = null, int commercePoints = 0, int enjoyPoints = 0, int carPoints = 0, CardEnum? oneExtraCashPoint = null)
         {
