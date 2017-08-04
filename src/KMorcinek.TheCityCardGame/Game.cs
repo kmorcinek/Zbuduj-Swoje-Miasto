@@ -47,24 +47,6 @@ namespace KMorcinek.TheCityCardGame
             return _cardsDealer.DealNewCards(newBoard);
         }
 
-        public int Play()
-        {
-            //var remainingCards = new Deck(new Card[0]);
-
-            //var firstPlayer = new Player(DealStartingCards(remainingCards));
-
-            //while (true)
-            //{
-            //    PlayCard(firstPlayer, remainingCards);
-            //    const int winingLimit = 20;
-            //    if (_calculator.CalculateWinningPoints(firstPlayer.PlayedCards) > winingLimit)
-            //    {
-            //        return 1;
-            //    }
-            //}
-            return 1;
-        }
-
         //private void PlayCard(Player player, Deck deck)
         //{
         //    var choosenCard = player.CardsInHand.FirstOrDefault(card =>
