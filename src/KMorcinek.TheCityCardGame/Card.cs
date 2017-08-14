@@ -16,12 +16,19 @@ namespace KMorcinek.TheCityCardGame
         public CardEnum? OneExtraCashPoint { get; }
         public Symbol? ExtraPointsPerSymbol { get; }
 
-        public Card(CardEnum cardEnum, int cost, int cashPoints, int winPoints, IEnumerable<Card> requiredCards = null, int commercePoints = 0, int enjoyPoints = 0, int carPoints = 0, CardEnum? oneExtraCashPoint = null)
+        public Card(
+            CardEnum cardEnum,
+            int cost,
+            int cashPoints,
+            int winPoints,
+            Symbol? extraPointsPerSymbol = null,
+            IEnumerable<Card> requiredCards = null, int commercePoints = 0, int enjoyPoints = 0, int carPoints = 0, CardEnum? oneExtraCashPoint = null)
         {
             CardEnum = cardEnum;
             Cost = cost;
             CashPoints = cashPoints;
             WinPoints = winPoints;
+            ExtraPointsPerSymbol = extraPointsPerSymbol;
             RequiredCards = requiredCards ?? Enumerable.Empty<Card>();
             CommercePoints = commercePoints;
             EnjoyPoints = enjoyPoints;
@@ -29,9 +36,9 @@ namespace KMorcinek.TheCityCardGame
             OneExtraCashPoint = oneExtraCashPoint;
         }
 
-        public static Card Parking => new Card(CardEnum.Parking, 0, 0, 0);
-        public static Card House => new Card(CardEnum.House, 1, 1, 0);
-        public static Card TradeCenter => new Card(CardEnum.TradeCenter, 3, 1, 1);
-        public static Card Park => new Card(CardEnum.Park, 1, 0, 0);
+        public static Card Parking => new CardBuilder(CardEnum.Parking, 0, 0, 0);
+        public static Card House => new CardBuilder(CardEnum.House, 1, 1, 0);
+        public static Card TradeCenter => new CardBuilder(CardEnum.TradeCenter, 3, 1, 1);
+        public static Card Park => new CardBuilder(CardEnum.Park, 1, 0, 0).ExtraWinPoints(Symbol.Fountain);
     }
 }
