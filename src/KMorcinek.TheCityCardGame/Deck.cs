@@ -13,14 +13,15 @@ namespace KMorcinek.TheCityCardGame
         {
             var deck = new Card[]
             {
-                Card.Busbahnhof,
-                Card.Wohnhaus,
-                Card.Busbahnhof,
-                Card.Wohnhaus,
-                Card.Busbahnhof,
-                Card.Wohnhaus,
-                Card.Busbahnhof,
-                Card.Wohnhaus,
+                Card.House,
+                Card.Parking,
+                Card.TradeCenter,
+                Card.House,
+                Card.Parking,
+                Card.TradeCenter,
+                Card.House,
+                Card.Parking,
+                Card.TradeCenter,
             };
 
             //TODO: shuffle them
