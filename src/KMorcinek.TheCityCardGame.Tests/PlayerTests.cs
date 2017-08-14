@@ -7,7 +7,7 @@ namespace KMorcinek.TheCityCardGame.Tests
     public class PlayerTests
     {
         [Fact]
-        public void Test()
+        public void Can_play_Parking_card()
         {
             var player = new Player(new[] { Card.Parking });
 
@@ -16,5 +16,16 @@ namespace KMorcinek.TheCityCardGame.Tests
             player.PlayedCards.Count().Should().Be(1);
             player.CardsInHand.Should().BeEmpty();
         } 
+
+        [Fact]
+        public void Can_play_House_card()
+        {
+            var player = new Player(new[] { Card.House, Card.House });
+
+            player.PlayCard(0, new int[1]);
+
+            Assert.Equal(1, player.PlayedCards.Count());
+        } 
+
     }
 }

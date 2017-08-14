@@ -9,5 +9,6 @@
         Wohnhaus,
         Freizeitpark,
         Parking,
+        House,
     }
 }
