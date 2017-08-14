@@ -12,6 +12,9 @@
         // 2
         OfficeBuilding,
         // 3
+        BusinessCenter,
         TradeCenter,
+        // 4
+        Multiplex,
     }
 }

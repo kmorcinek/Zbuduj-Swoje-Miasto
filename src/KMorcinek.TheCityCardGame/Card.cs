@@ -42,6 +42,9 @@ namespace KMorcinek.TheCityCardGame
         // 2
         public static Card OfficeBuilding => new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2).Requires(CardEnum.House);
         // 3
+        public static Card BusinessCenter => new CardBuilder(CardEnum.BusinessCenter, 3, 1, 1).WithSymbols(Symbol.Fountain, Symbol.Fountain);
         public static Card TradeCenter => new CardBuilder(CardEnum.TradeCenter, 3, 1, 1).WithSymbols(Symbol.Car);
+        // 4
+        public static Card Multiplex => new CardBuilder(CardEnum.Multiplex, 4, 2, 1).WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Commerce);
     }
 }
