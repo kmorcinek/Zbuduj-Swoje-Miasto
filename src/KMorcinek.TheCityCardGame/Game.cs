@@ -18,7 +18,7 @@ namespace KMorcinek.TheCityCardGame
             _calculator = calculator;
         }
 
-        public Board StartGame()
+        Board StartGame()
         {
             var wholeDeck = Deck.GetShuffledDeck();
             var player = new Player();
@@ -28,54 +28,55 @@ namespace KMorcinek.TheCityCardGame
             return board;
         }
 
-        public void NextTurn(Board board, int cardIndex)
+        public void PlayGame()
         {
-            // Play card
-            board.Player.PlayCard(cardIndex);
+            var board = StartGame();
 
-            // Count points
-            board.Player.UpdatePoints();
+            while (true)
+            {
+                ShowYourHand(board);
 
-            // Draw new cards
-            DrawNewCards(board, board.Player);
+                var cardIndexToPlay = GetCardIndexToPlay();
+
+                board.NextTurn(cardIndexToPlay);
+            }
+
+            ShowYourHand(board);
+
+            Console.ReadLine();
         }
 
-        void DrawNewCards(Board board, Player player)
+        static int GetCardIndexToPlay()
         {
-            throw new NotImplementedException();
-            //var cardsToDeal = HowManyCanDeal(board.Player.PlayedCards);
-            //var newPlayer = new Player(board.Player.CardsInHand.Concat(board.Deck.Take(cardsToDeal)), board.Player.PlayedCards);
+            string cardToPlayAsString = Console.ReadLine();
 
-            //var newBoard = new Board(newPlayer, board.Deck.Skip(cardsToDeal));
+            return int.Parse(cardToPlayAsString);
         }
 
-        public int HowManyCanDeal(IEnumerable<Card> playedCards)
+        static void ShowYourHand(Board board)
         {
-            return playedCards.Sum(c => c.CashPoints);
+            Console.WriteLine();
+            Console.WriteLine("Your Deck:");
+
+            WriteCards(board.Player.CardsInHand);
+
+            Console.WriteLine("Your Playedhand:");
+
+            WriteCards(board.Player.PlayedCards);
+
+            int points = new Calculator().CalculateWinningPoints(board.Player.PlayedCards);
+
+            Console.WriteLine("\tPoints: " + points);
         }
 
-        //private void PlayCard(Player player, Deck deck)
-        //{
-        //    var choosenCard = player.CardsInHand.FirstOrDefault(card =>
-        //        _requiredCardsCalculator.CanBePlayed(card, player)
-        //        );
-
-        //    if (choosenCard != null)
-        //    {
-        //        player.CardsInHand.Remove(choosenCard);
-        //        player.PlayedCards.Add(choosenCard);
-        //        player.CardsInHand.Add(deck.Pop());
-        //    }
-        //    else
-        //    {
-        //        player.CardsInHand.Add(deck.Pop());
-        //        player.CardsInHand.Add(deck.Pop());
-        //    }
-        //}
-
-        private static IEnumerable<Card> DealStartingCards(Deck deck)
+        static void WriteCards(IEnumerable<Card> playerCardsInHand)
         {
-            return deck.Take(5);
+            foreach (var card in playerCardsInHand)
+            {
+                Console.WriteLine("\t" + card.CardEnum);
+            }
+
+            Console.WriteLine();
         }
     }
 }
