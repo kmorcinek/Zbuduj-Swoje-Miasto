@@ -1,21 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
     public class Game
     {
-        private readonly Calculator _calculator;
-
         public static Game Create()
         {
-            return new Game(null);
-        }
-
-        public Game(Calculator calculator)
-        {
-            _calculator = calculator;
+            return new Game();
         }
 
         Board StartGame()
