@@ -71,11 +71,11 @@ namespace KMorcinek.TheCityCardGame
         static void ShowYourHand(Board board)
         {
             Console.WriteLine();
-            Console.WriteLine("Your Deck:");
+            Console.WriteLine("Cards in your hand:");
 
             WriteCards(board.Player.CardsInHand);
 
-            Console.WriteLine("Your Playedhand:");
+            Console.WriteLine("Your played cards");
 
             WriteCards(board.Player.PlayedCards);
 
