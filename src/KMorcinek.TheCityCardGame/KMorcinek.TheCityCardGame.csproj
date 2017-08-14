@@ -43,7 +43,6 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardEnum.cs" />
-    <Compile Include="CardsDealer.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Player.cs" />

@@ -17,7 +17,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
                 var cardIndexToPlay = GetCardIndexToPlay();
 
-                board = game.NextTurn(board, cardIndexToPlay); 
+                game.NextTurn(board, cardIndexToPlay);
             }
 
             ShowYourHand(board);
