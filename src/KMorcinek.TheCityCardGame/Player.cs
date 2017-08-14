@@ -26,7 +26,7 @@ namespace KMorcinek.TheCityCardGame
             _cardsInHand.AddRange(startingCards);
         }
 
-        public static Player CreateWithPlayedCards(IEnumerable<Card> cards)
+        public static Player CreateWithPlayedCards(params Card[] cards)
         {
             var player = new Player(Enumerable.Empty<Card>());
 

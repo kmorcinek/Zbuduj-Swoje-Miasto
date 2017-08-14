@@ -9,7 +9,7 @@ namespace KMorcinek.TheCityCardGame.Tests
         [Fact]
         public void Can_DrawNewCards()
         {
-            var player = Player.CreateWithPlayedCards(new[] { Card.House });
+            var player = Player.CreateWithPlayedCards(Card.House);
             var board = new Board(player, Deck.GetShuffledDeck());
 
             board.DrawNewCards(player);
