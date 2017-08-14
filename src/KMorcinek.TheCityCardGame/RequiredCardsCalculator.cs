@@ -7,8 +7,9 @@ namespace KMorcinek.TheCityCardGame
     {
         public bool CanBePlayed(Card card, Player player)
         {
+            bool isCardFree = card.Cost == 0;
             // TODO: test checking if played card is not counted as discarded
-            bool simpleBuildingMet = card.Cost <= player.CardsInHand.Count() - 1;
+            bool simpleBuildingMet = isCardFree || card.Cost <= player.CardsInHand.Count() - 1;
 
             bool cardsRequirementsMet = IsCardRequirementMet(card.RequiredCards, player.PlayedCards);
 
