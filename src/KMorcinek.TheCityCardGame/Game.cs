@@ -84,9 +84,14 @@ namespace KMorcinek.TheCityCardGame
 
         static void WriteCards(IEnumerable<Card> playerCardsInHand)
         {
+            // TODO: add foreachWithIndex method
+
+            int i = 0;
             foreach (var card in playerCardsInHand)
             {
-                Console.WriteLine($"\t{card.CardEnum} ({card.Cost})");
+                Console.WriteLine($"\t[{i}]{card.CardEnum} ({card.Cost})");
+
+                i++;
             }
 
             Console.WriteLine();
