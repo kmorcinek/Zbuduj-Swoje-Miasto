@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -51,16 +52,20 @@ namespace KMorcinek.TheCityCardGame
             Console.ReadLine();
         }
 
-        int[] GetCardIndexesToDiscard()
-        {
-            throw new NotImplementedException();
-        }
-
         static int GetCardIndexToPlay()
         {
             string cardToPlayAsString = Console.ReadLine();
 
             return int.Parse(cardToPlayAsString);
+        }
+
+        int[] GetCardIndexesToDiscard()
+        {
+            string asString = Console.ReadLine();
+
+            string[] strings = asString.Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
+
+            return strings.Select(int.Parse).ToArray();
         }
 
         static void ShowYourHand(Board board)
