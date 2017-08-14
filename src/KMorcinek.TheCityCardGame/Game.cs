@@ -23,8 +23,7 @@ namespace KMorcinek.TheCityCardGame
             var wholeDeck = Deck.GetShuffledDeck();
             var player = new Player(new[] { Card.Parking });
 
-            var board = new Board(player, wholeDeck);
-            return board;
+            return new Board(player, wholeDeck);
         }
 
         public void PlayGame()
