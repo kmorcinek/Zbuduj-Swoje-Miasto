@@ -13,9 +13,23 @@ namespace KMorcinek.TheCityCardGame
         Board StartGame()
         {
             var wholeDeck = Deck.GetShuffledDeck();
-            var player = new Player(new[] { Card.Parking });
+
+            var cards = DrawStartingCards(wholeDeck);
+            var player = new Player(cards);
 
             return new Board(player, wholeDeck);
+        }
+
+        static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)
+        {
+            List<Card> cards = new List<Card>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                cards.Add(wholeDeck.Pop());
+            }
+
+            return cards;
         }
 
         public void PlayGame()
