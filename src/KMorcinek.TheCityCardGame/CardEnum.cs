@@ -6,5 +6,6 @@
         House,
         TradeCenter,
         Park,
+        OfficeBuilding,
     }
 }

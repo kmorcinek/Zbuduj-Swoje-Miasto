@@ -24,6 +24,7 @@ namespace KMorcinek.TheCityCardGame
                 Card.Parking,
                 Card.TradeCenter,
                 Card.Park,
+                Card.OfficeBuilding,
             };
 
             //TODO: shuffle them
