@@ -86,7 +86,7 @@ namespace KMorcinek.TheCityCardGame
         {
             foreach (var card in playerCardsInHand)
             {
-                Console.WriteLine("\t" + card.CardEnum);
+                Console.WriteLine($"\t{card.CardEnum} ({card.Cost})");
             }
 
             Console.WriteLine();
