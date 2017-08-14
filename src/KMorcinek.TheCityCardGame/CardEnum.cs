@@ -8,5 +8,6 @@
         Busbahnhof,
         Wohnhaus,
         Freizeitpark,
+        Parking,
     }
 }
