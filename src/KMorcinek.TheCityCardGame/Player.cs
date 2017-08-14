@@ -36,6 +36,21 @@ namespace KMorcinek.TheCityCardGame
                 throw new InvalidOperationException("Cannot play this card");
             }
 
+            if (cardsToDiscard.Distinct().Count() != cardsToDiscard.Count())
+            {
+                throw new InvalidOperationException("Cannot discard the same card");
+            }
+
+            if (cardsToDiscard.Contains(cardIndex))
+            {
+                throw new InvalidOperationException("Cannot discard played card");
+            }
+
+            foreach (var indexToDiscard in cardsToDiscard.Reverse())
+            {
+                _cardsInHand.RemoveAt(indexToDiscard);
+            }
+
             _cardsInHand.Remove(playedCard);
             _playedCards.AddLast(playedCard);
         }

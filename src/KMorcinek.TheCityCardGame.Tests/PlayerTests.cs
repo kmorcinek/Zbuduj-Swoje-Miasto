@@ -22,9 +22,10 @@ namespace KMorcinek.TheCityCardGame.Tests
         {
             var player = new Player(new[] { Card.House, Card.House });
 
-            player.PlayCard(0, new int[1]);
+            player.PlayCard(0, new [] { 1 });
 
-            Assert.Equal(1, player.PlayedCards.Count());
+            player.PlayedCards.Count().Should().Be(1);
+            player.CardsInHand.Should().BeEmpty();
         } 
 
     }
