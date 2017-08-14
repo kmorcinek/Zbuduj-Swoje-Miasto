@@ -13,6 +13,7 @@ namespace KMorcinek.TheCityCardGame
         {
             var deck = new Card[]
             {
+                Card.Park,
                 Card.House,
                 Card.Parking,
                 Card.TradeCenter,
@@ -22,6 +23,7 @@ namespace KMorcinek.TheCityCardGame
                 Card.House,
                 Card.Parking,
                 Card.TradeCenter,
+                Card.Park,
             };
 
             //TODO: shuffle them
