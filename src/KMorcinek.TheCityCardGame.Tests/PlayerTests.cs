@@ -11,7 +11,7 @@ namespace KMorcinek.TheCityCardGame.Tests
         {
             var player = new Player(new[] { Card.Parking });
 
-            player.PlayCard(0);
+            player.PlayCard(0, new int[0]);
 
             player.PlayedCards.Count().Should().Be(1);
             player.CardsInHand.Should().BeEmpty();

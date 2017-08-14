@@ -23,7 +23,7 @@ namespace KMorcinek.TheCityCardGame
             _cardsInHand.AddRange(startingCards);
         }
 
-        public void PlayCard(int cardIndex)
+        public void PlayCard(int cardIndex, IEnumerable<int> cardsToDiscard)
         {
             if (cardIndex >= CardsInHand.Count())
             {

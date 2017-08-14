@@ -37,13 +37,19 @@ namespace KMorcinek.TheCityCardGame
                 ShowYourHand(board);
 
                 var cardIndexToPlay = GetCardIndexToPlay();
+                int[] cardsToDiscard = GetCardIndexesToDiscard();
 
-                board.NextTurn(cardIndexToPlay);
+                board.NextTurn(cardIndexToPlay, cardsToDiscard);
             }
 
             ShowYourHand(board);
 
             Console.ReadLine();
+        }
+
+        int[] GetCardIndexesToDiscard()
+        {
+            throw new NotImplementedException();
         }
 
         static int GetCardIndexToPlay()

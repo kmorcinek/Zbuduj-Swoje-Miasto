@@ -15,10 +15,10 @@ namespace KMorcinek.TheCityCardGame
             Deck = deck;
         }
 
-        public void NextTurn(int cardIndex)
+        public void NextTurn(int cardIndex, IEnumerable<int> cardsToDiscard)
         {
             // Play card
-            Player.PlayCard(cardIndex);
+            Player.PlayCard(cardIndex, cardsToDiscard);
 
             // Count points
             Player.UpdatePoints();
