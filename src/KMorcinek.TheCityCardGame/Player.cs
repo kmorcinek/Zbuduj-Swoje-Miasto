@@ -72,7 +72,7 @@ namespace KMorcinek.TheCityCardGame
 
         public void UpdatePoints()
         {
-            var newPoints = new Calculator().CalculateWinningPoints(PlayedCards);
+            var newPoints = new WinningPointsCalculator().Calculate(PlayedCards);
 
             _points += newPoints;
         }

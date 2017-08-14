@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
-    public class Calculator
+    public class WinningPointsCalculator
     {
-        public int CalculateWinningPoints(IEnumerable<Card> playedCards)
+        public int Calculate(IEnumerable<Card> playedCards)
         {
             int simplyWiningPoints = playedCards.Sum(p => p.WinPoints);
 
