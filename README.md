@@ -15,8 +15,9 @@ Questions:
 - Should the API take Cards on indexes?
 - How to allow comunication over http? Two processes? Two separate player classes? with on Console UI playing two players?
 
-
 Next to implement:
+- Two players game, by color
+- Finish game (by 50? points)
 - Architect
 - Take 5 out of 7 at the begginging
 - Do not build - take 1 out of 5 cards.
