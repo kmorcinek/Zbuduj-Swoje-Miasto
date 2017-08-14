@@ -38,6 +38,7 @@ namespace KMorcinek.TheCityCardGame
         public static Card Parking => new CardBuilder(CardEnum.Parking, 0, 0, 0).WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Fountain);
         // 1
         public static Card House => new CardBuilder(CardEnum.House, 1, 1, 0);
+        public static Card Housing => new CardBuilder(CardEnum.Housing, 1, 0, 1).WithSymbols(Symbol.Car, Symbol.Commerce);
         public static Card Park => new CardBuilder(CardEnum.Park, 1, 0, 0).WithSymbols(Symbol.Fountain).ExtraWinPoints(Symbol.Fountain);
         // 2
         public static Card OfficeBuilding => new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2).Requires(CardEnum.House);

@@ -7,8 +7,9 @@
     {
         Parking,
         // 1
-        Park,
         House,
+        Housing,
+        Park,
         // 2
         OfficeBuilding,
         // 3
