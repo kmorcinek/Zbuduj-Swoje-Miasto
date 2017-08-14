@@ -10,6 +10,7 @@ namespace KMorcinek.TheCityCardGame
         public int WinPoints { get; }
         public IEnumerable<Symbol> Symbols { get; set; }
         public Symbol? ExtraPointsPerSymbol { get; set; }
+        public IEnumerable<CardEnum> RequiredCards { get; set; }
 
         public CardBuilder(
             CardEnum cardEnum,
@@ -45,7 +46,15 @@ namespace KMorcinek.TheCityCardGame
                 builder.CashPoints,
                 builder.WinPoints,
                 builder.Symbols,
-                builder.ExtraPointsPerSymbol);
+                builder.ExtraPointsPerSymbol,
+                builder.RequiredCards);
+        }
+
+        public CardBuilder Requires(params CardEnum[] requiredCards)
+        {
+            RequiredCards = requiredCards;
+
+            return this;
         }
     }
 }

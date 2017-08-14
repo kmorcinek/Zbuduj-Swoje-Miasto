@@ -9,7 +9,7 @@ namespace KMorcinek.TheCityCardGame
         public int Cost { get; }
         public int CashPoints { get; }
         public int WinPoints { get; }
-        public IEnumerable<Card> RequiredCards { get; }
+        public IEnumerable<CardEnum> RequiredCards { get; }
         public IEnumerable<Symbol> Symbols { get; }
         public CardEnum? OneExtraCashPoint { get; }
         public Symbol? ExtraPointsPerSymbol { get; }
@@ -21,7 +21,8 @@ namespace KMorcinek.TheCityCardGame
             int winPoints,
             IEnumerable<Symbol> symbols,
             Symbol? extraPointsPerSymbol,
-            IEnumerable<Card> requiredCards = null, CardEnum? oneExtraCashPoint = null)
+            IEnumerable<CardEnum> requiredCards,
+            CardEnum? oneExtraCashPoint = null)
         {
             CardEnum = cardEnum;
             Cost = cost;
@@ -29,7 +30,7 @@ namespace KMorcinek.TheCityCardGame
             WinPoints = winPoints;
             Symbols = symbols ?? Enumerable.Empty<Symbol>();
             ExtraPointsPerSymbol = extraPointsPerSymbol;
-            RequiredCards = requiredCards ?? Enumerable.Empty<Card>();
+            RequiredCards = requiredCards ?? Enumerable.Empty<CardEnum>();
             OneExtraCashPoint = oneExtraCashPoint;
         }
 

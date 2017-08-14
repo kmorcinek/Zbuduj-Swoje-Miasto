@@ -48,7 +48,6 @@
     <Compile Include="Game.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequiredCard.cs" />
     <Compile Include="RequiredCardsCalculator.cs" />
     <Compile Include="Symbol.cs" />
   </ItemGroup>

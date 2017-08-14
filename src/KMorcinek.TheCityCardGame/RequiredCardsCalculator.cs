@@ -5,22 +5,24 @@ namespace KMorcinek.TheCityCardGame
 {
     public class RequiredCardsCalculator
     {
-        public bool CanBePlayed(Card card, Player player)// IEnumerable<Card> playedCards)
+        public bool CanBePlayed(Card card, Player player)
         {
             // TODO: test checking if played card is not counted as discarded
             bool simpleBuildingMet = card.Cost <= player.CardsInHand.Count() - 1;
 
-            //bool cardsRequirementsMet = IsCardRequirementMet(card.RequiredCards, playedCards);
+            bool cardsRequirementsMet = IsCardRequirementMet(card.RequiredCards, player.PlayedCards);
 
-            return simpleBuildingMet;// && cardsRequirementsMet;
+            return simpleBuildingMet && cardsRequirementsMet;
         }
 
-        private static bool IsCardRequirementMet(IEnumerable<RequiredCard> requiredCards, IEnumerable<Card> playedCards)
+        static bool IsCardRequirementMet(IEnumerable<CardEnum> requiredCards, IEnumerable<Card> playedCards)
         {
-            return requiredCards.All(requiredCard =>
+            if (requiredCards.Any() == false)
             {
-                return playedCards.Count(p => p.CardEnum == requiredCard.Card) > requiredCard.Number;
-            });
+                return true;
+            }
+
+            return playedCards.Any(x => requiredCards.Contains(x.CardEnum));
         }
     }
 }
