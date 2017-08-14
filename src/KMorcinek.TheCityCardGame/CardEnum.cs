@@ -11,5 +11,6 @@
         Parking,
         House,
         TradeCenter,
+        Park,
     }
 }
