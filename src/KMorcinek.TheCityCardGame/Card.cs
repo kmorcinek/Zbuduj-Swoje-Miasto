@@ -19,8 +19,8 @@ namespace KMorcinek.TheCityCardGame
             int cost,
             int cashPoints,
             int winPoints,
-            IEnumerable<Symbol> symbols = null,
-            Symbol? extraPointsPerSymbol = null,
+            IEnumerable<Symbol> symbols,
+            Symbol? extraPointsPerSymbol,
             IEnumerable<Card> requiredCards = null, CardEnum? oneExtraCashPoint = null)
         {
             CardEnum = cardEnum;
