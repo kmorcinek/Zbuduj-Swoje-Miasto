@@ -27,10 +27,10 @@ namespace KMorcinek.TheCityCardGame
             DrawNewCards(Player);
         }
 
-        void DrawNewCards(Player player)
+        public void DrawNewCards(Player player)
         {
-            int cardsToDeal = HowManyCanDeal(Player.PlayedCards);
-            
+            int cardsToDeal = HowManyCanDeal(player.PlayedCards);
+
             List<Card> cards = new List<Card>(cardsToDeal);
 
             for (int i = 0; i < cardsToDeal; i++)

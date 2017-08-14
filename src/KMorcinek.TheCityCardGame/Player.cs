@@ -26,6 +26,18 @@ namespace KMorcinek.TheCityCardGame
             _cardsInHand.AddRange(startingCards);
         }
 
+        public static Player CreateWithPlayedCards(IEnumerable<Card> cards)
+        {
+            var player = new Player(Enumerable.Empty<Card>());
+
+            foreach (var card in cards)
+            {
+                player._playedCards.AddLast(card);
+            }
+
+            return player;
+        }
+
         public void PlayCard(int cardIndex, IEnumerable<int> cardsToDiscard)
         {
             if (cardIndex >= CardsInHand.Count())
