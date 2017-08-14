@@ -6,17 +6,20 @@ namespace KMorcinek.TheCityCardGame
 {
     public class Player
     {
-        public IEnumerable<Card> CardsInHand { get; }
+        const int HandCapacity = 12;
 
+        public IEnumerable<Card> CardsInHand => _cardsInHand;
         public IEnumerable<Card> PlayedCards => _playedCards;
 
         readonly RequiredCardsCalculator _requiredCardsCalculator;
         readonly LinkedList<Card> _playedCards;
+        readonly List<Card> _cardsInHand;
 
         public Player()
         {
             _requiredCardsCalculator = new RequiredCardsCalculator();
             _playedCards = new LinkedList<Card>();
+            _cardsInHand = new List<Card>(HandCapacity);
         }
 
         public void PlayCard(int cardIndex)
