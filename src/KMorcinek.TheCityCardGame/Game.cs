@@ -70,9 +70,7 @@ namespace KMorcinek.TheCityCardGame
 
             WriteCards(board.Player.PlayedCards);
 
-            int points = new Calculator().CalculateWinningPoints(board.Player.PlayedCards);
-
-            Console.WriteLine("\tPoints: " + points);
+            Console.WriteLine("\tPoints: " + board.Player.Points);
         }
 
         static void WriteCards(IEnumerable<Card> playerCardsInHand)

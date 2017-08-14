@@ -11,9 +11,12 @@ namespace KMorcinek.TheCityCardGame
         public IEnumerable<Card> CardsInHand => _cardsInHand;
         public IEnumerable<Card> PlayedCards => _playedCards;
 
+        public int Points => _points;
+
         readonly RequiredCardsCalculator _requiredCardsCalculator;
         readonly LinkedList<Card> _playedCards;
         readonly List<Card> _cardsInHand;
+        int _points;
 
         public Player(IEnumerable<Card> startingCards)
         {
@@ -57,7 +60,9 @@ namespace KMorcinek.TheCityCardGame
 
         public void UpdatePoints()
         {
-            throw new NotImplementedException();
+            var newPoints = new Calculator().CalculateWinningPoints(PlayedCards);
+
+            _points += newPoints;
         }
     }
 }

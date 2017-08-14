@@ -26,7 +26,6 @@ namespace KMorcinek.TheCityCardGame.Tests
 
             player.PlayedCards.Count().Should().Be(1);
             player.CardsInHand.Should().BeEmpty();
-        } 
-
+        }
     }
 }
