@@ -11,7 +11,19 @@ namespace KMorcinek.TheCityCardGame
 
             int extraAnyWinningPoints = 0;// cards.Sum(card => CalcOneCard(card, cards));
 
-            return simplyWiningPoints + extraAnyWinningPoints;
+            int extraPerSymbolPoints = 0;
+            foreach (var playedCard in playedCards)
+            {
+                var extraSymbol = playedCard.ExtraPointsPerSymbol;
+                if (extraSymbol != null)
+                {
+                    var sum = playedCards.Sum(x => x.Symbols.Count(y => y == extraSymbol));
+
+                    extraPerSymbolPoints += sum;
+                }
+            }
+
+            return simplyWiningPoints + extraAnyWinningPoints + extraPerSymbolPoints;
         }
 
         //private static int CalcOneCard(Card card, IEnumerable<Card> cards)
