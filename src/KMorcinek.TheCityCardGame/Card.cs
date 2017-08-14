@@ -34,10 +34,14 @@ namespace KMorcinek.TheCityCardGame
             OneExtraCashPoint = oneExtraCashPoint;
         }
 
+        // Are sorted according to its base Cost
         public static Card Parking => new CardBuilder(CardEnum.Parking, 0, 0, 0).WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Fountain);
+        // 1
         public static Card House => new CardBuilder(CardEnum.House, 1, 1, 0);
-        public static Card TradeCenter => new CardBuilder(CardEnum.TradeCenter, 3, 1, 1).WithSymbols(Symbol.Car);
         public static Card Park => new CardBuilder(CardEnum.Park, 1, 0, 0).WithSymbols(Symbol.Fountain).ExtraWinPoints(Symbol.Fountain);
+        // 2
         public static Card OfficeBuilding => new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2).Requires(CardEnum.House);
+        // 3
+        public static Card TradeCenter => new CardBuilder(CardEnum.TradeCenter, 3, 1, 1).WithSymbols(Symbol.Car);
     }
 }
