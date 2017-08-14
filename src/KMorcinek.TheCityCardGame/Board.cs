@@ -7,9 +7,9 @@ namespace KMorcinek.TheCityCardGame
     public class Board
     {
         public Player Player { get; }
-        public IEnumerable<Card> Deck { get; }
+        public Deck Deck { get; }
 
-        public Board(Player player, IEnumerable<Card> deck)
+        public Board(Player player, Deck deck)
         {
             Player = player;
             Deck = deck;
@@ -29,11 +29,17 @@ namespace KMorcinek.TheCityCardGame
 
         void DrawNewCards(Player player)
         {
-            throw new NotImplementedException();
-            //var cardsToDeal = HowManyCanDeal(board.Player.PlayedCards);
-            //var newPlayer = new Player(board.Player.CardsInHand.Concat(board.Deck.Take(cardsToDeal)), board.Player.PlayedCards);
+            int cardsToDeal = HowManyCanDeal(Player.PlayedCards);
+            
+            List<Card> cards = new List<Card>(cardsToDeal);
 
-            //var newBoard = new Board(newPlayer, board.Deck.Skip(cardsToDeal));
+            for (int i = 0; i < cardsToDeal; i++)
+            {
+                cards.Add(Deck.Pop());
+            }
+
+            // TODO: can not deal more than 12
+            player.AddDealtCards(cards);
         }
 
         public int HowManyCanDeal(IEnumerable<Card> playedCards)
@@ -59,10 +65,5 @@ namespace KMorcinek.TheCityCardGame
         //        player.CardsInHand.Add(deck.Pop());
         //    }
         //}
-
-        private static IEnumerable<Card> DealStartingCards(Deck deck)
-        {
-            return deck.Take(5);
-        }
     }
 }

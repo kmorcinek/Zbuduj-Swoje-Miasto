@@ -64,5 +64,10 @@ namespace KMorcinek.TheCityCardGame
 
             _points += newPoints;
         }
+
+        public void AddDealtCards(IEnumerable<Card> cards)
+        {
+            _cardsInHand.AddRange(cards);
+        }
     }
 }
