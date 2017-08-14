@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using FluentAssertions;
+using Ploeh.AutoFixture;
 using Xunit;
 
 namespace KMorcinek.TheCityCardGame.Tests
@@ -11,7 +12,7 @@ namespace KMorcinek.TheCityCardGame.Tests
         {
             var sut = CreateSut();
 
-            Symbol symbol = Symbol.Fountain;
+            Symbol symbol = new Fixture().Create<Symbol>();
 
             int result = sut.Calculate(
                 new Card[] {
@@ -27,7 +28,7 @@ namespace KMorcinek.TheCityCardGame.Tests
         {
             var sut = CreateSut();
 
-            Symbol symbol = Symbol.Fountain;
+            Symbol symbol = new Fixture().Create<Symbol>();
 
             int result = sut.Calculate(
                 new Card[] {
