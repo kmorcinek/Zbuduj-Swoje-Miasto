@@ -8,9 +8,16 @@ http://www.planszomania.pl/karciane/4006/Zbuduj-swoje-miasto.html
 Rewrite to not be so immutable,
 objects like Game should have methods that change its state
 
-Do not implement Architect
-
 Board should have all actions as methods
 Game should orchestrate, play agains Board and take inputs
 
-Symbols empty gdy null
+Questions:
+- Should the API take Cards on indexes?
+- How to allow comunication over http? Two processes? Two separate player classes? with on Console UI playing two players?
+
+
+Next to implement:
+- Architect
+- Take 5 out of 7 at the begginging
+- Do not build - take 1 out of 5 cards.
+- Allow only one Per Game
