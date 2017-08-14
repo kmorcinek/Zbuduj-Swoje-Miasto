@@ -22,15 +22,5 @@ namespace KMorcinek.TheCityCardGame
                 return playedCards.Count(p => p.CardEnum == requiredCard.Card) > requiredCard.Number;
             });
         }
-
-        private static bool IsSimplyBuildingMet(int requiredBuildingPoints, IEnumerable<Card> playedCards)
-        {
-            if (requiredBuildingPoints == 0)
-            {
-                return true;
-            }
-            
-            return playedCards.Sum(p => p.Cost) > requiredBuildingPoints;
-        }
     }
 }
