@@ -54,6 +54,8 @@ namespace KMorcinek.TheCityCardGame
 
         static int GetCardIndexToPlay()
         {
+            Console.Write("Choose card to play by index: ");
+
             string cardToPlayAsString = Console.ReadLine();
 
             return int.Parse(cardToPlayAsString);
@@ -61,6 +63,8 @@ namespace KMorcinek.TheCityCardGame
 
         int[] GetCardIndexesToDiscard()
         {
+            Console.Write("Choose cards to discard by indices (separated by space): ");
+
             string asString = Console.ReadLine();
 
             string[] strings = asString.Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
@@ -75,11 +79,12 @@ namespace KMorcinek.TheCityCardGame
 
             WriteCards(board.Player.CardsInHand);
 
-            Console.WriteLine("Your played cards");
+            Console.WriteLine("Your played cards:");
 
             WriteCards(board.Player.PlayedCards);
 
             Console.WriteLine("\tPoints: " + board.Player.Points);
+            Console.WriteLine();
         }
 
         static void WriteCards(IEnumerable<Card> playerCardsInHand)
