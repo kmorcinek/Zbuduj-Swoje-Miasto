@@ -33,5 +33,6 @@ namespace KMorcinek.TheCityCardGame
         public static Card Freizeitpark => new Card(CardEnum.Freizeitpark, 8, 2, 5);
         public static Card Parking => new Card(CardEnum.Parking, 0, 0, 0);
         public static Card House => new Card(CardEnum.House, 1, 1, 0);
+        public static Card TradeCenter => new Card(CardEnum.TradeCenter, 3, 1, 1);
     }
 }

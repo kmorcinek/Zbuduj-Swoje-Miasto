@@ -10,5 +10,6 @@
         Freizeitpark,
         Parking,
         House,
+        TradeCenter,
     }
 }
