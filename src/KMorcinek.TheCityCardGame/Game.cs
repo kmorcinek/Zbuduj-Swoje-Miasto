@@ -21,8 +21,8 @@ namespace KMorcinek.TheCityCardGame
         Board StartGame()
         {
             var wholeDeck = Deck.GetShuffledDeck();
-            var player = new Player();
-            
+            var player = new Player(new[] { Card.Parking });
+
             // TODO: Board should not take wholeDeck
             var board = new Board(player, wholeDeck);
             return board;

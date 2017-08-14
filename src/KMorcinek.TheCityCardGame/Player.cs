@@ -15,11 +15,12 @@ namespace KMorcinek.TheCityCardGame
         readonly LinkedList<Card> _playedCards;
         readonly List<Card> _cardsInHand;
 
-        public Player()
+        public Player(IEnumerable<Card> startingCards)
         {
             _requiredCardsCalculator = new RequiredCardsCalculator();
             _playedCards = new LinkedList<Card>();
             _cardsInHand = new List<Card>(HandCapacity);
+            _cardsInHand.AddRange(startingCards);
         }
 
         public void PlayCard(int cardIndex)
@@ -34,6 +35,9 @@ namespace KMorcinek.TheCityCardGame
             {
                 throw new InvalidOperationException("Cannot play this card");
             }
+
+            _cardsInHand.Remove(playedCard);
+            _playedCards.AddLast(playedCard);
         }
 
         public void UpdatePoints()
