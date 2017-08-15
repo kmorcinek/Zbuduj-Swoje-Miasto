@@ -46,7 +46,7 @@ namespace KMorcinek.TheCityCardGame
                     var cardIndexToPlay = GetCardIndexToPlay();
                     int[] cardsToDiscard = GetCardIndexesToDiscard();
 
-                    board.PlayCard(cardIndexToPlay, cardsToDiscard);
+                    board.PlayCard(0, cardIndexToPlay, cardsToDiscard);
                 }
             }
 
