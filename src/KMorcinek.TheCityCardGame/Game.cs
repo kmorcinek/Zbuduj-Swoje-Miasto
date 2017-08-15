@@ -49,10 +49,6 @@ namespace KMorcinek.TheCityCardGame
                     board.PlayCard(0, cardIndexToPlay, cardsToDiscard);
                 }
             }
-
-            ShowYourHand(board);
-
-            Console.ReadLine();
         }
 
         static int GetCardIndexToPlay()
