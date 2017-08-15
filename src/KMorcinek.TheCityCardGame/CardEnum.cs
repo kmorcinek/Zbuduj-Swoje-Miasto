@@ -9,16 +9,20 @@
         Parking,
 
         // 1
+
+        BusStation,
         House,
         Housing,
         IndastrialPark,
         Park,
         Restaurant,
         School,
+        Supermarket,
        
-
+        ,
         // 2
         OfficeBuilding,
+        RoadConnection,
 
         // 3
         BusinessCenter,

@@ -38,6 +38,11 @@ namespace KMorcinek.TheCityCardGame
                 .WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Fountain);
 
         // 1
+        public static Card BusStation =>
+            new CardBuilder(CardEnum.BusStation, 1, 0, 1)
+                .WithSymbols(Symbol.Commerce, Symbol.Fountain)
+                .CashPerOneCard(CardEnum.Supermarket);
+
         public static Card House =>
             new CardBuilder(CardEnum.House, 1, 1, 0);
 
@@ -58,17 +63,28 @@ namespace KMorcinek.TheCityCardGame
         public static Card Restaurant =>
             new CardBuilder(CardEnum.Restaurant, 1, 0, 1)
                 .WithSymbols(Symbol.Commerce, Symbol.Fountain)
-                .ExtraWinPoints(Symbol.Fountain);
-
+                .CashPerOneCard(CardEnum.BusinessCenter);
 
         public static Card School =>
             new CardBuilder(CardEnum.School, 1, 0, 2)
                 .Requires(CardEnum.House, CardEnum.Housing, CardEnum.Villa);
 
+        public static Card Supermarket =>
+            new CardBuilder(CardEnum.School, 1, 1, 0)
+                .Requires(CardEnum.House, CardEnum.Housing, CardEnum.RoadConnection);
+
         // 2
         public static Card OfficeBuilding =>
             new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2)
                 .Requires(CardEnum.House);
+
+        public static Card RoadConnection =>
+            new CardBuilder(CardEnum.RoadConnection, 2, 0, 0)
+                .OnePerPlayer()
+                .ExtraCashPoints(Symbol.Car)
+                .ExtraWinPoints(Symbol.Car);
+
+
         // 3
         public static Card BusinessCenter =>
             new CardBuilder(CardEnum.BusinessCenter, 3, 1, 1)

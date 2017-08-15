@@ -44,22 +44,10 @@ namespace KMorcinek.TheCityCardGame
         }
 
         /// <summary>
-        /// Dodatkowe punty zwyciestwa za symbol
+        /// Maksymalnie jedna na gracza
         /// </summary>
-        public CardBuilder ExtraWinPoints(Symbol symbol)
+        public CardBuilder OnePerPlayer()
         {
-            ExtraPointsPerSymbol = symbol;
-
-            return this;
-        }
-
-        /// <summary>
-        /// Dodatkowe cash points za symbol
-        /// </summary>
-        public CardBuilder ExtraCashPoints(Symbol symbol)
-        {
-            //ExtraPointsPerSymbol = symbol;
-
             return this;
         }
 
@@ -74,9 +62,9 @@ namespace KMorcinek.TheCityCardGame
         }
 
         /// <summary>
-        /// Maksymalnie jedna na gracza
+        /// Dodatkowy cash point jeden budynek typu
         /// </summary>
-        public CardBuilder OnePerPlayer()
+        public CardBuilder CashPerOneCard(CardEnum card, int count)
         {
             return this;
         }
@@ -106,10 +94,22 @@ namespace KMorcinek.TheCityCardGame
         }
 
         /// <summary>
-        /// Dodatkowy cash point jeden budynek typu
+        /// Dodatkowe cash points za symbol
         /// </summary>
-        public CardBuilder CashPerOneCard(CardEnum card, int count)
+        public CardBuilder ExtraCashPoints(Symbol symbol)
         {
+            //ExtraPointsPerSymbol = symbol;
+
+            return this;
+        }
+
+        /// <summary>
+        /// Dodatkowe punty zwyciestwa za symbol
+        /// </summary>
+        public CardBuilder ExtraWinPoints(Symbol symbol)
+        {
+            ExtraPointsPerSymbol = symbol;
+
             return this;
         }
     }
