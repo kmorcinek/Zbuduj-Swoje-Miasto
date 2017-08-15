@@ -27,3 +27,4 @@ Next to implement:
 Card for later:
 - Ekipa budowlana
 - Szkoła
+- Park przemysłowy
