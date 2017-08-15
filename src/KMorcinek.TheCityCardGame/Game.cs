@@ -77,14 +77,16 @@ namespace KMorcinek.TheCityCardGame
             Console.WriteLine();
             Console.WriteLine("Your played cards:");
 
-            WriteCards(board.Player.PlayedCards);
+            Player player = board.Players.First();
 
-            Console.WriteLine("\tPoints: " + board.Player.Points);
+            WriteCards(player.PlayedCards);
+
+            Console.WriteLine("\tPoints: " + player.Points);
 
             Console.WriteLine();
             Console.WriteLine("Cards in your hand:");
 
-            WriteCards(board.Player.CardsInHand);
+            WriteCards(player.CardsInHand);
 
         }
 

@@ -7,24 +7,24 @@ namespace KMorcinek.TheCityCardGame
     public class Board
     {
         public Deck Deck { get; }
-        public Player Player { get; }
+        public IEnumerable<Player> Players { get; }
 
-        public Board(Deck deck, Player player)
+        public Board(Deck deck, params Player[] players)
         {
             Deck = deck;
-            Player = player;
+            Players = players;
         }
 
         public void NextTurn(int cardIndex, IEnumerable<int> cardsToDiscard)
         {
             // Play card
-            Player.PlayCard(cardIndex, cardsToDiscard);
+            Players.First().PlayCard(cardIndex, cardsToDiscard);
 
             // Count points
-            Player.UpdatePoints();
+            Players.First().UpdatePoints();
 
             // Draw new cards
-            DrawNewCards(Player);
+            DrawNewCards(Players.First());
         }
 
         public void DrawNewCards(Player player)
