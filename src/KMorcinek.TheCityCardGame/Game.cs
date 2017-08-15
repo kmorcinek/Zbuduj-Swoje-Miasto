@@ -86,7 +86,6 @@ namespace KMorcinek.TheCityCardGame
             Console.WriteLine("Cards in your hand:");
 
             WriteCards(player.CardsInHand);
-
         }
 
         static void WriteCards(IEnumerable<Card> playerCardsInHand)
