@@ -9,18 +9,21 @@
         Parking,
 
         // 1
-
         BusStation,
+        ConstructionCrew,
         House,
         Housing,
         IndastrialPark,
         Park,
+        Private,
         Restaurant,
         School,
         Supermarket,
        
-        ,
         // 2
+        Butique,
+        Cinema,
+        CityHall,
         OfficeBuilding,
         RoadConnection,
 
