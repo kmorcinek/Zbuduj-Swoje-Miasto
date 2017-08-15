@@ -25,4 +25,5 @@ Next to implement:
 
 
 Card for later:
-Ekipa budowlana
+- Ekipa budowlana
+- Szkoła

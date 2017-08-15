@@ -11,8 +11,11 @@
         // 1
         House,
         Housing,
+        IndastrialPark,
         Park,
+        Restaurant,
         School,
+       
 
         // 2
         OfficeBuilding,
@@ -23,6 +26,7 @@
 
         // 4
         Multiplex,
+        ResearchCenter,
         Villa,
     }
 }

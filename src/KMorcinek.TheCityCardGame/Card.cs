@@ -45,10 +45,21 @@ namespace KMorcinek.TheCityCardGame
             new CardBuilder(CardEnum.Housing, 1, 0, 1)
                 .WithSymbols(Symbol.Car, Symbol.Commerce);
 
+        public static Card IndastrialPark =>
+            new CardBuilder(CardEnum.IndastrialPark, 1, 1, 0)
+                .CashPerOneCard(CardEnum.ResearchCenter);
+
         public static Card Park =>
             new CardBuilder(CardEnum.Park, 1, 0, 0)
                 .WithSymbols(Symbol.Fountain)
+                .ExtraWinPoints(Symbol.Fountain)
+                .OnePerPlayer();
+
+        public static Card Restaurant =>
+            new CardBuilder(CardEnum.Restaurant, 1, 0, 1)
+                .WithSymbols(Symbol.Commerce, Symbol.Fountain)
                 .ExtraWinPoints(Symbol.Fountain);
+
 
         public static Card School =>
             new CardBuilder(CardEnum.School, 1, 0, 2)
