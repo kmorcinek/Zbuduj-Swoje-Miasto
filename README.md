@@ -18,6 +18,7 @@ Questions:
 - How to allow comunication over http? Two processes? Two separate player classes? with on Console UI playing two players?
 
 Next to implement:
+- UT for HowManyCanDeal and CashPerOneCard
 - Two separate classes (taking input from the same console) communicate to one Game object.
   - pooling?
 - Architect
