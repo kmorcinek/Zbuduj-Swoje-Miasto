@@ -1,10 +1,30 @@
-﻿namespace KMorcinek.TheCityCardGame.ConsoleUI
+﻿using System.Threading.Tasks;
+using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
+
+namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
     class Program
     {
         static void Main()
         {
-            Game.PlayGame();
+            PlayDisconnectedGame();
+        }
+
+        static void PlayDisconnectedGame()
+        {
+            Task.Run(() =>
+            {
+                StartClient();
+            });
+
+            StartClient();
+        }
+
+        static void StartClient()
+        {
+            var client = new DisconnectedClient();
+
+            client.Start();
         }
     }
 }
