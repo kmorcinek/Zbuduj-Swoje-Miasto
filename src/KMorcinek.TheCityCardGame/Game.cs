@@ -18,7 +18,7 @@ namespace KMorcinek.TheCityCardGame
             var cards = DrawStartingCards(wholeDeck);
             var player = new Player(cards);
 
-            return new Board(player, wholeDeck);
+            return new Board(wholeDeck, player);
         }
 
         static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)

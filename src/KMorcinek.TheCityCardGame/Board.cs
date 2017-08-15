@@ -6,13 +6,13 @@ namespace KMorcinek.TheCityCardGame
 {
     public class Board
     {
-        public Player Player { get; }
         public Deck Deck { get; }
+        public Player Player { get; }
 
-        public Board(Player player, Deck deck)
+        public Board(Deck deck, Player player)
         {
-            Player = player;
             Deck = deck;
+            Player = player;
         }
 
         public void NextTurn(int cardIndex, IEnumerable<int> cardsToDiscard)
