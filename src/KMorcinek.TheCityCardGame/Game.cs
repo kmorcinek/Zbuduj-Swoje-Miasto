@@ -41,7 +41,7 @@ namespace KMorcinek.TheCityCardGame
             {
                 using (new ConsoleColorChanger(ConsoleColor.Blue))
                 {
-                    ShowYourHand(board);
+                    ShowCards(board.Players.ElementAt(0));
 
                     var cardIndexToPlay = GetCardIndexToPlay();
                     int[] cardsToDiscard = GetCardIndexesToDiscard();
@@ -71,12 +71,10 @@ namespace KMorcinek.TheCityCardGame
             return strings.Select(int.Parse).ToArray();
         }
 
-        static void ShowYourHand(Board board)
+        static void ShowCards(Player player)
         {
             Console.WriteLine();
             Console.WriteLine("Your played cards:");
-
-            Player player = board.Players.First();
 
             WriteCards(player.PlayedCards);
 
