@@ -31,5 +31,15 @@ namespace KMorcinek.TheCityCardGame
 
             return new Deck(deck);
         }
+
+        void Foo()
+        {
+            Dictionary<Card, int> cards = new Dictionary<Card, int>
+            {
+                { Card.Parking, 4 },
+                { Card.House, 3 }
+            };
+
+        }
     }
 }
