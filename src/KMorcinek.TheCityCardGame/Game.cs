@@ -39,12 +39,15 @@ namespace KMorcinek.TheCityCardGame
 
             while (true)
             {
-                ShowYourHand(board);
+                using (new ConsoleColorChanger(ConsoleColor.Blue))
+                {
+                    ShowYourHand(board);
 
-                var cardIndexToPlay = GetCardIndexToPlay();
-                int[] cardsToDiscard = GetCardIndexesToDiscard();
+                    var cardIndexToPlay = GetCardIndexToPlay();
+                    int[] cardsToDiscard = GetCardIndexesToDiscard();
 
-                board.NextTurn(cardIndexToPlay, cardsToDiscard);
+                    board.NextTurn(cardIndexToPlay, cardsToDiscard);
+                }
             }
 
             ShowYourHand(board);

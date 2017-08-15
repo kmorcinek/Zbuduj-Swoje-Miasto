@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="CardWithCount.cs" />
+    <Compile Include="ConsoleColorChanger.cs" />
     <Compile Include="WinningPointsCalculator.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardBuilder.cs" />
