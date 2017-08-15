@@ -21,8 +21,7 @@ namespace KMorcinek.TheCityCardGame
             int winPoints,
             IEnumerable<Symbol> symbols,
             Symbol? extraPointsPerSymbol,
-            IEnumerable<CardEnum> requiredCards,
-            CardEnum? oneExtraCashPoint = null)
+            IEnumerable<CardEnum> requiredCards)
         {
             CardEnum = cardEnum;
             Cost = cost;
@@ -31,7 +30,6 @@ namespace KMorcinek.TheCityCardGame
             Symbols = symbols ?? Enumerable.Empty<Symbol>();
             ExtraPointsPerSymbol = extraPointsPerSymbol;
             RequiredCards = requiredCards ?? Enumerable.Empty<CardEnum>();
-            OneExtraCashPoint = oneExtraCashPoint;
         }
 
         // Are sorted according to its base Cost

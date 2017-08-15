@@ -50,6 +50,13 @@ namespace KMorcinek.TheCityCardGame
             return this;
         }
 
+        public CardBuilder ExtraCashPoints(Symbol symbol)
+        {
+            //ExtraPointsPerSymbol = symbol;
+
+            return this;
+        }
+
         public CardBuilder Requires(params CardEnum[] requiredCards)
         {
             RequiredCards = requiredCards;
@@ -58,6 +65,26 @@ namespace KMorcinek.TheCityCardGame
         }
 
         public CardBuilder OnePerPlayer()
+        {
+            return this;
+        }
+
+        public CardBuilder CashPerEachCard(CardEnum card)
+        {
+            return this;
+        }
+
+        public CardBuilder CashPerEachCard(CardEnum card, int count)
+        {
+            return this;
+        }
+
+        public CardBuilder CashPerOneCard(CardEnum card)
+        {
+            return this;
+        }
+
+        public CardBuilder CashPerOneCard(CardEnum card, int count)
         {
             return this;
         }
