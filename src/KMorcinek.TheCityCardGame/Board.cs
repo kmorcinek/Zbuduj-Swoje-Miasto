@@ -42,23 +42,5 @@ namespace KMorcinek.TheCityCardGame
             player.AddDealtCards(cards);
         }
 
-        //private void PlayCard(Player player, Deck deck)
-        //{
-        //    var choosenCard = player.CardsInHand.FirstOrDefault(card =>
-        //        _requiredCardsCalculator.CanBePlayed(card, player)
-        //        );
-
-        //    if (choosenCard != null)
-        //    {
-        //        player.CardsInHand.Remove(choosenCard);
-        //        player.PlayedCards.Add(choosenCard);
-        //        player.CardsInHand.Add(deck.Pop());
-        //    }
-        //    else
-        //    {
-        //        player.CardsInHand.Add(deck.Pop());
-        //        player.CardsInHand.Add(deck.Pop());
-        //    }
-        //}
     }
 }
