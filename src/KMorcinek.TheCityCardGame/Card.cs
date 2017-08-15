@@ -41,7 +41,7 @@ namespace KMorcinek.TheCityCardGame
         public static Card BusStation =>
             new CardBuilder(CardEnum.BusStation, 1, 0, 1)
                 .WithSymbols(Symbol.Commerce, Symbol.Fountain)
-                .CashPerOneCard(CardEnum.Supermarket);
+                .ExtraCashPerOneCard(CardEnum.Supermarket);
 
         public static Card ConstructionCrew =>
             new CardBuilder(CardEnum.ConstructionCrew, 1, 0, 0);
@@ -55,7 +55,7 @@ namespace KMorcinek.TheCityCardGame
 
         public static Card IndastrialPark =>
             new CardBuilder(CardEnum.IndastrialPark, 1, 1, 0)
-                .CashPerOneCard(CardEnum.ResearchCenter);
+                .ExtraCashPerOneCard(CardEnum.ResearchCenter);
 
         public static Card Park =>
             new CardBuilder(CardEnum.Park, 1, 0, 0)
@@ -70,7 +70,7 @@ namespace KMorcinek.TheCityCardGame
         public static Card Restaurant =>
             new CardBuilder(CardEnum.Restaurant, 1, 0, 1)
                 .WithSymbols(Symbol.Commerce, Symbol.Fountain)
-                .CashPerOneCard(CardEnum.BusinessCenter);
+                .ExtraCashPerOneCard(CardEnum.BusinessCenter);
 
         public static Card School =>
             new CardBuilder(CardEnum.School, 1, 0, 2)

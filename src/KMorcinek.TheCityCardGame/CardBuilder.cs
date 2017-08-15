@@ -62,9 +62,17 @@ namespace KMorcinek.TheCityCardGame
         }
 
         /// <summary>
-        /// Dodatkowy cash point jeden budynek typu
+        /// Dodatkowy cash point za jeden budynek typu
         /// </summary>
-        public CardBuilder CashPerOneCard(CardEnum card, int count)
+        public CardBuilder ExtraCashPerOneCard(CardEnum card, int count)
+        {
+            return this;
+        }
+
+        /// <summary>
+        /// Dodatkowy cash point za jeden budynek typu
+        /// </summary>
+        public CardBuilder ExtraCashPerOneCard(CardEnum card)
         {
             return this;
         }
@@ -72,7 +80,7 @@ namespace KMorcinek.TheCityCardGame
         /// <summary>
         /// Dodatkowy cash point za każdy budynek typu
         /// </summary>
-        public CardBuilder CashPerEachCard(CardEnum card)
+        public CardBuilder ExtraCashPerEachCard(CardEnum card)
         {
             return this;
         }
@@ -80,15 +88,7 @@ namespace KMorcinek.TheCityCardGame
         /// <summary>
         /// Dodatkowy cash point za każdy budynek typu
         /// </summary>
-        public CardBuilder CashPerEachCard(CardEnum card, int count)
-        {
-            return this;
-        }
-
-        /// <summary>
-        /// Dodatkowy cash point jeden budynek typu
-        /// </summary>
-        public CardBuilder CashPerOneCard(CardEnum card)
+        public CardBuilder ExtraCashPerEachCard(CardEnum card, int count)
         {
             return this;
         }
