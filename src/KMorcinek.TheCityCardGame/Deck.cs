@@ -36,8 +36,13 @@ namespace KMorcinek.TheCityCardGame
         {
             Dictionary<Card, int> cards = new Dictionary<Card, int>
             {
-                { Card.Parking, 4 },
-                { Card.House, 3 }
+                // 1
+                //{ Card.House, 3 }
+                //{ Card.Parking, 4 },
+                { Card.School, 44 },
+
+                // 2
+
             };
 
         }

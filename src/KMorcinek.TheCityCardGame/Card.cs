@@ -52,7 +52,7 @@ namespace KMorcinek.TheCityCardGame
 
         public static Card School =>
             new CardBuilder(CardEnum.School, 1, 0, 2)
-                .Requires(CardEnum.House, CardEnum.Housing);
+                .Requires(CardEnum.House, CardEnum.Housing, CardEnum.Villa);
 
         // 2
         public static Card OfficeBuilding =>

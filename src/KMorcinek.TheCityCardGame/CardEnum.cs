@@ -23,5 +23,6 @@
 
         // 4
         Multiplex,
+        Villa,
     }
 }
