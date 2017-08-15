@@ -75,16 +75,17 @@ namespace KMorcinek.TheCityCardGame
         static void ShowYourHand(Board board)
         {
             Console.WriteLine();
-            Console.WriteLine("Cards in your hand:");
-
-            WriteCards(board.Player.CardsInHand);
-
             Console.WriteLine("Your played cards:");
 
             WriteCards(board.Player.PlayedCards);
 
             Console.WriteLine("\tPoints: " + board.Player.Points);
+
             Console.WriteLine();
+            Console.WriteLine("Cards in your hand:");
+
+            WriteCards(board.Player.CardsInHand);
+
         }
 
         static void WriteCards(IEnumerable<Card> playerCardsInHand)
