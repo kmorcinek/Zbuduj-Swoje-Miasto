@@ -50,10 +50,19 @@ namespace KMorcinek.TheCityCardGame
                         var cardIndexToPlay = GetCardIndexToPlay();
                         int[] cardsToDiscard = GetCardIndexesToDiscard();
 
+                        Card playedCard = board.Players.ElementAt(i).CardsInHand.ElementAt(cardIndexToPlay);
+
                         board.PlayCard(i, cardIndexToPlay, cardsToDiscard);
+
+                        ShowPlayedCard(playedCard);
                     }
                 }
             }
+        }
+
+        static void ShowPlayedCard(Card card)
+        {
+            Console.WriteLine($"\tPlayed card: {card.CardEnum}");
         }
 
         static int GetCardIndexToPlay()
