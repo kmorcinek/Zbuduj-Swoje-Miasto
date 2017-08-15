@@ -49,6 +49,11 @@ namespace KMorcinek.TheCityCardGame
             new CardBuilder(CardEnum.Park, 1, 0, 0)
                 .WithSymbols(Symbol.Fountain)
                 .ExtraWinPoints(Symbol.Fountain);
+
+        public static Card School =>
+            new CardBuilder(CardEnum.School, 1, 0, 2)
+                .Requires(CardEnum.House, CardEnum.Housing);
+
         // 2
         public static Card OfficeBuilding =>
             new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2)

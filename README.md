@@ -22,3 +22,7 @@ Next to implement:
 - Take 5 out of 7 at the begginging
 - Do not build - take 1 out of 5 cards.
 - Allow only one Per Game
+
+
+Card for later:
+Ekipa budowlana
