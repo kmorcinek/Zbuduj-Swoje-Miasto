@@ -24,6 +24,18 @@ namespace KMorcinek.TheCityCardGame
             WinPoints = winPoints;
         }
 
+        public static implicit operator Card(CardBuilder builder)
+        {
+            return new Card(
+                builder.CardEnum,
+                builder.Cost,
+                builder.CashPoints,
+                builder.WinPoints,
+                builder.Symbols,
+                builder.ExtraPointsPerSymbol,
+                builder.RequiredCards);
+        }
+
         public CardBuilder WithSymbols(params Symbol[] symbols)
         {
             Symbols = symbols;
@@ -36,18 +48,6 @@ namespace KMorcinek.TheCityCardGame
             ExtraPointsPerSymbol = symbol;
 
             return this;
-        }
-
-        public static implicit operator Card(CardBuilder builder)
-        {
-            return new Card(
-                builder.CardEnum,
-                builder.Cost,
-                builder.CashPoints,
-                builder.WinPoints,
-                builder.Symbols,
-                builder.ExtraPointsPerSymbol,
-                builder.RequiredCards);
         }
 
         public CardBuilder Requires(params CardEnum[] requiredCards)
