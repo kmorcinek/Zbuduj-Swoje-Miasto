@@ -47,7 +47,7 @@ namespace KMorcinek.TheCityCardGame
                     {
                         ShowCards(board.Players.ElementAt(i));
 
-                        var cardIndexToPlay = GetCardIndexToPlay();
+                        int cardIndexToPlay = GetCardIndexToPlay();
                         int[] cardsToDiscard = GetCardIndexesToDiscard();
 
                         Card playedCard = board.Players.ElementAt(i).CardsInHand.ElementAt(cardIndexToPlay);
