@@ -56,5 +56,10 @@ namespace KMorcinek.TheCityCardGame
 
             return this;
         }
+
+        public CardBuilder OnePerPlayer()
+        {
+            return this;
+        }
     }
 }
