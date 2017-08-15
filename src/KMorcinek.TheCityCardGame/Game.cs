@@ -13,12 +13,12 @@ namespace KMorcinek.TheCityCardGame
 
         Board StartGame()
         {
-            var wholeDeck = Deck.GetShuffledDeck();
+            Deck wholeDeck = Deck.GetShuffledDeck();
 
-            var cards = DrawStartingCards(wholeDeck);
-            var player = new Player(cards);
+            Player player = new Player(DrawStartingCards(wholeDeck));
+            Player secondPlayer = new Player(DrawStartingCards(wholeDeck));
 
-            return new Board(wholeDeck, player);
+            return new Board(wholeDeck, player, secondPlayer);
         }
 
         static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)
@@ -39,14 +39,19 @@ namespace KMorcinek.TheCityCardGame
 
             while (true)
             {
-                using (new ConsoleColorChanger(ConsoleColor.Blue))
+                ConsoleColor[] colors = { ConsoleColor.Blue, ConsoleColor.White };
+
+                for (int i = 0; i < board.Players.Count(); i++)
                 {
-                    ShowCards(board.Players.ElementAt(0));
+                    using (new ConsoleColorChanger(colors[i]))
+                    {
+                        ShowCards(board.Players.ElementAt(i));
 
-                    var cardIndexToPlay = GetCardIndexToPlay();
-                    int[] cardsToDiscard = GetCardIndexesToDiscard();
+                        var cardIndexToPlay = GetCardIndexToPlay();
+                        int[] cardsToDiscard = GetCardIndexesToDiscard();
 
-                    board.PlayCard(0, cardIndexToPlay, cardsToDiscard);
+                        board.PlayCard(i, cardIndexToPlay, cardsToDiscard);
+                    }
                 }
             }
         }
