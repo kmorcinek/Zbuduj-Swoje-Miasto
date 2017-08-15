@@ -35,17 +35,37 @@ namespace KMorcinek.TheCityCardGame
         }
 
         // Are sorted according to its base Cost
-        public static Card Parking => new CardBuilder(CardEnum.Parking, 0, 0, 0).WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Fountain);
+        public static Card Parking =>
+            new CardBuilder(CardEnum.Parking, 0, 0, 0)
+                .WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Fountain);
+
         // 1
-        public static Card House => new CardBuilder(CardEnum.House, 1, 1, 0);
-        public static Card Housing => new CardBuilder(CardEnum.Housing, 1, 0, 1).WithSymbols(Symbol.Car, Symbol.Commerce);
-        public static Card Park => new CardBuilder(CardEnum.Park, 1, 0, 0).WithSymbols(Symbol.Fountain).ExtraWinPoints(Symbol.Fountain);
+        public static Card House =>
+            new CardBuilder(CardEnum.House, 1, 1, 0);
+
+        public static Card Housing =>
+            new CardBuilder(CardEnum.Housing, 1, 0, 1)
+                .WithSymbols(Symbol.Car, Symbol.Commerce);
+
+        public static Card Park =>
+            new CardBuilder(CardEnum.Park, 1, 0, 0)
+                .WithSymbols(Symbol.Fountain)
+                .ExtraWinPoints(Symbol.Fountain);
         // 2
-        public static Card OfficeBuilding => new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2).Requires(CardEnum.House);
+        public static Card OfficeBuilding =>
+            new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2)
+                .Requires(CardEnum.House);
         // 3
-        public static Card BusinessCenter => new CardBuilder(CardEnum.BusinessCenter, 3, 1, 1).WithSymbols(Symbol.Fountain, Symbol.Fountain);
-        public static Card TradeCenter => new CardBuilder(CardEnum.TradeCenter, 3, 1, 1).WithSymbols(Symbol.Car);
+        public static Card BusinessCenter =>
+            new CardBuilder(CardEnum.BusinessCenter, 3, 1, 1)
+                .WithSymbols(Symbol.Fountain, Symbol.Fountain);
+
+        public static Card TradeCenter =>
+            new CardBuilder(CardEnum.TradeCenter, 3, 1, 1)
+                .WithSymbols(Symbol.Car);
         // 4
-        public static Card Multiplex => new CardBuilder(CardEnum.Multiplex, 4, 2, 1).WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Commerce);
+        public static Card Multiplex =>
+            new CardBuilder(CardEnum.Multiplex, 4, 2, 1)
+                .WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Commerce);
     }
 }
