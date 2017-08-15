@@ -15,7 +15,7 @@ namespace KMorcinek.TheCityCardGame
             Players = players;
         }
 
-        public void NextTurn(int cardIndex, IEnumerable<int> cardsToDiscard)
+        public void PlayCard(int cardIndex, IEnumerable<int> cardsToDiscard)
         {
             // Play card
             Players.First().PlayCard(cardIndex, cardsToDiscard);
