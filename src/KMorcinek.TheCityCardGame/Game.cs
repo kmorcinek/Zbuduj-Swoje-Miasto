@@ -6,12 +6,7 @@ namespace KMorcinek.TheCityCardGame
 {
     public class Game
     {
-        public static Game Create()
-        {
-            return new Game();
-        }
-
-        Board StartGame()
+        static Board StartGame()
         {
             Deck wholeDeck = Deck.GetShuffledDeck();
 
@@ -33,7 +28,7 @@ namespace KMorcinek.TheCityCardGame
             return cards;
         }
 
-        public void PlayGame()
+        public static void PlayGame()
         {
             var board = StartGame();
 
@@ -74,7 +69,7 @@ namespace KMorcinek.TheCityCardGame
             return int.Parse(cardToPlayAsString);
         }
 
-        int[] GetCardIndexesToDiscard()
+        static int[] GetCardIndexesToDiscard()
         {
             Console.Write("Choose cards to discard by indices (separated by space): ");
 
