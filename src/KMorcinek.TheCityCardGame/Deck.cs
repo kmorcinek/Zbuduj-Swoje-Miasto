@@ -13,6 +13,18 @@ namespace KMorcinek.TheCityCardGame
         {
             var deck = new Card[]
             {
+                Card.BusStation,
+                Card.BusinessCenter,
+                Card.Cinema, 
+                Card.CityHall, 
+                Card.BusStation,
+                Card.BusinessCenter,
+                Card.Cinema, 
+                Card.CityHall, 
+                Card.BusStation,
+                Card.BusinessCenter,
+                Card.Cinema, 
+                Card.CityHall, 
                 Card.Park,
                 Card.House,
                 Card.Parking,
