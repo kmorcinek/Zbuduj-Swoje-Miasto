@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.TheCityCardGame", "KMorcinek.TheCityCardGame\KMorcinek.TheCityCardGame.csproj", "{85FFED1B-8DA3-49FC-81F7-A1DE0EF1E1FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.TheCityCardGame.Web", "KMorcinek.TheCityCardGame.Web\KMorcinek.TheCityCardGame.Web.csproj", "{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.TheCityCardGame.Tests", "KMorcinek.TheCityCardGame.Tests\KMorcinek.TheCityCardGame.Tests.csproj", "{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.TheCityCardGame.ConsoleUI", "KMorcinek.TheCityCardGame.Console\KMorcinek.TheCityCardGame.ConsoleUI.csproj", "{8B605E40-1890-43F2-94AD-29814C8A34DA}"
@@ -21,10 +19,6 @@ Global
 		{85FFED1B-8DA3-49FC-81F7-A1DE0EF1E1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85FFED1B-8DA3-49FC-81F7-A1DE0EF1E1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85FFED1B-8DA3-49FC-81F7-A1DE0EF1E1FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{887A8565-4A10-44C8-82EF-F2F2D1D2BFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}.Release|Any CPU.ActiveCfg = Release|Any CPU
