@@ -8,19 +8,28 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             EnableSerilog();
 
-            PlayDisconnectedGame();
+            bool restartGame = false;
+            if (args != null && args.Length > 0 && args[0] == "--restart")
+            {
+                restartGame = true;
+            }
+
+            PlayDisconnectedGame(restartGame);
         }
 
-        static void PlayDisconnectedGame()
+        static void PlayDisconnectedGame(bool restartGame)
         {
             // Wait couple second for Server to start
             Task.Delay(TimeSpan.FromSeconds(3)).Wait();
 
-            RestartServer();
+            if (restartGame)
+            {
+                RestartServer();
+            }
 
             Task.Run(() =>
             {
