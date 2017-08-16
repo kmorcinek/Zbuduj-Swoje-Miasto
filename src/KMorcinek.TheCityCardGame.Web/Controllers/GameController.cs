@@ -5,7 +5,7 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
     [RoutePrefix("api/game")]
     public class GameController : ApiController
     {
-        DisconnectedGame _game = DisconnectedGame.Instance;
+        readonly DisconnectedGame _game = DisconnectedGame.Instance;
 
         [Route("connect")]
         public int GetConnect()
