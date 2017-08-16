@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Serilog;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -31,6 +32,7 @@ namespace KMorcinek.TheCityCardGame
                     _board = Board.StartGame(TotalPlayersCount);
 
                     _isGameStarted = true;
+                    Log.Information("Game is started with {TotalPlayersCount} player", TotalPlayersCount);
                 }
 
                 return count;
