@@ -31,7 +31,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                 int totalPlayersCount = 2;
                 if (_connectedClients.Count == totalPlayersCount)
                 {
-                    _board = Game.StartGame(totalPlayersCount);
+                    _board = Board.StartGame(totalPlayersCount);
 
                     _isGameStarted = true;
                 }

@@ -8,34 +8,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
     {
         public static ConsoleColor[] Colors = { ConsoleColor.Blue, ConsoleColor.White };
 
-        public static Board StartGame(int playersCount)
-        {
-            Deck wholeDeck = Deck.GetShuffledDeck();
-
-            var players = new List<Player>();
-            for (int i = 0; i < playersCount; i++)
-            {
-                players.Add(new Player(DrawStartingCards(wholeDeck)));
-            }
-
-            return new Board(wholeDeck, players.ToArray());
-        }
-
-        static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)
-        {
-            List<Card> cards = new List<Card>();
-
-            for (int i = 0; i < 5; i++)
-            {
-                cards.Add(wholeDeck.Pop());
-            }
-
-            return cards;
-        }
-
         public static void PlayGame()
         {
-            var board = StartGame(2);
+            var board = Board.StartGame(2);
 
             while (true)
             {
