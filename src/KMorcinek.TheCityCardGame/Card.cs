@@ -92,12 +92,10 @@ namespace KMorcinek.TheCityCardGame
                 .OnePerPlayer()
                 .ExtraCashPoints(Symbol.Fountain);
 
-        //public static Card Butique =>
-        //    new CardBuilder(CardEnum.Restaurant, 2, 1, 0)
+        // public static Card Butique =>
+        //     new CardBuilder(CardEnum.Restaurant, 2, 1, 0)
         //        .WithSymbols(Symbol.Commerce, Symbol.Fountain)
         //        .ExtraWinPoints(CardEnum.BusinessCenter);
-
-
         public static Card OfficeBuilding =>
             new CardBuilder(CardEnum.OfficeBuilding, 2, 1, 2)
                 .Requires(CardEnum.House);
@@ -108,7 +106,6 @@ namespace KMorcinek.TheCityCardGame
                 .ExtraCashPoints(Symbol.Car)
                 .ExtraWinPoints(Symbol.Car);
 
-
         // 3
         public static Card BusinessCenter =>
             new CardBuilder(CardEnum.BusinessCenter, 3, 1, 1)
@@ -117,6 +114,7 @@ namespace KMorcinek.TheCityCardGame
         public static Card TradeCenter =>
             new CardBuilder(CardEnum.TradeCenter, 3, 1, 1)
                 .WithSymbols(Symbol.Car);
+
         // 4
         public static Card Multiplex =>
             new CardBuilder(CardEnum.Multiplex, 4, 2, 1)

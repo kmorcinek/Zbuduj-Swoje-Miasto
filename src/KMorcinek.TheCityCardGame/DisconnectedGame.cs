@@ -9,14 +9,14 @@ namespace KMorcinek.TheCityCardGame
     {
         const int TotalPlayersCount = 2;
 
-        public static DisconnectedGame Instance = new DisconnectedGame();
+        public static DisconnectedGame Instance { get; } = new DisconnectedGame();
 
         readonly IMapper _mapper = AutoMapperConfig.GetMapper();
         readonly List<int> _connectedClients = new List<int>();
+        readonly object _syncRoot = new object();
         Board _board;
         bool _isGameStarted;
         int _waitingForPlayerIndex;
-        readonly object _syncRoot = new object();
 
         public int Connect()
         {

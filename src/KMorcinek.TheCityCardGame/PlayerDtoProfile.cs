@@ -7,6 +7,6 @@ namespace KMorcinek.TheCityCardGame
         public PlayerDtoProfile()
         {
             CreateMap<Player, PlayerDto>();
-        } 
+        }
     }
 }

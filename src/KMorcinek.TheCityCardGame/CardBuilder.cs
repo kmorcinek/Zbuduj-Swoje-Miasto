@@ -107,8 +107,6 @@ namespace KMorcinek.TheCityCardGame
         /// </summary>
         public CardBuilder ExtraCashPoints(Symbol symbol)
         {
-            //ExtraPointsPerSymbol = symbol;
-
             return this;
         }
 

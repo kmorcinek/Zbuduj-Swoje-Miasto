@@ -19,7 +19,7 @@
         Restaurant,
         School,
         Supermarket,
-       
+
         // 2
         Butique,
         Cinema,

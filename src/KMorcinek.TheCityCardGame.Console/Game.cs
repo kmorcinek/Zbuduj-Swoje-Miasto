@@ -53,7 +53,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
             string asString = Console.ReadLine();
 
-            string[] strings = asString.Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            string[] strings = asString.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             return strings.Select(int.Parse).ToArray();
         }
@@ -76,7 +76,6 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         static void WriteCards(IEnumerable<Card> playerCardsInHand)
         {
             // TODO: add foreachWithIndex method
-
             int i = 0;
             foreach (var card in playerCardsInHand)
             {

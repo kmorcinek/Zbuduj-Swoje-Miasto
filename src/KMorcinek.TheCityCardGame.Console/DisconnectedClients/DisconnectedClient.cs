@@ -15,7 +15,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             : this(DisconnectedGame.Instance)
         {
         }
-            
+
         protected DisconnectedClient(IGameServer game)
         {
             _game = game;
@@ -60,7 +60,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
                 _game.PlayCard(_playerIndex, cardIndexToPlay, cardsToDiscard);
 
-                Game.ShowPlayedCard(playedCard); 
+                Game.ShowPlayedCard(playedCard);
             }
         }
     }

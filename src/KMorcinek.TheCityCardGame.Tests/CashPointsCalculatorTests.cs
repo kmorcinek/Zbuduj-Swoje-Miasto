@@ -30,7 +30,7 @@ namespace KMorcinek.TheCityCardGame.Tests
             Card[] cards =
             {
                 new CardBuilder(TestFixture.SimpleCard).ExtraCashPerOneCard(card, 5),
-                new CardBuilder(card), 
+                new CardBuilder(card),
             };
 
             sut.HowManyCashPoints(cards).Should().Be(5);
@@ -46,8 +46,8 @@ namespace KMorcinek.TheCityCardGame.Tests
             Card[] cards =
             {
                 new CardBuilder(TestFixture.SimpleCard).ExtraCashPerOneCard(card, 4),
-                new CardBuilder(card), 
-                new CardBuilder(card), 
+                new CardBuilder(card),
+                new CardBuilder(card),
             };
 
             sut.HowManyCashPoints(cards).Should().Be(4);

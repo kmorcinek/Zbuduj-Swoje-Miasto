@@ -15,7 +15,8 @@ namespace KMorcinek.TheCityCardGame.Tests
             Symbol symbol = new Fixture().Create<Symbol>();
 
             int result = sut.Calculate(
-                new Card[] {
+                new Card[]
+                {
                     CreateNewGenericCardBuilder().WithSymbols(symbol).ExtraWinPoints(symbol),
                     CreateNewGenericCardBuilder().WithSymbols(symbol)
                 });
@@ -31,7 +32,8 @@ namespace KMorcinek.TheCityCardGame.Tests
             Symbol symbol = new Fixture().Create<Symbol>();
 
             int result = sut.Calculate(
-                new Card[] {
+                new Card[]
+                {
                     CreateNewGenericCardBuilder().ExtraWinPoints(symbol),
                     CreateNewGenericCardBuilder().WithSymbols(Enumerable.Repeat(symbol, 3).ToArray())
                 });

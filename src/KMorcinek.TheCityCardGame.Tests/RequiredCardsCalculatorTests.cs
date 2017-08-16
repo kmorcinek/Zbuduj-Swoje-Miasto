@@ -48,7 +48,8 @@ namespace KMorcinek.TheCityCardGame.Tests
             do
             {
                 cardEnum = Fixture.Create<CardEnum>();
-            } while (cardEnum == requiredCardEnum);
+            }
+            while (cardEnum == requiredCardEnum);
 
             return cardEnum;
         }
