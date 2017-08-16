@@ -29,7 +29,7 @@ namespace KMorcinek.TheCityCardGame
 
         public void DrawNewCards(Player player)
         {
-            int cardsToDeal = HowManyCanDeal(player.PlayedCards);
+            int cardsToDeal = new CashPointsCalculator().HowManyCashPoints(player.PlayedCards);
 
             List<Card> cards = new List<Card>(cardsToDeal);
 
@@ -40,11 +40,6 @@ namespace KMorcinek.TheCityCardGame
 
             // TODO: can not deal more than 12
             player.AddDealtCards(cards);
-        }
-
-        public int HowManyCanDeal(IEnumerable<Card> playedCards)
-        {
-            return playedCards.Sum(c => c.CashPoints);
         }
 
         //private void PlayCard(Player player, Deck deck)
