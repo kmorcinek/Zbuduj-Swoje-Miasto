@@ -16,7 +16,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public IPlayer GetState(int playerIndex)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
 
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)
