@@ -54,6 +54,7 @@
     <Compile Include="DisconnectedGame.cs" />
     <Compile Include="IGameServer.cs" />
     <Compile Include="IPlayer.cs" />
+    <Compile Include="Move.cs" />
     <Compile Include="PlayerDto.cs" />
     <Compile Include="PlayerDtoProfile.cs" />
     <Compile Include="SharedDtos\PlayCardDto.cs" />

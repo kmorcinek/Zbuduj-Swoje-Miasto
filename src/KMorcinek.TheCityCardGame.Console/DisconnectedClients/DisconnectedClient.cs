@@ -53,14 +53,41 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             {
                 Game.ShowCards(player);
 
-                int cardIndexToPlay = Game.GetCardIndexToPlay();
-                int[] cardsToDiscard = Game.GetCardIndexesToDiscard();
+                Move move = GetMove();
 
-                Card playedCard = player.CardsInHand.ElementAt(cardIndexToPlay);
+                switch (move)
+                {
+                    case Move.PlayCard:
+                        int cardIndexToPlay = Game.GetCardIndexToPlay();
+                        int[] cardsToDiscard = Game.GetCardIndexesToDiscard();
 
-                _game.PlayCard(_playerIndex, cardIndexToPlay, cardsToDiscard);
+                        Card playedCard = player.CardsInHand.ElementAt(cardIndexToPlay);
 
-                Game.ShowPlayedCard(playedCard);
+                        _game.PlayCard(_playerIndex, cardIndexToPlay, cardsToDiscard);
+
+                        Game.ShowPlayedCard(playedCard);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+            }
+        }
+
+        static Move GetMove()
+        {
+            Console.Write("Choose action, A - architect, P - play card: "); // , C - check 5 card and take 1
+
+            string movaAsString = Console.ReadLine().Trim().ToUpperInvariant();
+
+            switch (movaAsString)
+            {
+                case "A":
+                    return Move.Architect;
+                case "P":
+                    return Move.PlayCard;
+                default:
+                    throw new NotImplementedException("missing guards");
             }
         }
     }
