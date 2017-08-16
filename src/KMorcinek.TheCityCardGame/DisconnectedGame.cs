@@ -10,12 +10,12 @@ namespace KMorcinek.TheCityCardGame
 
         public static DisconnectedGame Instance = new DisconnectedGame();
 
+        readonly IMapper _mapper = AutoMapperConfig.GetMapper();
         readonly List<int> _connectedClients = new List<int>();
         Board _board;
         bool _isGameStarted;
         int _waitingForPlayerIndex;
         readonly object _syncRoot = new object();
-        readonly IMapper _mapper = AutoMapperConfig.GetMapper();
 
         DisconnectedGame()
         {
