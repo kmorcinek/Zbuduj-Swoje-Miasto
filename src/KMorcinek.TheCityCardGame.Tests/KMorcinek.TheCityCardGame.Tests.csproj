@@ -74,7 +74,6 @@
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequiredCardsCalculatorTests.cs" />
-    <Compile Include="Tests.cs" />
     <Compile Include="WinningPointsCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
