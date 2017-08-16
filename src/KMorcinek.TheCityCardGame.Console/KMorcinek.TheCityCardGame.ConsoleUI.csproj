@@ -53,6 +53,7 @@
     <Compile Include="DisconnectedClients\ClientForWeb.cs" />
     <Compile Include="DisconnectedClients\DisconnectedClient.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameServerWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
