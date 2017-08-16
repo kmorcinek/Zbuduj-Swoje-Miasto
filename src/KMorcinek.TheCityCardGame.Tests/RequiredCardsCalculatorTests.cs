@@ -13,11 +13,11 @@ namespace KMorcinek.TheCityCardGame.Tests
             var sut = CreateSut();
 
             CardEnum requiredCardEnum = Fixture.Create<CardEnum>();
-            Card requiredCard = new CardBuilder(requiredCardEnum, 0, 0, 0);
+            Card requiredCard = new CardBuilder(requiredCardEnum);
 
             Player player = Player.CreateWithPlayedCards(requiredCard);
 
-            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>(), 0, 0, 0)
+            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>())
                 .Requires(requiredCardEnum);
 
             sut.CanBePlayed(cardToPlay, player).Should().BeTrue();
@@ -31,11 +31,11 @@ namespace KMorcinek.TheCityCardGame.Tests
             CardEnum requiredCardEnum = Fixture.Create<CardEnum>();
             CardEnum differentRequiredCardEnum = GetDifferentRequiredCardEnum(requiredCardEnum);
 
-            Card requiredCard = new CardBuilder(requiredCardEnum, 0, 0, 0);
+            Card requiredCard = new CardBuilder(requiredCardEnum);
 
             Player player = Player.CreateWithPlayedCards(requiredCard);
 
-            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>(), 0, 0, 0)
+            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>())
                 .Requires(requiredCardEnum, differentRequiredCardEnum);
 
             sut.CanBePlayed(cardToPlay, player).Should().BeTrue();
@@ -62,7 +62,7 @@ namespace KMorcinek.TheCityCardGame.Tests
 
             Player player = Player.CreateWithPlayedCards();
 
-            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>(), 0, 0, 0)
+            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>())
                 .Requires(requiredCardEnum);
 
             sut.CanBePlayed(cardToPlay, player).Should().BeFalse();

@@ -25,6 +25,11 @@ namespace KMorcinek.TheCityCardGame
             WinPoints = winPoints;
         }
 
+        public CardBuilder(CardEnum cardEnum)
+            : this(cardEnum, 0, 0, 0)
+        {
+        }
+
         public static implicit operator Card(CardBuilder builder)
         {
             return new Card(
