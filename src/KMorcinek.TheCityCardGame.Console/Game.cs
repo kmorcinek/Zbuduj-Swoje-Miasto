@@ -8,14 +8,17 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
     {
         public static ConsoleColor[] Colors = { ConsoleColor.Blue, ConsoleColor.White };
 
-        public static Board StartGame()
+        public static Board StartGame(int playersCount)
         {
             Deck wholeDeck = Deck.GetShuffledDeck();
 
-            Player player = new Player(DrawStartingCards(wholeDeck));
-            Player secondPlayer = new Player(DrawStartingCards(wholeDeck));
+            var players = new List<Player>();
+            for (int i = 0; i < playersCount; i++)
+            {
+                players.Add(new Player(DrawStartingCards(wholeDeck)));
+            }
 
-            return new Board(wholeDeck, player, secondPlayer);
+            return new Board(wholeDeck, players.ToArray());
         }
 
         static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)
@@ -32,7 +35,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public static void PlayGame()
         {
-            var board = StartGame();
+            var board = StartGame(2);
 
             while (true)
             {
