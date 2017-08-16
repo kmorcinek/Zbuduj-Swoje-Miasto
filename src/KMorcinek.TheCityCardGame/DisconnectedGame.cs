@@ -4,7 +4,7 @@ using AutoMapper;
 
 namespace KMorcinek.TheCityCardGame
 {
-    public class DisconnectedGame
+    public class DisconnectedGame : IGameServer
     {
         public static DisconnectedGame Instance = new DisconnectedGame();
 
