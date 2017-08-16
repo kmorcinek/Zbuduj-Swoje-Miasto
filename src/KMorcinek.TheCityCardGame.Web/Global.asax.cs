@@ -7,6 +7,7 @@ namespace KMorcinek.TheCityCardGame.Web
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            SerilogConfiguration.Configure();
         }
     }
 }
