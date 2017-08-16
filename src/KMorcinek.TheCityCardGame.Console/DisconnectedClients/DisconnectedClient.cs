@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Serilog;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 {
@@ -23,6 +24,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
         public void Start()
         {
             int playerIndex = _game.Connect();
+
+            Log.Information("Client get {playerIndex}", playerIndex);
 
             _playerIndex = playerIndex;
 
