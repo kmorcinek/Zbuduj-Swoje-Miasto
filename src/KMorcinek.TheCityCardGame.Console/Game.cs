@@ -6,7 +6,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
     public class Game
     {
-        static Board StartGame()
+        public static ConsoleColor[] Colors = { ConsoleColor.Blue, ConsoleColor.White };
+
+        public static Board StartGame()
         {
             Deck wholeDeck = Deck.GetShuffledDeck();
 
@@ -34,11 +36,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
             while (true)
             {
-                ConsoleColor[] colors = { ConsoleColor.Blue, ConsoleColor.White };
-
                 for (int i = 0; i < board.Players.Count(); i++)
                 {
-                    using (new ConsoleColorChanger(colors[i]))
+                    using (new ConsoleColorChanger(Colors[i]))
                     {
                         ShowCards(board.Players.ElementAt(i));
 
@@ -55,12 +55,12 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             }
         }
 
-        static void ShowPlayedCard(Card card)
+        public static void ShowPlayedCard(Card card)
         {
             Console.WriteLine($"\tPlayed card: {card.CardEnum}");
         }
 
-        static int GetCardIndexToPlay()
+        public static int GetCardIndexToPlay()
         {
             Console.Write("Choose card to play by index: ");
 
@@ -69,7 +69,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             return int.Parse(cardToPlayAsString);
         }
 
-        static int[] GetCardIndexesToDiscard()
+        public static int[] GetCardIndexesToDiscard()
         {
             Console.Write("Choose cards to discard by indices (separated by space): ");
 
@@ -80,7 +80,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             return strings.Select(int.Parse).ToArray();
         }
 
-        static void ShowCards(Player player)
+        public static void ShowCards(Player player)
         {
             Console.WriteLine();
             Console.WriteLine("Your played cards:");
