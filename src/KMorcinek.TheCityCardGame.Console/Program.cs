@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
@@ -12,6 +13,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         static void PlayDisconnectedGame()
         {
+            // Wait couple second for Server to start
+            Task.Delay(TimeSpan.FromSeconds(3)).Wait();
+
             Task.Run(() =>
             {
                 StartClient();
@@ -22,7 +26,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         static void StartClient()
         {
-            var client = new DisconnectedClient();
+            var client = new ClientForWeb();
 
             client.Start();
         }
