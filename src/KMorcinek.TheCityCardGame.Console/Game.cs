@@ -80,7 +80,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             return strings.Select(int.Parse).ToArray();
         }
 
-        public static void ShowCards(Player player)
+        public static void ShowCards(IPlayer player)
         {
             Console.WriteLine();
             Console.WriteLine("Your played cards:");

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
-    public class Player
+    public class Player : IPlayer
     {
         const int HandCapacity = 12;
 
