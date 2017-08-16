@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using KMorcinek.TheCityCardGame.SharedDtos;
+using RestSharp;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
@@ -26,7 +27,14 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)
         {
-            throw new System.NotImplementedException();
+            var client = GetRestClient();
+
+            var request = new RestRequest("play-card/{playerIndex}", Method.POST);
+            request.AddUrlSegment("playerIndex", playerIndex.ToString());
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(new PlayCardDto(cardIndexToPlay, cardsToDiscard));
+
+            client.Execute(request);
         }
 
         static RestClient GetRestClient()

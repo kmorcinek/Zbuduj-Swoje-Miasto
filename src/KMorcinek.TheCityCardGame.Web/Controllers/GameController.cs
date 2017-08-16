@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using KMorcinek.TheCityCardGame.SharedDtos;
 using Serilog;
 
 namespace KMorcinek.TheCityCardGame.Web.Controllers
@@ -24,6 +25,14 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
         {
             Log.Debug("GameController.GetState({playerIndex})", playerIndex);
             return _game.GetState(playerIndex) as PlayerDto;
+        }
+
+        [HttpPost]
+        [Route("play-card/{playerIndex}")]
+        public void PlayCard(int playerIndex, [FromBody]PlayCardDto playCardDto)
+        {
+            Log.Debug("GameController.PlayCard()");
+            _game.PlayCard(playerIndex, playCardDto.CardIndexToPlay, playCardDto.CardsToDiscard);
         }
 
         // HACK: I have problems with debugging, so best is to always restart server explicit
