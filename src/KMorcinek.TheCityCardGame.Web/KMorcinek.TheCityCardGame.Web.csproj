@@ -98,6 +98,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KMorcinek.TheCityCardGame\KMorcinek.TheCityCardGame.csproj">
+      <Project>{85FFED1B-8DA3-49FC-81F7-A1DE0EF1E1FC}</Project>
+      <Name>KMorcinek.TheCityCardGame</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
