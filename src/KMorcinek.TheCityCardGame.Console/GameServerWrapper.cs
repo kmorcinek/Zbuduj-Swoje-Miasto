@@ -16,7 +16,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public IPlayer GetState(int playerIndex)
         {
-            return null;
+            var client = new RestClient(ServerUrl);
+            var request = new RestRequest("state/{playerIndex}", Method.GET);
+            request.AddUrlSegment("playerIndex", playerIndex.ToString());
+
+            return client.Execute<PlayerDto>(request).Data;
         }
 
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)

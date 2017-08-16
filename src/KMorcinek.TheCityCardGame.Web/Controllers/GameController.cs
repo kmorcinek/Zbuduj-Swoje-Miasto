@@ -12,5 +12,11 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
         {
             return _game.Connect();
         }
+
+        [Route("state/{playerIndex}")]
+        public PlayerDto GetState(int playerIndex)
+        {
+            return _game.GetState(playerIndex) as PlayerDto;
+        }
     }
 }
