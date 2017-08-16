@@ -7,7 +7,24 @@ namespace KMorcinek.TheCityCardGame
     {
         public int HowManyCashPoints(IEnumerable<Card> playedCards)
         {
-            return playedCards.Sum(c => c.CashPoints);
+            int simplePoints = playedCards.Sum(c => c.CashPoints);
+
+            int extraPoints = 0;
+            foreach (var playedCard in playedCards)
+            {
+                CardWithCount extraPointsCard = playedCard.CashPerOneCard;
+                if (extraPointsCard != null)
+                {
+                    bool isFound = playedCards.Any(x => x.CardEnum == extraPointsCard.Card);
+
+                    if (isFound)
+                    {
+                        extraPoints += extraPointsCard.Count;
+                    }
+                }
+            }
+
+            return simplePoints + extraPoints;
         }
     }
 }
