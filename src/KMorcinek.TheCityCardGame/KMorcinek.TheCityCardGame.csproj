@@ -47,6 +47,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="CardWithCount.cs" />
     <Compile Include="CashPointsCalculator.cs" />
+    <Compile Include="DisconnectedGame.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="PlayerDto.cs" />
     <Compile Include="PlayerDtoProfile.cs" />

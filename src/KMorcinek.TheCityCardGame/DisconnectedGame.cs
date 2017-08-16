@@ -2,7 +2,7 @@
 using System.Linq;
 using AutoMapper;
 
-namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
+namespace KMorcinek.TheCityCardGame
 {
     public class DisconnectedGame
     {
