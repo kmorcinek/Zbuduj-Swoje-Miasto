@@ -1,8 +1,12 @@
-﻿namespace KMorcinek.TheCityCardGame.Web.Controllers
+﻿using System.Web.Http;
+
+namespace KMorcinek.TheCityCardGame.Web.Controllers
 {
-    public class GameController
+    [RoutePrefix("api/game")]
+    public class GameController : ApiController
     {
-        public int Connect()
+        [Route("connect")]
+        public int GetConnect()
         {
             return 0;
         }
