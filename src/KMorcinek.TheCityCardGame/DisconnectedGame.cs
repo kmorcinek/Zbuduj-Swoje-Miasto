@@ -6,6 +6,8 @@ namespace KMorcinek.TheCityCardGame
 {
     public class DisconnectedGame : IGameServer
     {
+        const int TotalPlayersCount = 2;
+
         public static DisconnectedGame Instance = new DisconnectedGame();
 
         readonly List<int> _connectedClients = new List<int>();
@@ -28,10 +30,9 @@ namespace KMorcinek.TheCityCardGame
                 // Simulate adding a client, in future it can be name and other info
                 _connectedClients.Add(count);
 
-                int totalPlayersCount = 2;
-                if (_connectedClients.Count == totalPlayersCount)
+                if (_connectedClients.Count == TotalPlayersCount)
                 {
-                    _board = Board.StartGame(totalPlayersCount);
+                    _board = Board.StartGame(TotalPlayersCount);
 
                     _isGameStarted = true;
                 }
