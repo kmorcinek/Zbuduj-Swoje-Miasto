@@ -8,7 +8,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public int Connect()
         {
-            var client = new RestClient(ServerUrl);
+            var client = GetRestClient();
             var request = new RestRequest("connect", Method.GET);
 
             return client.Execute<int>(request).Data;
@@ -16,7 +16,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public IPlayer GetState(int playerIndex)
         {
-            var client = new RestClient(ServerUrl);
+            var client = GetRestClient();
+
             var request = new RestRequest("state/{playerIndex}", Method.GET);
             request.AddUrlSegment("playerIndex", playerIndex.ToString());
 
@@ -26,6 +27,20 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)
         {
             throw new System.NotImplementedException();
+        }
+
+        static RestClient GetRestClient()
+        {
+            var client = new RestClient(ServerUrl);
+
+            // Override with Newtonsoft JSON Handler
+            client.AddHandler("application/json", NewtonsoftJsonSerializer.Default);
+            client.AddHandler("text/json", NewtonsoftJsonSerializer.Default);
+            client.AddHandler("text/x-json", NewtonsoftJsonSerializer.Default);
+            client.AddHandler("text/javascript", NewtonsoftJsonSerializer.Default);
+            client.AddHandler("*+json", NewtonsoftJsonSerializer.Default);
+
+            return client;
         }
     }
 }
