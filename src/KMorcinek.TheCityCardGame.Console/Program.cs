@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
+using Serilog;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
@@ -8,6 +9,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
     {
         static void Main()
         {
+            EnableSerilog();
+
             PlayDisconnectedGame();
         }
 
@@ -29,6 +32,17 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var client = new ClientForWeb();
 
             client.Start();
+        }
+
+        static void EnableSerilog()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console()
+                .WriteTo.Seq("http://localhost:5341")
+                .CreateLogger();
+
+            Log.Information("App started");
         }
     }
 }
