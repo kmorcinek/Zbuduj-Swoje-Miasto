@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KMorcinek.TheCityCardGame
+namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
     public class ConsoleColorChanger : IDisposable
     {
