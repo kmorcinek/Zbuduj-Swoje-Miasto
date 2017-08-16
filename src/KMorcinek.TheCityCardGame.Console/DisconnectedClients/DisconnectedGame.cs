@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 {
@@ -12,6 +13,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
         bool _isGameStarted;
         int _waitingForPlayerIndex;
         readonly object _syncRoot = new object();
+        readonly IMapper _mapper = AutoMapperConfig.GetMapper();
 
         DisconnectedGame()
         {
@@ -50,7 +52,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                 return null;
             }
 
-            return _board.Players.ElementAt(playerIndex);
+            return _mapper.Map<PlayerDto>(_board.Players.ElementAt(playerIndex));
         }
 
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)
