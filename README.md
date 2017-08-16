@@ -20,6 +20,8 @@ Answers:
 
 Next to implement:
 - http Server and one/two clients (on one ConsoleUI process first)
+  - Serializable first
+  - http next
 - Architect
 - Take 5 out of 7 at the begginging
 - Do not build - take 1 out of 5 cards.
