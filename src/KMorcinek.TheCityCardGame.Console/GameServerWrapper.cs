@@ -4,7 +4,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
     public class GameServerWrapper : IGameServer
     {
-        const string ServerUrl = "http://localhost:7820/api/game";
+        public const string ServerUrl = "http://localhost:7820/api/game";
 
         public int Connect()
         {

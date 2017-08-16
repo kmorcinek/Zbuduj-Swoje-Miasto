@@ -17,10 +17,6 @@ namespace KMorcinek.TheCityCardGame
         int _waitingForPlayerIndex;
         readonly object _syncRoot = new object();
 
-        DisconnectedGame()
-        {
-        }
-
         public int Connect()
         {
             lock (_syncRoot)
