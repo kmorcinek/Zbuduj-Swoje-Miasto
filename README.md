@@ -14,8 +14,11 @@ Game should orchestrate, play agains Board and take inputs
 - wip/done
 
 Questions:
-- Should the API take Cards on indexes?
+- Will Monad Serialize correctly over network?
 - How to allow comunication over http? Two processes? Two separate player classes? with on Console UI playing two players?
+
+Answers:
+- API should take indexes cause it will communicate over network
 
 Next to implement:
 - UT for HowManyCanDeal and CashPerOneCard
