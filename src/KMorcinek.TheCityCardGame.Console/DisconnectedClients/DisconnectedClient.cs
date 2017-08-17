@@ -108,9 +108,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
             Console.Write($"Choose action: {architectAction}P - play card, W - Wait and check 5 card and take 1: ");
 
-            string movaAsString = Console.ReadLine().Trim().ToUpperInvariant();
+            string moveAsString = Console.ReadLine().Trim().ToUpperInvariant();
 
-            switch (movaAsString)
+            switch (moveAsString)
             {
                 case "A":
                     return Move.Architect;
