@@ -49,10 +49,8 @@ namespace KMorcinek.TheCityCardGame
             }
 
             var playedCard = CardsInHand.ElementAt(cardIndex);
-            if (_requiredCardsCalculator.CanBePlayed(playedCard, this) == false)
-            {
-                throw new InvalidOperationException("Cannot play this card");
-            }
+
+            _requiredCardsCalculator.EnsureCanBePlayed(playedCard, this);
 
             if (cardsToDiscard.Distinct().Count() != cardsToDiscard.Count())
             {
