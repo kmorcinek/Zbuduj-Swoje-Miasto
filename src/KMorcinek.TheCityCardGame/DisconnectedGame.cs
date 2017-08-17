@@ -35,7 +35,7 @@ namespace KMorcinek.TheCityCardGame
                     _board = Board.StartGame(TotalPlayersCount);
 
                     _isGameStarted = true;
-                    Log.Information("Game is started with {TotalPlayersCount} player", TotalPlayersCount);
+                    Log.Information("Game is started with {TotalPlayersCount} players", TotalPlayersCount);
                 }
 
                 return count;
