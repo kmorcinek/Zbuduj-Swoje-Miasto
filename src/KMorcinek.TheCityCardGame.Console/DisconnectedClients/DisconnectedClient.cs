@@ -75,17 +75,26 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                         Console.WriteLine("Architect played");
                         break;
                     case Move.WaitAndTakeCard:
-                        See5CardsDto see5CardsDto = _game.See5Cards(_playerIndex);
-
-                        // TODO: just return first card
-                        //Game.WriteCards(see5CardsDto.Cards);
-                        CardEnum card = see5CardsDto.Cards.First();
-                        _game.TakeOneCard(_playerIndex, card);
+                        WaitAndTakeCard();
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             }
+        }
+
+        void WaitAndTakeCard()
+        {
+            See5CardsDto see5CardsDto = _game.See5Cards(_playerIndex);
+
+            Game.WriteCards(see5CardsDto.Cards.Select(Deck.GetCard));
+            Console.Write("Choose card index to take into hand:");
+
+            string line = Console.ReadLine();
+            int cardIndex = int.Parse(line);
+            CardEnum card = see5CardsDto.Cards.ElementAt(cardIndex);
+
+            _game.TakeOneCard(_playerIndex, card);
         }
 
         static Move GetMove(bool isArchitectPlayed)
