@@ -77,7 +77,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                     case Move.WaitAndTakeCard:
                         See5CardsDto see5CardsDto = _game.See5Cards(_playerIndex);
 
-                        CardEnum card = CardEnum.BusStation;
+                        // TODO: just return first card
+                        CardEnum card = see5CardsDto.Cards.First();
                         _game.TakeOneCard(_playerIndex, card);
                         break;
                     default:

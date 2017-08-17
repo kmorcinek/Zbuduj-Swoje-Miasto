@@ -59,7 +59,13 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public void TakeOneCard(int playerIndex, CardEnum card)
         {
-            throw new System.NotImplementedException();
+            var client = GetRestClient();
+
+            var request = new RestRequest("take-one-card/{playerIndex}/{cardEnum}", Method.GET);
+            request.AddUrlSegment("playerIndex", playerIndex.ToString());
+            request.AddUrlSegment("cardEnum", ((int)card).ToString());
+
+            client.Execute(request);
         }
 
         static RestClient GetRestClient()

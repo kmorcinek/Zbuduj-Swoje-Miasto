@@ -32,6 +32,7 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
         public void PlayCard(int playerIndex, [FromBody]PlayCardDto playCardDto)
         {
             Log.Debug("GameController.PlayCard()");
+
             _game.PlayCard(playerIndex, playCardDto.CardIndexToPlay, playCardDto.CardsToDiscard);
         }
 
@@ -39,7 +40,24 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
         public void GetPlayArchitect(int playerIndex)
         {
             Log.Debug("GameController.GetPlayArchitect()");
+
             _game.PlayArchitect(playerIndex);
+        }
+
+        [Route("see-5cards/{playerIndex}")]
+        public See5CardsDto GetSee5Cards(int playerIndex)
+        {
+            Log.Debug("GameController.GetSee5Cards()");
+
+            return _game.See5Cards(playerIndex);
+        }
+
+        [Route("take-one-card/{playerIndex}/{cardEnum}")]
+        public void GetTakeOneCard(int playerIndex, CardEnum card)
+        {
+            Log.Debug("GameController.GetTakeOneCard()");
+
+            _game.TakeOneCard(playerIndex, card);
         }
 
         // HACK: I have problems with debugging, so best is to always restart server explicit

@@ -18,14 +18,18 @@ namespace KMorcinek.TheCityCardGame
 
         public void PlayCard(int playerIndex, int cardIndex, IEnumerable<int> cardsToDiscard)
         {
-            // Play card
-            Players.ElementAt(playerIndex).PlayCard(cardIndex, cardsToDiscard);
+            Player player = Players.ElementAt(playerIndex);
 
-            // Count points
-            Players.ElementAt(playerIndex).UpdatePoints();
+            player.PlayCard(cardIndex, cardsToDiscard);
 
-            // Draw new cards
-            DrawNewCards(Players.ElementAt(playerIndex));
+            UpdatePointsAndDrawCards(player);
+        }
+
+        void UpdatePointsAndDrawCards(Player player)
+        {
+            player.UpdatePoints();
+
+            DrawNewCards(player);
         }
 
         public void DrawNewCards(Player player)
