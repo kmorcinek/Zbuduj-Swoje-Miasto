@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using KMorcinek.TheCityCardGame.SharedDtos;
@@ -43,12 +44,7 @@ namespace KMorcinek.TheCityCardGame
 
         public IPlayer GetState(int playerIndex)
         {
-            if (_isGameStarted == false)
-            {
-                return null;
-            }
-
-            if (playerIndex != _waitingForPlayerIndex)
+            if (IsWrongCall(playerIndex))
             {
                 return null;
             }
@@ -56,8 +52,23 @@ namespace KMorcinek.TheCityCardGame
             return _mapper.Map<PlayerDto>(_board.Players.ElementAt(playerIndex));
         }
 
+        bool IsWrongCall(int playerIndex)
+        {
+            return _isGameStarted == false || playerIndex != _waitingForPlayerIndex;
+        }
+
+        void EnsureCanPlay(int playerIndex)
+        {
+            if (IsWrongCall(playerIndex))
+            {
+                throw new InvalidOperationException("Cannot play card now");
+            }
+        }
+
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)
         {
+            EnsureCanPlay(playerIndex);
+
             lock (_syncRoot)
             {
                 _board.PlayCard(playerIndex, cardIndexToPlay, cardsToDiscard);
