@@ -122,6 +122,8 @@ namespace KMorcinek.TheCityCardGame
 
         void JumbToNextPlayer()
         {
+            Log.Debug("JumbToNextPlayer");
+
             _waitingForPlayerIndex++;
 
             if (_waitingForPlayerIndex >= _connectedClients.Count)
