@@ -79,6 +79,8 @@ namespace KMorcinek.TheCityCardGame
 
         public void PlayArchitect(int playerIndex)
         {
+            EnsureCanPlay(playerIndex);
+
             lock (_syncRoot)
             {
                 _board.PlayArchitect(playerIndex);
