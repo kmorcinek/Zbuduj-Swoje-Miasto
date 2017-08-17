@@ -43,7 +43,7 @@ namespace KMorcinek.TheCityCardGame
 
         public static Board StartGame(int playersCount)
         {
-            Deck wholeDeck = Deck.GetShuffledDeck();
+            Deck wholeDeck = Deck.GetHardcodedDeck();
 
             var players = new List<Player>();
             for (int i = 0; i < playersCount; i++)

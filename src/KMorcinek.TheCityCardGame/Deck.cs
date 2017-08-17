@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -9,7 +11,7 @@ namespace KMorcinek.TheCityCardGame
         {
         }
 
-        public static Deck GetShuffledDeck()
+        public static Deck GetHardcodedDeck()
         {
             var deck = new Card[]
             {
@@ -60,8 +62,36 @@ namespace KMorcinek.TheCityCardGame
                 Card.OfficeBuilding,
             };
 
-            // TODO: shuffle them
             return new Deck(deck);
+        }
+
+        public static Deck GetShufledDeck()
+        {
+            List<Card> allCardsForDeck = AllCardsForDeck.ToList();
+            int upperBound = allCardsForDeck.Count;
+
+            Random random = new Random();
+
+            List<Card> shuffled = new List<Card>(allCardsForDeck.Count);
+
+            while (upperBound > 0)
+            {
+                int next = random.Next(upperBound);
+
+                shuffled.Add(allCardsForDeck[next]);
+                allCardsForDeck.RemoveAt(next);
+
+                upperBound--;
+            }
+
+            return new Deck(shuffled.ToArray());
+        }
+
+        static readonly IEnumerable<Card> AllCardsForDeck = GetAllCardsForDeck();
+
+        static List<Card> GetAllCardsForDeck()
+        {
+            return Instance.SelectMany(x => Enumerable.Repeat(x.Value.Card, x.Value.Quantity)).ToList();
         }
 
         static readonly Dictionary<CardEnum, CardWithQuantity> Instance = Create();
