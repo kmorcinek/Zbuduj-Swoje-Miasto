@@ -55,8 +55,7 @@ namespace KMorcinek.TheCityCardGame.Tests
 
         static CashPointsCalculator CreateSut()
         {
-            var sut = new CashPointsCalculator();
-            return sut;
+            return new CashPointsCalculator();
         }
 
         static CardBuilder GetCardWithCashPoints(int cashPointsCount)
