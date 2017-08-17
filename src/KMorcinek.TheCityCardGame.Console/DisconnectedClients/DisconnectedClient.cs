@@ -32,19 +32,20 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
             while (true)
             {
-                TryMakeNextMove();
+                IPlayer player = _game.GetState(_playerIndex);
+
+                if (player != null)
+                {
+                    if (player.Points >= Player.PointsGoal)
+                    {
+                        Log.Information("Game took {turns} turns", player.Turn);
+                        return;
+                    }
+
+                    MakeNextMove(player);
+                }
 
                 Task.Delay(TimeSpan.FromSeconds(1)).Wait();
-            }
-        }
-
-        void TryMakeNextMove()
-        {
-            IPlayer player = _game.GetState(_playerIndex);
-
-            if (player != null)
-            {
-                MakeNextMove(player);
             }
         }
 
