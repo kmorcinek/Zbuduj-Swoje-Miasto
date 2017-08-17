@@ -74,6 +74,11 @@ namespace KMorcinek.TheCityCardGame
             }
         }
 
+        public void See5Cards(int playerIndex)
+        {
+            
+        }
+
         void JumbToNextPlayer()
         {
             _waitingForPlayerIndex++;

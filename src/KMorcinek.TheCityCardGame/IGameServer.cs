@@ -6,5 +6,6 @@
         IPlayer GetState(int playerIndex);
         void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard);
         void PlayArchitect(int playerIndex);
+        void See5Cards(int playerIndex);
     }
 }

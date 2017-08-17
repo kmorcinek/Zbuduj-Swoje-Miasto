@@ -73,6 +73,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                         _game.PlayArchitect(_playerIndex);
                         Console.WriteLine("Architect played");
                         break;
+                    case Move.WaitAndTakeCard:
+                        _game.See5Cards(_playerIndex);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -89,7 +92,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                 architectAction = ", A - architect";
             }
 
-            Console.Write($"Choose action{architectAction}, P - play card: "); // , C - check 5 card and take 1
+            Console.Write($"Choose action{architectAction}, P - play card, W - Wait, check 5 card and take 1: ");
 
             string movaAsString = Console.ReadLine().Trim().ToUpperInvariant();
 
@@ -99,6 +102,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                     return Move.Architect;
                 case "P":
                     return Move.PlayCard;
+                case "W":
+                    return Move.WaitAndTakeCard;
                 default:
                     throw new NotImplementedException("missing guards");
             }
