@@ -67,6 +67,10 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
                         Game.ShowPlayedCard(playedCard);
                         break;
+                    case Move.Architect:
+                        _game.PlayArchitect(_playerIndex);
+                        Console.WriteLine("Architect played");
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

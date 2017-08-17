@@ -68,5 +68,10 @@ namespace KMorcinek.TheCityCardGame
                 }
             }
         }
+
+        public void PlayArchitect(int playerIndex)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
