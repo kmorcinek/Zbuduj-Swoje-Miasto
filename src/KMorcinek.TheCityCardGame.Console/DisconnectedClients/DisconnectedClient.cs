@@ -56,12 +56,12 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
                 bool isArchitectPlayed = player.PlayedCards.Any(x => x.CardEnum == CardEnum.Architect);
 
-                Move move = GetMove(isArchitectPlayed);
+                MoveAndCardIndex move = GetMove(isArchitectPlayed);
 
-                switch (move)
+                switch (move.Move)
                 {
                     case Move.PlayCard:
-                        int cardIndexToPlay = Game.GetCardIndexToPlay();
+                        int cardIndexToPlay = move.CardIndex ?? Game.GetCardIndexToPlay();
                         int[] cardsToDiscard = Game.GetCardIndexesToDiscard();
 
                         Card playedCard = player.CardsInHand.ElementAt(cardIndexToPlay);
@@ -97,7 +97,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             _game.TakeOneCard(_playerIndex, card);
         }
 
-        static Move GetMove(bool isArchitectPlayed)
+        static MoveAndCardIndex GetMove(bool isArchitectPlayed)
         {
             string architectAction = "";
 
@@ -113,13 +113,36 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             switch (moveAsString)
             {
                 case "A":
-                    return Move.Architect;
+                    return new MoveAndCardIndex(Move.Architect);
                 case "P":
-                    return Move.PlayCard;
+                    return new MoveAndCardIndex(Move.PlayCard);
                 case "W":
-                    return Move.WaitAndTakeCard;
+                    return new MoveAndCardIndex(Move.WaitAndTakeCard);
                 default:
+                    int value;
+                    if (int.TryParse(moveAsString, out value))
+                    {
+                        return new MoveAndCardIndex(Move.PlayCard, value);
+                    }
+
                     throw new NotImplementedException("missing guards");
+            }
+        }
+
+        class MoveAndCardIndex
+        {
+            public Move Move { get; }
+            public int? CardIndex { get; }
+
+            public MoveAndCardIndex(Move move)
+            {
+                Move = move;
+            }
+
+            public MoveAndCardIndex(Move move, int cardIndex)
+                : this(move)
+            {
+                CardIndex = cardIndex;
             }
         }
     }
