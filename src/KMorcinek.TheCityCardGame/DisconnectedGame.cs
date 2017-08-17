@@ -114,7 +114,7 @@ namespace KMorcinek.TheCityCardGame
                 // TODO: implemet 5 cards shown to who
                 Card choosenCard = _drawAndSee5Cards.Single(x => x.CardEnum == card);
 
-                _board.Players.ElementAt(playerIndex).AddDealtCards(new[] { choosenCard }); 
+                _board.Players.ElementAt(playerIndex).AddDealtCards(new[] { choosenCard });
 
                 JumbToNextPlayer();
             }
