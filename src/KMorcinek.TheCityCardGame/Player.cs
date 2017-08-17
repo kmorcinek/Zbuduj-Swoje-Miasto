@@ -55,7 +55,7 @@ namespace KMorcinek.TheCityCardGame
 
             if (cardsToDiscard.Distinct().Count() != cardsToDiscard.Count())
             {
-                throw new InvalidOperationException("Cannot discard the same card");
+                throw new InvalidOperationException("Cannot discard the same card twice");
             }
 
             if (cardsToDiscard.Contains(cardIndex))
