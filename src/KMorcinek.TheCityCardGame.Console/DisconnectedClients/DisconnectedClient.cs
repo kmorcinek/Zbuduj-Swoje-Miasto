@@ -49,7 +49,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             }
         }
 
-        void MakeNextMove(IPlayer player)
+        protected virtual void MakeNextMove(IPlayer player)
         {
             using (new ConsoleColorChanger(Game.Colors[_playerIndex]))
             {
