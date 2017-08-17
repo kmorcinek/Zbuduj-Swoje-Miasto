@@ -7,7 +7,7 @@ namespace KMorcinek.TheCityCardGame
     public class Player : IPlayer
     {
         const int HandCapacity = 12;
-        public const int PointsGoal = 50;
+        public const int PointsGoal = 5;
 
         public IEnumerable<Card> CardsInHand => _cardsInHand;
         public IEnumerable<Card> PlayedCards => _playedCards;
