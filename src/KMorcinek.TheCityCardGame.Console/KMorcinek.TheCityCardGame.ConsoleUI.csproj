@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bots\Bot.cs" />
     <Compile Include="Bots\BotForWeb.cs" />
     <Compile Include="ConsoleColorChanger.cs" />
     <Compile Include="DisconnectedClients\ClientForWeb.cs" />

@@ -8,6 +8,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 {
     public class DisconnectedClient
     {
+        protected IGameServer GameServer => _game;
+        protected int PlayerIndex => _playerIndex;
+
         readonly IGameServer _game;
 
         int _playerIndex;
