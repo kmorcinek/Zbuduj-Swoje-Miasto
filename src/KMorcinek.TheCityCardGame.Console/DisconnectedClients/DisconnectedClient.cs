@@ -84,7 +84,6 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-
             }
         }
 
