@@ -19,7 +19,7 @@ namespace KMorcinek.TheCityCardGame
         Board _board;
         bool _isGameStarted;
         int _waitingForPlayerIndex;
-        IEnumerable<Card> _drawAndSee5Cards;
+        Card[] _drawAndSee5Cards;
 
         public int Connect()
         {
@@ -96,7 +96,7 @@ namespace KMorcinek.TheCityCardGame
             lock (_syncRoot)
             {
                 // TODO: implemet 5 cards shown to who per user, and disallow brute force choosing cards
-                _drawAndSee5Cards = _board.DrawAndSee5Cards();
+                _drawAndSee5Cards = _board.DrawAndSee5Cards().ToArray();
 
                 return new See5CardsDto
                 {
