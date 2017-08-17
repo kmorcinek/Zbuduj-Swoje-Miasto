@@ -91,6 +91,8 @@ namespace KMorcinek.TheCityCardGame
 
         public See5CardsDto See5Cards(int playerIndex)
         {
+            EnsureCanPlay(playerIndex);
+
             lock (_syncRoot)
             {
                 // TODO: implemet 5 cards shown to who per user, and disallow brute force choosing cards
@@ -105,6 +107,8 @@ namespace KMorcinek.TheCityCardGame
 
         public void TakeOneCard(int playerIndex, CardEnum card)
         {
+            EnsureCanPlay(playerIndex);
+
             lock (_syncRoot)
             {
                 // TODO: implemet 5 cards shown to who
