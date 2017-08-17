@@ -27,8 +27,6 @@ Next to implement:
     - even after finishing a game (50p) we have to start another one (new id?)
   - pass an argument that will (--restart) old game and start new.
 - How Move is implemented on UI side is up to the consumer, focus on Server API
-- Make Move distinction (Architect, Card, NoCard) on UI part - check
-- Architect
 - Take 5 out of 7 at the begginging
 - Do not build - take 1 out of 5 cards.
 - Finish game (by 50? points)
