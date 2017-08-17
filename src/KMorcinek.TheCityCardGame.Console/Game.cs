@@ -6,7 +6,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
     public class Game
     {
-        public static ConsoleColor[] Colors = { ConsoleColor.Blue, ConsoleColor.White };
+        public static ConsoleColor[] Colors => new[]
+        {
+            ConsoleColor.Blue,
+            ConsoleColor.White
+        };
 
         public static void PlayGame()
         {
