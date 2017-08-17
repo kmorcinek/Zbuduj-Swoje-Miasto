@@ -37,15 +37,8 @@ namespace KMorcinek.TheCityCardGame
         {
             int cardsToDeal = new CashPointsCalculator().HowManyCashPoints(player.PlayedCards);
 
-            List<Card> cards = new List<Card>(cardsToDeal);
-
-            for (int i = 0; i < cardsToDeal; i++)
-            {
-                cards.Add(Deck.Pop());
-            }
-
             // TODO: can not deal more than 12
-            player.AddDealtCards(cards);
+            player.AddDealtCards(DrawCards(Deck, cardsToDeal));
         }
 
         public static Board StartGame(int playersCount)
