@@ -77,7 +77,10 @@ namespace KMorcinek.TheCityCardGame
 
         public See5CardsDto See5Cards(int playerIndex)
         {
-            return null;
+            return new See5CardsDto
+            {
+                Cards = _board.DrawAndSee5Cards()
+            };
         }
 
         void JumbToNextPlayer()

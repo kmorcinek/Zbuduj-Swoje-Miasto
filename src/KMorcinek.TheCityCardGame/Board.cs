@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using KMorcinek.TheCityCardGame.SharedDtos;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -60,7 +61,7 @@ namespace KMorcinek.TheCityCardGame
             return DrawCards(wholeDeck, 5);
         }
 
-        static IEnumerable<Card> DrawCards(Deck wholeDeck, int count)
+        public static IEnumerable<Card> DrawCards(Deck wholeDeck, int count)
         {
             List<Card> cards = new List<Card>();
 
@@ -82,6 +83,12 @@ namespace KMorcinek.TheCityCardGame
 
             // Draw new cards
             DrawNewCards(Players.ElementAt(playerIndex));
+        }
+
+        public IEnumerable<CardEnum> DrawAndSee5Cards()
+        {
+            // TODO: implemet 5 cards shown to who
+            return DrawCards(Deck, 5).Select(x => x.CardEnum);
         }
     }
 }
