@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -134,7 +135,19 @@ namespace KMorcinek.TheCityCardGame
                 ////{ CardEnum.Villa, new CardWithQuantity(Card.Villa, 2) },
             };
 
+            CheckForBugs(cards);
+
             return cards;
+        }
+
+        static void CheckForBugs(Dictionary<CardEnum, CardWithQuantity> dict)
+        {
+            IEnumerable<CardEnum> cards = dict.Select(x => x.Value.Card.CardEnum);
+
+            if (cards.Distinct().Count() != dict.Count)
+            {
+                throw new InvalidOperationException("Something wrong with Card definitions");
+            }
         }
 
         public static Card GetCard(CardEnum cardEnum)
