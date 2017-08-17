@@ -83,7 +83,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             int i = 0;
             foreach (var card in playerCardsInHand)
             {
-                Console.WriteLine($"\t[{i}]{card.CardEnum} ({card.Cost})");
+                Console.WriteLine($"\t[{i}]{card.CardEnum} \t({card.Cost}, {card.CashPoints}, {card.WinPoints})");
 
                 i++;
             }
