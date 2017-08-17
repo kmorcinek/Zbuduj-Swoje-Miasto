@@ -101,11 +101,11 @@ namespace KMorcinek.TheCityCardGame
         {
             var cards = new Dictionary<CardEnum, CardWithQuantity>
             {
+                ////{ CardEnum.Architect, new CardWithQuantity(Card.Architect, 2) },
                 // 0
                 { CardEnum.Parking, new CardWithQuantity(Card.Parking, 2) },
 
                 // 1
-                { CardEnum.Architect, new CardWithQuantity(Card.Architect, 2) },
                 { CardEnum.BusStation, new CardWithQuantity(Card.BusStation, 2) },
                 { CardEnum.ConstructionCrew, new CardWithQuantity(Card.ConstructionCrew, 2) },
                 { CardEnum.House, new CardWithQuantity(Card.House, 2) },
