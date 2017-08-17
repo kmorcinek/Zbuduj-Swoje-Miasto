@@ -7,5 +7,6 @@ namespace KMorcinek.TheCityCardGame
         IEnumerable<Card> CardsInHand { get; }
         IEnumerable<Card> PlayedCards { get; }
         int Points { get; }
+        int Turn { get; }
     }
 }

@@ -12,11 +12,13 @@ namespace KMorcinek.TheCityCardGame
         public IEnumerable<Card> PlayedCards => _playedCards;
 
         public int Points => _points;
+        public int Turn => _turn;
 
         readonly RequiredCardsCalculator _requiredCardsCalculator;
         readonly LinkedList<Card> _playedCards;
         readonly List<Card> _cardsInHand;
         int _points;
+        int _turn;
 
         public Player(IEnumerable<Card> startingCards)
         {
@@ -75,6 +77,8 @@ namespace KMorcinek.TheCityCardGame
             var newPoints = new WinningPointsCalculator().Calculate(PlayedCards);
 
             _points += newPoints;
+
+            _turn++;
         }
 
         public void AddDealtCards(IEnumerable<Card> cards)
