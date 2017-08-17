@@ -34,19 +34,18 @@ namespace KMorcinek.TheCityCardGame
 
         static int CalculateCashPerEachCard(IEnumerable<Card> playedCards)
         {
-            int extraPoints = 0;
-            foreach (var playedCard in playedCards)
+            return playedCards.Select(playedCard =>
             {
                 CardWithCount extraPointsCard = playedCard.CashPerEachCard;
-                if (extraPointsCard != null)
+                if (extraPointsCard == null)
                 {
-                    int count = playedCards.Count(x => x.CardEnum == extraPointsCard.Card);
-
-                    extraPoints += extraPointsCard.Count * count;
+                    return 0;
                 }
-            }
 
-            return extraPoints;
+                int count = playedCards.Count(x => x.CardEnum == extraPointsCard.Card);
+
+                return extraPointsCard.Count * count;
+            }).Sum();
         }
     }
 }
