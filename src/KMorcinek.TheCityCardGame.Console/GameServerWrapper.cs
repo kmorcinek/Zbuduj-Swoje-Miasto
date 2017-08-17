@@ -1,4 +1,5 @@
-﻿using KMorcinek.TheCityCardGame.SharedDtos;
+﻿using System.Net;
+using KMorcinek.TheCityCardGame.SharedDtos;
 using RestSharp;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
@@ -91,6 +92,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             if (response.ErrorException != null)
             {
                 throw response.ErrorException;
+            }
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                throw new WebException(response.Content);
             }
         }
 
