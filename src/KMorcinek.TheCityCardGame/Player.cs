@@ -7,6 +7,7 @@ namespace KMorcinek.TheCityCardGame
     public class Player : IPlayer
     {
         const int HandCapacity = 12;
+        public const int PointsGoal = 50;
 
         public IEnumerable<Card> CardsInHand => _cardsInHand;
         public IEnumerable<Card> PlayedCards => _playedCards;
@@ -89,6 +90,11 @@ namespace KMorcinek.TheCityCardGame
         public void PlayArchitect()
         {
             _playedCards.AddLast(Card.Architect);
+        }
+
+        public bool IsWinner()
+        {
+            return Points >= PointsGoal;
         }
     }
 }
