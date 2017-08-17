@@ -93,10 +93,10 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
             if (isArchitectPlayed == false)
             {
-                architectAction = ", A - architect";
+                architectAction = "A - architect, ";
             }
 
-            Console.Write($"Choose action{architectAction}, P - play card, W - Wait and check 5 card and take 1: ");
+            Console.Write($"Choose action: {architectAction}P - play card, W - Wait and check 5 card and take 1: ");
 
             string movaAsString = Console.ReadLine().Trim().ToUpperInvariant();
 
