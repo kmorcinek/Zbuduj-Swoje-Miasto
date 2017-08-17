@@ -5,26 +5,47 @@ namespace KMorcinek.TheCityCardGame
 {
     public class RequiredCardsCalculator
     {
-        public bool CanBePlayed(Card card, Player player)
+        public void EnsureCanBePlayed(Card card, Player player)
         {
             bool isCardFree = card.Cost == 0;
 
             // TODO: test checking if played card is not counted as discarded
             bool simpleBuildingMet = isCardFree || card.Cost <= player.CardsInHand.Count() - 1;
 
-            bool cardsRequirementsMet = IsCardRequirementMet(card.RequiredCards, player.PlayedCards);
+            if (simpleBuildingMet == false)
+            {
+                throw new CannotPlayCardException("Cannot afford to play this card");
+            }
 
-            return simpleBuildingMet && cardsRequirementsMet;
+            EnsureCardRequirementMet(card.RequiredCards, player.PlayedCards);
         }
 
-        static bool IsCardRequirementMet(IEnumerable<CardEnum> requiredCards, IEnumerable<Card> playedCards)
+        public bool CanBePlayed(Card card, Player player)
+        {
+            try
+            {
+                EnsureCanBePlayed(card, player);
+
+                return true;
+            }
+            catch (CannotPlayCardException)
+            {
+                return false;
+            }
+        }
+
+        static void EnsureCardRequirementMet(IEnumerable<CardEnum> requiredCards, IEnumerable<Card> playedCards)
         {
             if (requiredCards.Any() == false)
             {
-                return true;
+                return;
             }
 
-            return playedCards.Any(x => requiredCards.Contains(x.CardEnum));
+            bool isAnyRequiredCard = playedCards.Any(x => requiredCards.Contains(x.CardEnum));
+            if (isAnyRequiredCard == false)
+            {
+                throw new CannotPlayCardException();
+            }
         }
     }
 }
