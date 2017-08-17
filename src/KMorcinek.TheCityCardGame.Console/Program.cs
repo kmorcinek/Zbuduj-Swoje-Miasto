@@ -40,6 +40,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             }
 
             StartClient();
+
+            Console.ReadLine();
         }
 
         static void RestartServer()
