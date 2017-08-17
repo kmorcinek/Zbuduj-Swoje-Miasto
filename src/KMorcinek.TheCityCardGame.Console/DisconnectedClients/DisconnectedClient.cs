@@ -78,6 +78,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                         See5CardsDto see5CardsDto = _game.See5Cards(_playerIndex);
 
                         // TODO: just return first card
+                        //Game.WriteCards(see5CardsDto.Cards);
                         CardEnum card = see5CardsDto.Cards.First();
                         _game.TakeOneCard(_playerIndex, card);
                         break;

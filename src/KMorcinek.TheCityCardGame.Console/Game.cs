@@ -77,7 +77,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             WriteCards(player.CardsInHand);
         }
 
-        static void WriteCards(IEnumerable<Card> playerCardsInHand)
+        public static void WriteCards(IEnumerable<Card> playerCardsInHand)
         {
             // TODO: add foreachWithIndex method
             int i = 0;
