@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="Bots\Bot.cs" />
     <Compile Include="CardWithCount.cs" />
     <Compile Include="CashPointsCalculator.cs" />
     <Compile Include="DisconnectedGame.cs" />
