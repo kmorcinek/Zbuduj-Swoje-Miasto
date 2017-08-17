@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Linq;
+using System.Net;
 using KMorcinek.TheCityCardGame.SharedDtos;
 using RestSharp;
 
@@ -78,9 +79,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         {
             var client = GetRestClient();
 
-            var request = new RestRequest("take-one-card/{playerIndex}/{cardEnum}", Method.GET);
-            request.AddUrlSegment("playerIndex", playerIndex.ToString());
-            request.AddUrlSegment("cardEnum", ((int)card).ToString());
+            const string playerIndexName = "playerIndex";
+            const string cardEnumName = "cardEnum";
+            var request = new RestRequest("take-one-card/{" + playerIndexName + "}/{" + cardEnumName + "}", Method.GET);
+            request.AddUrlSegment(playerIndexName, playerIndex.ToString());
+            request.AddUrlSegment(cardEnumName, ((int)card).ToString());
 
             var response = client.Execute(request);
 
@@ -94,7 +97,13 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
                 throw response.ErrorException;
             }
 
-            if (response.StatusCode != HttpStatusCode.OK)
+            var correctCodes = new[]
+            {
+                HttpStatusCode.OK,
+                HttpStatusCode.NoContent,
+            };
+
+            if (correctCodes.Contains(response.StatusCode) == false)
             {
                 throw new WebException(response.Content);
             }
