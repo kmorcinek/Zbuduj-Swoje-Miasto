@@ -56,7 +56,8 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
         public void GetTakeOneCard(int playerIndex, int cardIndex)
         {
             CardEnum card = (CardEnum)cardIndex;
-            Log.Debug("GameController.GetTakeOneCard()");
+
+            Log.Debug("GameController.GetTakeOneCard() - {card}", card.ToString());
 
             _game.TakeOneCard(playerIndex, card);
         }
