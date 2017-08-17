@@ -79,14 +79,11 @@ namespace KMorcinek.TheCityCardGame
 
         public void PlayArchitect(int playerIndex)
         {
-            // Play card
-            Players.ElementAt(playerIndex).PlayArchitect();
+            Player player = Players.ElementAt(playerIndex);
 
-            // Count points
-            Players.ElementAt(playerIndex).UpdatePoints();
+            player.PlayArchitect();
 
-            // Draw new cards
-            DrawNewCards(Players.ElementAt(playerIndex));
+            UpdatePointsAndDrawCards(player);
         }
 
         public IEnumerable<Card> DrawAndSee5Cards()
