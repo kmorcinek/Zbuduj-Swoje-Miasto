@@ -9,7 +9,7 @@ namespace KMorcinek.TheCityCardGame
 {
     public class DisconnectedGame : IGameServer
     {
-        const int TotalPlayersCount = 2;
+        public const int TotalPlayersCount = 2;
 
         public static DisconnectedGame Instance { get; } = new DisconnectedGame();
 
