@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using KMorcinek.TheCityCardGame.SharedDtos;
+using Serilog;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -82,6 +83,17 @@ namespace KMorcinek.TheCityCardGame
             Player player = Players.ElementAt(playerIndex);
 
             player.PlayArchitect();
+
+            UpdatePointsAndDrawCards(player);
+        }
+
+        public void TakeOneCard(int playerIndex, Card card)
+        {
+            Log.Debug("Player chooses card {card}", card.CardEnum.ToString());
+
+            Player player = Players.ElementAt(playerIndex);
+
+            player.AddDealtCards(new[] { card });
 
             UpdatePointsAndDrawCards(player);
         }

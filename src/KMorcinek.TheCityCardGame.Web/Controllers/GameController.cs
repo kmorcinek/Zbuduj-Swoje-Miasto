@@ -52,9 +52,10 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
             return _game.See5Cards(playerIndex);
         }
 
-        [Route("take-one-card/{playerIndex}/{cardEnum}")]
-        public void GetTakeOneCard(int playerIndex, CardEnum card)
+        [Route("take-one-card/{playerIndex}/{cardIndex}")]
+        public void GetTakeOneCard(int playerIndex, int cardIndex)
         {
+            CardEnum card = (CardEnum)cardIndex;
             Log.Debug("GameController.GetTakeOneCard()");
 
             _game.TakeOneCard(playerIndex, card);
