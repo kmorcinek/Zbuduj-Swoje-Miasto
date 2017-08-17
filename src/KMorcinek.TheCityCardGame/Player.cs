@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Serilog;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -66,6 +67,8 @@ namespace KMorcinek.TheCityCardGame
             {
                 _cardsInHand.RemoveAt(indexToDiscard);
             }
+
+            Log.Debug("Played card: {card}", playedCard.CardEnum);
 
             _cardsInHand.Remove(playedCard);
             _playedCards.AddLast(playedCard);
