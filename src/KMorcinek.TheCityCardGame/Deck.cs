@@ -67,7 +67,7 @@ namespace KMorcinek.TheCityCardGame
 
         public static Deck GetShufledDeck()
         {
-            List<Card> allCardsForDeck = AllCardsForDeck.ToList();
+            List<Card> allCardsForDeck = GetAllCardsForDeck().AsEnumerable().ToList();
             int upperBound = allCardsForDeck.Count;
 
             Random random = new Random();
@@ -87,7 +87,8 @@ namespace KMorcinek.TheCityCardGame
             return new Deck(shuffled.ToArray());
         }
 
-        static readonly IEnumerable<Card> AllCardsForDeck = GetAllCardsForDeck();
+        // TODO: Type Initializer error on below line
+        //// readonly IEnumerable<Card> AllCardsForDeck = GetAllCardsForDeck();
 
         static List<Card> GetAllCardsForDeck()
         {
