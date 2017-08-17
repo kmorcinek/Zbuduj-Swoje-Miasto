@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using KMorcinek.TheCityCardGame.SharedDtos;
 using Serilog;
 
 namespace KMorcinek.TheCityCardGame
@@ -74,9 +75,9 @@ namespace KMorcinek.TheCityCardGame
             }
         }
 
-        public void See5Cards(int playerIndex)
+        public See5CardsDto See5Cards(int playerIndex)
         {
-            
+            return null;
         }
 
         void JumbToNextPlayer()

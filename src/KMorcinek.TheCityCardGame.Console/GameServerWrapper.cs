@@ -47,6 +47,16 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             client.Execute(request);
         }
 
+        public See5CardsDto See5Cards(int playerIndex)
+        {
+            var client = GetRestClient();
+
+            var request = new RestRequest("see-5cards/{playerIndex}", Method.GET);
+            request.AddUrlSegment("playerIndex", playerIndex.ToString());
+
+            return client.Execute<See5CardsDto>(request).Data;
+        }
+
         static RestClient GetRestClient()
         {
             var client = new RestClient(ServerUrl);

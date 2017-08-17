@@ -49,17 +49,22 @@ namespace KMorcinek.TheCityCardGame
             var players = new List<Player>();
             for (int i = 0; i < playersCount; i++)
             {
-                players.Add(new Player(DrawStartingCards(wholeDeck)));
+                players.Add(new Player(DrawStartingHand(wholeDeck)));
             }
 
             return new Board(wholeDeck, players.ToArray());
         }
 
-        static IEnumerable<Card> DrawStartingCards(Deck wholeDeck)
+        static IEnumerable<Card> DrawStartingHand(Deck wholeDeck)
+        {
+            return DrawCards(wholeDeck, 5);
+        }
+
+        static IEnumerable<Card> DrawCards(Deck wholeDeck, int count)
         {
             List<Card> cards = new List<Card>();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < count; i++)
             {
                 cards.Add(wholeDeck.Pop());
             }

@@ -1,4 +1,6 @@
-﻿namespace KMorcinek.TheCityCardGame
+﻿using KMorcinek.TheCityCardGame.SharedDtos;
+
+namespace KMorcinek.TheCityCardGame
 {
     public interface IGameServer
     {
@@ -6,6 +8,6 @@
         IPlayer GetState(int playerIndex);
         void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard);
         void PlayArchitect(int playerIndex);
-        void See5Cards(int playerIndex);
+        See5CardsDto See5Cards(int playerIndex);
     }
 }
