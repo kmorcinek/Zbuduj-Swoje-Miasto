@@ -85,7 +85,7 @@ namespace KMorcinek.TheCityCardGame
                 .Requires(CardEnum.House, CardEnum.Housing, CardEnum.Villa);
 
         public static Card Supermarket =>
-            new CardBuilder(CardEnum.School, 1, 1, 0)
+            new CardBuilder(CardEnum.Supermarket, 1, 1, 0)
                 .Requires(CardEnum.House, CardEnum.Housing, CardEnum.RoadConnection);
 
         // 2
