@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using KMorcinek.TheCityCardGame.SharedDtos;
 using Serilog;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
@@ -74,7 +75,10 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                         Console.WriteLine("Architect played");
                         break;
                     case Move.WaitAndTakeCard:
-                        _game.See5Cards(_playerIndex);
+                        See5CardsDto see5CardsDto = _game.See5Cards(_playerIndex);
+
+                        CardEnum card = CardEnum.BusStation;
+                        _game.TakeOneCard(_playerIndex, card);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

@@ -9,5 +9,6 @@ namespace KMorcinek.TheCityCardGame
         void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard);
         void PlayArchitect(int playerIndex);
         See5CardsDto See5Cards(int playerIndex);
+        void TakeOneCard(int playerIndex, CardEnum card);
     }
 }

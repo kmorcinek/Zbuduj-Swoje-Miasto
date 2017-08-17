@@ -83,6 +83,12 @@ namespace KMorcinek.TheCityCardGame
             };
         }
 
+        public void TakeOneCard(int playerIndex, CardEnum card)
+        {
+            // TODO: implemet 5 cards shown to who
+            _board.Players.ElementAt(playerIndex).AddDealtCards(new Card[0]);
+        }
+
         void JumbToNextPlayer()
         {
             _waitingForPlayerIndex++;

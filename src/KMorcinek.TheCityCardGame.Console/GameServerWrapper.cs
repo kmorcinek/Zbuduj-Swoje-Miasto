@@ -57,6 +57,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             return client.Execute<See5CardsDto>(request).Data;
         }
 
+        public void TakeOneCard(int playerIndex, CardEnum card)
+        {
+            throw new System.NotImplementedException();
+        }
+
         static RestClient GetRestClient()
         {
             var client = new RestClient(ServerUrl);
