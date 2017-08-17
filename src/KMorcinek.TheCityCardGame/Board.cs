@@ -85,10 +85,10 @@ namespace KMorcinek.TheCityCardGame
             DrawNewCards(Players.ElementAt(playerIndex));
         }
 
-        public IEnumerable<CardEnum> DrawAndSee5Cards()
+        public IEnumerable<Card> DrawAndSee5Cards()
         {
             // TODO: implemet 5 cards shown to who
-            return DrawCards(Deck, 5).Select(x => x.CardEnum);
+            return DrawCards(Deck, 5);
         }
     }
 }

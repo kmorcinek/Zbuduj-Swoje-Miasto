@@ -18,6 +18,7 @@ namespace KMorcinek.TheCityCardGame
         Board _board;
         bool _isGameStarted;
         int _waitingForPlayerIndex;
+        IEnumerable<Card> _drawAndSee5Cards;
 
         public int Connect()
         {
@@ -77,16 +78,24 @@ namespace KMorcinek.TheCityCardGame
 
         public See5CardsDto See5Cards(int playerIndex)
         {
-            return new See5CardsDto
+            lock (_syncRoot)
             {
-                Cards = _board.DrawAndSee5Cards()
-            };
+                // TODO: implemet 5 cards shown to who per user
+                _drawAndSee5Cards = _board.DrawAndSee5Cards();
+
+                return new See5CardsDto
+                {
+                    Cards = _drawAndSee5Cards.Select(x => x.CardEnum)
+                };
+            }
         }
 
         public void TakeOneCard(int playerIndex, CardEnum card)
         {
             // TODO: implemet 5 cards shown to who
-            _board.Players.ElementAt(playerIndex).AddDealtCards(new Card[0]);
+            Card choosenCard = _drawAndSee5Cards.Single(x => x.CardEnum == card);
+
+            _board.Players.ElementAt(playerIndex).AddDealtCards(new[] { choosenCard });
         }
 
         void JumbToNextPlayer()
