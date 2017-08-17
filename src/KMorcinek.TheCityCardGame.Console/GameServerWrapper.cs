@@ -12,7 +12,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var client = GetRestClient();
             var request = new RestRequest("connect", Method.GET);
 
-            return client.Execute<int>(request).Data;
+            var response = client.Execute<int>(request);
+
+            ThrowWhenEx(response);
+
+            return response.Data;
         }
 
         public IPlayer GetState(int playerIndex)
@@ -22,7 +26,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var request = new RestRequest("state/{playerIndex}", Method.GET);
             request.AddUrlSegment("playerIndex", playerIndex.ToString());
 
-            return client.Execute<PlayerDto>(request).Data;
+            var response = client.Execute<PlayerDto>(request);
+
+            ThrowWhenEx(response);
+
+            return response.Data;
         }
 
         public void PlayCard(int playerIndex, int cardIndexToPlay, int[] cardsToDiscard)
@@ -34,7 +42,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             request.RequestFormat = DataFormat.Json;
             request.AddBody(new PlayCardDto(cardIndexToPlay, cardsToDiscard));
 
-            client.Execute(request);
+            var response = client.Execute(request);
+
+            ThrowWhenEx(response);
         }
 
         public void PlayArchitect(int playerIndex)
@@ -44,7 +54,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var request = new RestRequest("play-architect/{playerIndex}", Method.GET);
             request.AddUrlSegment("playerIndex", playerIndex.ToString());
 
-            client.Execute(request);
+            var response = client.Execute(request);
+
+            ThrowWhenEx(response);
         }
 
         public See5CardsDto See5Cards(int playerIndex)
@@ -54,7 +66,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var request = new RestRequest("see-5cards/{playerIndex}", Method.GET);
             request.AddUrlSegment("playerIndex", playerIndex.ToString());
 
-            return client.Execute<See5CardsDto>(request).Data;
+            var response = client.Execute<See5CardsDto>(request);
+
+            ThrowWhenEx(response);
+
+            return response.Data;
         }
 
         public void TakeOneCard(int playerIndex, CardEnum card)
@@ -65,7 +81,17 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             request.AddUrlSegment("playerIndex", playerIndex.ToString());
             request.AddUrlSegment("cardEnum", ((int)card).ToString());
 
-            client.Execute(request);
+            var response = client.Execute(request);
+
+            ThrowWhenEx(response);
+        }
+
+        static void ThrowWhenEx(IRestResponse response)
+        {
+            if (response.ErrorException != null)
+            {
+                throw response.ErrorException;
+            }
         }
 
         static RestClient GetRestClient()
