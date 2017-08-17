@@ -12,31 +12,6 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             ConsoleColor.White
         };
 
-        public static void PlayGame()
-        {
-            var board = Board.StartGame(2);
-
-            while (true)
-            {
-                for (int i = 0; i < board.Players.Count(); i++)
-                {
-                    using (new ConsoleColorChanger(Colors[i]))
-                    {
-                        ShowCards(board.Players.ElementAt(i));
-
-                        int cardIndexToPlay = GetCardIndexToPlay();
-                        int[] cardsToDiscard = GetCardIndexesToDiscard();
-
-                        Card playedCard = board.Players.ElementAt(i).CardsInHand.ElementAt(cardIndexToPlay);
-
-                        board.PlayCard(i, cardIndexToPlay, cardsToDiscard);
-
-                        ShowPlayedCard(playedCard);
-                    }
-                }
-            }
-        }
-
         public static void ShowPlayedCard(Card card)
         {
             Console.WriteLine($"\tPlayed card: {card.CardEnum}");
