@@ -5,7 +5,7 @@ namespace KMorcinek.TheCityCardGame
 {
     public class RequiredCardsCalculator
     {
-        public void EnsureCanBePlayed(Card card, Player player)
+        public void EnsureCanBePlayed(Card card, IPlayer player)
         {
             bool isCardFree = card.Cost == 0;
 
@@ -20,7 +20,7 @@ namespace KMorcinek.TheCityCardGame
             EnsureCardRequirementMet(card.RequiredCards, player.PlayedCards);
         }
 
-        public bool CanBePlayed(Card card, Player player)
+        public bool CanBePlayed(Card card, IPlayer player)
         {
             try
             {

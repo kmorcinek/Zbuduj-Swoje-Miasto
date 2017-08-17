@@ -18,6 +18,7 @@ Answers:
 - API should take indexes cause it will communicate over network
 
 Next to implement:
+- DisconnectedClient and Bot to Core project
 - Finish game (by 50? points) - needed only for Bots
 - Bots:
   - funkcja celu: zdobyć 50 punktów w jak najkrótszej liczbie ruchów.

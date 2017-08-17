@@ -1,6 +1,4 @@
-﻿using KMorcinek.TheCityCardGame.Bots;
-
-namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
+﻿namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
 {
     public class BotForWeb : Bot
     {

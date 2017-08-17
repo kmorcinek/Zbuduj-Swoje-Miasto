@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardTests.cs" />
+    <Compile Include="Bots\BotTests.cs" />
     <Compile Include="CashPointsCalculatorTests.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +80,10 @@
     <Compile Include="WinningPointsCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KMorcinek.TheCityCardGame.Console\KMorcinek.TheCityCardGame.ConsoleUI.csproj">
+      <Project>{8B605E40-1890-43F2-94AD-29814C8A34DA}</Project>
+      <Name>KMorcinek.TheCityCardGame.ConsoleUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KMorcinek.TheCityCardGame\KMorcinek.TheCityCardGame.csproj">
       <Project>{85ffed1b-8da3-49fc-81f7-a1de0ef1e1fc}</Project>
       <Name>KMorcinek.TheCityCardGame</Name>
