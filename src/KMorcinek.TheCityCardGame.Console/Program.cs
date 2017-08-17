@@ -23,13 +23,13 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         static void PlayDisconnectedGame(bool restartGame)
         {
-            //// Wait couple second for Server to start
-            //Task.Delay(TimeSpan.FromSeconds(3)).Wait();
+            // Wait couple second for Server to start
+            Task.Delay(TimeSpan.FromSeconds(3)).Wait();
 
-            //if (restartGame)
-            //{
-            //    RestartServer();
-            //}
+            if (restartGame)
+            {
+                RestartServer();
+            }
 
             if (DisconnectedGame.TotalPlayersCount == 2)
             {
@@ -53,7 +53,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         static void StartClient()
         {
-            var client = new DisconnectedClient();
+            var client = new ClientForWeb();
 
             client.Start();
         }
