@@ -112,7 +112,7 @@ namespace KMorcinek.TheCityCardGame
             lock (_syncRoot)
             {
                 // TODO: implemet 5 cards shown to who
-                Card choosenCard = _drawAndSee5Cards.Single(x => x.CardEnum == card);
+                Card choosenCard = _drawAndSee5Cards.First(x => x.CardEnum == card);
 
                 _board.TakeOneCard(playerIndex, choosenCard);
 
