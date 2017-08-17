@@ -60,18 +60,28 @@ namespace KMorcinek.TheCityCardGame
             {
                 _board.PlayCard(playerIndex, cardIndexToPlay, cardsToDiscard);
 
-                _waitingForPlayerIndex++;
-
-                if (_waitingForPlayerIndex >= _connectedClients.Count)
-                {
-                    _waitingForPlayerIndex = 0;
-                }
+                JumbToNextPlayer();
             }
         }
 
         public void PlayArchitect(int playerIndex)
         {
-            throw new System.NotImplementedException();
+            lock (_syncRoot)
+            {
+                _board.PlayArchitect(playerIndex);
+
+                JumbToNextPlayer();
+            }
+        }
+
+        void JumbToNextPlayer()
+        {
+            _waitingForPlayerIndex++;
+
+            if (_waitingForPlayerIndex >= _connectedClients.Count)
+            {
+                _waitingForPlayerIndex = 0;
+            }
         }
     }
 }

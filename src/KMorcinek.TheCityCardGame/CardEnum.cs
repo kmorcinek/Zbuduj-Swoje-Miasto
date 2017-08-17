@@ -9,6 +9,7 @@
         Parking,
 
         // 1
+        Architect,
         BusStation,
         ConstructionCrew,
         House,

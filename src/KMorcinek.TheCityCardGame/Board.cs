@@ -66,5 +66,17 @@ namespace KMorcinek.TheCityCardGame
 
             return cards;
         }
+
+        public void PlayArchitect(int playerIndex)
+        {
+            // Play card
+            Players.ElementAt(playerIndex).PlayArchitect();
+
+            // Count points
+            Players.ElementAt(playerIndex).UpdatePoints();
+
+            // Draw new cards
+            DrawNewCards(Players.ElementAt(playerIndex));
+        }
     }
 }

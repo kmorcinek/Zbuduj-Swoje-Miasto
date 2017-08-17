@@ -35,6 +35,9 @@ namespace KMorcinek.TheCityCardGame
         }
 
         // Are sorted according to its base Cost
+        public static Card Architect =>
+            new CardBuilder(CardEnum.Architect, 0, 1, 0);
+
         public static Card Parking =>
             new CardBuilder(CardEnum.Parking, 0, 0, 0)
                 .WithSymbols(Symbol.Car, Symbol.Commerce, Symbol.Fountain);

@@ -81,5 +81,10 @@ namespace KMorcinek.TheCityCardGame
         {
             _cardsInHand.AddRange(cards);
         }
+
+        public void PlayArchitect()
+        {
+            _playedCards.AddLast(Card.Architect);
+        }
     }
 }

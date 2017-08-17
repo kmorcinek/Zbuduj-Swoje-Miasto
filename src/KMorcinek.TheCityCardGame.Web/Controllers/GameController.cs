@@ -35,6 +35,13 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
             _game.PlayCard(playerIndex, playCardDto.CardIndexToPlay, playCardDto.CardsToDiscard);
         }
 
+        [Route("play-architect/{playerIndex}")]
+        public void GetPlayArchitect(int playerIndex)
+        {
+            Log.Debug("GameController.GetPlayArchitect()");
+            _game.PlayArchitect(playerIndex);
+        }
+
         // HACK: I have problems with debugging, so best is to always restart server explicit
         [HttpGet]
         [Route("restart-server")]

@@ -44,7 +44,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var request = new RestRequest("play-architect/{playerIndex}", Method.GET);
             request.AddUrlSegment("playerIndex", playerIndex.ToString());
 
-            client.Execute<PlayerDto>(request);
+            client.Execute(request);
         }
 
         static RestClient GetRestClient()

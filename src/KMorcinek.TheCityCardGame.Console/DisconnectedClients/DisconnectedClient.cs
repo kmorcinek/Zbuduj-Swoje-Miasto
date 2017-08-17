@@ -53,7 +53,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             {
                 Game.ShowCards(player);
 
-                Move move = GetMove();
+                bool isArchitectPlayed = player.PlayedCards.Any(x => x.CardEnum == CardEnum.Architect);
+
+                Move move = GetMove(isArchitectPlayed);
 
                 switch (move)
                 {
@@ -78,9 +80,16 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             }
         }
 
-        static Move GetMove()
+        static Move GetMove(bool isArchitectPlayed)
         {
-            Console.Write("Choose action, A - architect, P - play card: "); // , C - check 5 card and take 1
+            string architectAction = "";
+
+            if (isArchitectPlayed == false)
+            {
+                architectAction = ", A - architect";
+            }
+
+            Console.Write($"Choose action{architectAction}, P - play card: "); // , C - check 5 card and take 1
 
             string movaAsString = Console.ReadLine().Trim().ToUpperInvariant();
 
