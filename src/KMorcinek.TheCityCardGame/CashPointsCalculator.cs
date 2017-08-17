@@ -9,6 +9,11 @@ namespace KMorcinek.TheCityCardGame
         {
             int simplePoints = playedCards.Sum(c => c.CashPoints);
 
+            return simplePoints + CalculateCashPerOneCard(playedCards) + CalculateCashPerEachCard(playedCards);
+        }
+
+        static int CalculateCashPerOneCard(IEnumerable<Card> playedCards)
+        {
             int extraPoints = 0;
             foreach (var playedCard in playedCards)
             {
@@ -24,7 +29,24 @@ namespace KMorcinek.TheCityCardGame
                 }
             }
 
-            return simplePoints + extraPoints;
+            return extraPoints;
+        }
+
+        static int CalculateCashPerEachCard(IEnumerable<Card> playedCards)
+        {
+            int extraPoints = 0;
+            foreach (var playedCard in playedCards)
+            {
+                CardWithCount extraPointsCard = playedCard.CashPerEachCard;
+                if (extraPointsCard != null)
+                {
+                    int count = playedCards.Count(x => x.CardEnum == extraPointsCard.Card);
+
+                    extraPoints += extraPointsCard.Count * count;
+                }
+            }
+
+            return extraPoints;
         }
     }
 }

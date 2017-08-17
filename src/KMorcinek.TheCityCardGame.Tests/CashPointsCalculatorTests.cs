@@ -53,6 +53,23 @@ namespace KMorcinek.TheCityCardGame.Tests
             sut.HowManyCashPoints(cards).Should().Be(4);
         }
 
+        [Fact]
+        public void When_CashPerEachCard_Then_bonus_for_each_card()
+        {
+            var sut = CreateSut();
+
+            CardEnum card = new Fixture().Create<CardEnum>();
+
+            Card[] cards =
+            {
+                new CardBuilder(TestFixture.SimpleCard).ExtraCashPerEachCard(card, 3),
+                new CardBuilder(card),
+                new CardBuilder(card),
+            };
+
+            sut.HowManyCashPoints(cards).Should().Be(3 * 2);
+        }
+
         static CashPointsCalculator CreateSut()
         {
             return new CashPointsCalculator();
