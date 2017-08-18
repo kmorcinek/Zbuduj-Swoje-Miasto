@@ -102,37 +102,37 @@ namespace KMorcinek.TheCityCardGame
         {
             var cards = new Dictionary<CardEnum, CardWithQuantity>
             {
-                ////{ CardEnum.Architect, new CardWithQuantity(Card.Architect, 2) },
+                ////{ CardEnum.Architect, new CardWithQuantity(Card.Architect, 4) },
                 // 0
-                { CardEnum.Parking, new CardWithQuantity(Card.Parking, 2) },
+                { CardEnum.Parking, new CardWithQuantity(Card.Parking, 4) },
 
                 // 1
-                { CardEnum.BusStation, new CardWithQuantity(Card.BusStation, 2) },
-                { CardEnum.ConstructionCrew, new CardWithQuantity(Card.ConstructionCrew, 2) },
-                { CardEnum.House, new CardWithQuantity(Card.House, 2) },
-                { CardEnum.Housing, new CardWithQuantity(Card.Housing, 2) },
-                { CardEnum.IndastrialPark, new CardWithQuantity(Card.IndastrialPark, 2) },
-                { CardEnum.Park, new CardWithQuantity(Card.Park, 2) },
-                { CardEnum.Private, new CardWithQuantity(Card.Private, 2) },
-                { CardEnum.Restaurant, new CardWithQuantity(Card.Restaurant, 2) },
-                { CardEnum.School, new CardWithQuantity(Card.School, 2) },
-                { CardEnum.Supermarket, new CardWithQuantity(Card.Supermarket, 2) },
+                { CardEnum.BusStation, new CardWithQuantity(Card.BusStation, 4) },
+                { CardEnum.ConstructionCrew, new CardWithQuantity(Card.ConstructionCrew, 4) },
+                { CardEnum.House, new CardWithQuantity(Card.House, 4) },
+                { CardEnum.Housing, new CardWithQuantity(Card.Housing, 4) },
+                { CardEnum.IndastrialPark, new CardWithQuantity(Card.IndastrialPark, 4) },
+                { CardEnum.Park, new CardWithQuantity(Card.Park, 4) },
+                { CardEnum.Private, new CardWithQuantity(Card.Private, 4) },
+                { CardEnum.Restaurant, new CardWithQuantity(Card.Restaurant, 4) },
+                { CardEnum.School, new CardWithQuantity(Card.School, 4) },
+                { CardEnum.Supermarket, new CardWithQuantity(Card.Supermarket, 4) },
 
                 // 2
-                ////{ CardEnum.Butique, new CardWithQuantity(Card.Butique, 2) },
-                { CardEnum.Cinema, new CardWithQuantity(Card.Cinema, 2) },
-                { CardEnum.CityHall, new CardWithQuantity(Card.CityHall, 2) },
-                { CardEnum.OfficeBuilding, new CardWithQuantity(Card.OfficeBuilding, 2) },
-                { CardEnum.RoadConnection, new CardWithQuantity(Card.RoadConnection, 2) },
+                ////{ CardEnum.Butique, new CardWithQuantity(Card.Butique, 4) },
+                { CardEnum.Cinema, new CardWithQuantity(Card.Cinema, 4) },
+                { CardEnum.CityHall, new CardWithQuantity(Card.CityHall, 4) },
+                { CardEnum.OfficeBuilding, new CardWithQuantity(Card.OfficeBuilding, 4) },
+                { CardEnum.RoadConnection, new CardWithQuantity(Card.RoadConnection, 4) },
 
                 // 3
-                { CardEnum.BusinessCenter, new CardWithQuantity(Card.BusinessCenter, 2) },
-                { CardEnum.TradeCenter, new CardWithQuantity(Card.TradeCenter, 2) },
+                { CardEnum.BusinessCenter, new CardWithQuantity(Card.BusinessCenter, 4) },
+                { CardEnum.TradeCenter, new CardWithQuantity(Card.TradeCenter, 4) },
 
                 // 4
-                { CardEnum.Multiplex, new CardWithQuantity(Card.Multiplex, 2) },
-                ////{ CardEnum.ResearchCenter, new CardWithQuantity(Card.ResearchCenter, 2) },
-                ////{ CardEnum.Villa, new CardWithQuantity(Card.Villa, 2) },
+                { CardEnum.Multiplex, new CardWithQuantity(Card.Multiplex, 4) },
+                ////{ CardEnum.ResearchCenter, new CardWithQuantity(Card.ResearchCenter, 4) },
+                ////{ CardEnum.Villa, new CardWithQuantity(Card.Villa, 4) },
             };
 
             CheckForBugs(cards);
