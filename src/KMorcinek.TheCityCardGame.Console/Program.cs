@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using KMorcinek.TheCityCardGame.ConsoleUI.Bots;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
 using RestSharp;
 using Serilog;
@@ -12,6 +13,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         {
             EnableSerilog();
 
+            PlayBots();
+            return;
+
             bool restartGame = false;
             if (args != null && args.Length > 0 && args[0] == "--restart")
             {
@@ -19,6 +23,16 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             }
 
             PlayDisconnectedGame(restartGame);
+        }
+
+        static void PlayBots()
+        {
+            while (true)
+            {
+                var client = new Bot();
+
+                client.Start();
+            }
         }
 
         static void PlayDisconnectedGame(bool restartGame)
