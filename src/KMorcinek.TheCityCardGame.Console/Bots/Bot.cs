@@ -9,7 +9,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
     public class Bot : DisconnectedClient
     {
         public Bot()
-            : base(DisconnectedGame.Instance)
+            : base(new DisconnectedGame(1))
         {
         }
 
