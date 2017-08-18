@@ -11,15 +11,21 @@ namespace KMorcinek.TheCityCardGame
     {
         public const int TotalPlayersCount = 2;
 
-        public static DisconnectedGame Instance { get; } = new DisconnectedGame();
+        public static DisconnectedGame Instance { get; } = new DisconnectedGame(TotalPlayersCount);
 
         readonly IMapper _mapper = AutoMapperConfig.GetMapper();
         readonly List<int> _connectedClients = new List<int>();
         readonly object _syncRoot = new object();
+        readonly int _totalPlayersCount;
         Board _board;
         bool _isGameStarted;
         int _waitingForPlayerIndex;
         Card[] _drawAndSee5Cards;
+
+        public DisconnectedGame(int totalPlayersCount)
+        {
+            _totalPlayersCount = totalPlayersCount;
+        }
 
         public int Connect()
         {
@@ -30,12 +36,12 @@ namespace KMorcinek.TheCityCardGame
                 // Simulate adding a client, in future it can be name and other info
                 _connectedClients.Add(count);
 
-                if (_connectedClients.Count == TotalPlayersCount)
+                if (_connectedClients.Count == _totalPlayersCount)
                 {
-                    _board = Board.StartGame(TotalPlayersCount);
+                    _board = Board.StartGame(_totalPlayersCount);
 
                     _isGameStarted = true;
-                    Log.Information("Game is started with {TotalPlayersCount} players", TotalPlayersCount);
+                    Log.Information("Game is started with {TotalPlayersCount} players", _totalPlayersCount);
                 }
 
                 return count;

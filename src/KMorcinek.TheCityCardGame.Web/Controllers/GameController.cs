@@ -68,7 +68,7 @@ namespace KMorcinek.TheCityCardGame.Web.Controllers
         public void GetRestartServer()
         {
             Log.Debug("GameController.RestartServer");
-            _game = new DisconnectedGame();
+            _game = new DisconnectedGame(DisconnectedGame.TotalPlayersCount);
         }
     }
 }
