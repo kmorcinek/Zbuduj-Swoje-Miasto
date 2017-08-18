@@ -58,7 +58,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             {
                 Game.ShowCards(player);
 
-                bool isArchitectPlayed = player.PlayedCards.Any(x => x.CardEnum == CardEnum.Architect);
+                bool isArchitectPlayed = IsArchitectPlayed(player);
 
                 MoveAndCardIndex move = GetMove(isArchitectPlayed);
 
@@ -85,6 +85,11 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                         throw new ArgumentOutOfRangeException();
                 }
             }
+        }
+
+        protected static bool IsArchitectPlayed(IPlayer player)
+        {
+            return player.PlayedCards.Any(x => x.CardEnum == CardEnum.Architect);
         }
 
         void WaitAndTakeCard()

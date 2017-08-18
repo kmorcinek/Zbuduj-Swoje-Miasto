@@ -20,10 +20,27 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
 
         protected override void MakeNextMove(IPlayer player)
         {
+            if (PlayArchitect(player))
+            {
+                return;
+            }
+
             if (PlayFirstCard(player) == false)
             {
                 WaitAndTakeCard();
             }
+        }
+
+        bool PlayArchitect(IPlayer player)
+        {
+            if (IsArchitectPlayed(player))
+            {
+                return false;
+            }
+
+            GameServer.PlayArchitect(PlayerIndex);
+
+            return true;
         }
 
         bool PlayFirstCard(IPlayer player)

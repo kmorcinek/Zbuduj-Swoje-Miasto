@@ -91,6 +91,8 @@ namespace KMorcinek.TheCityCardGame
         public void PlayArchitect()
         {
             _playedCards.AddLast(Card.Architect);
+
+            Log.Debug("Architect played");
         }
 
         public bool IsWinner()
