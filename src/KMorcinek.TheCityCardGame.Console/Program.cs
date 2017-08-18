@@ -31,13 +31,13 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
                 RestartServer();
             }
 
-            if (DisconnectedGame.TotalPlayersCount == 2)
-            {
-                Task.Run(() =>
-                {
-                    StartClient();
-                });
-            }
+            //if (DisconnectedGame.TotalPlayersCount == 2)
+            //{
+            //    Task.Run(() =>
+            //    {
+            //        StartClient();
+            //    });
+            //}
 
             StartClient();
 
