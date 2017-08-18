@@ -44,20 +44,19 @@ namespace KMorcinek.TheCityCardGame.Bots
 
         bool PlayFirstCard(IPlayer player)
         {
-            int cardIndexToPlay = 0;
-            foreach (var card in player.CardsInHand)
+            Card[] cardsInHand = player.CardsInHand.ToArray();
+            foreach (var card in cardsInHand)
             {
                 bool canBePlayed = CanBePlayed(card, player);
                 if (canBePlayed)
                 {
+                    int cardIndexToPlay = Array.IndexOf(cardsInHand, card);
                     int[] cardsToDiscard = GetCardsToDiscard(card.Cost, cardIndexToPlay);
 
                     GameServer.PlayCard(PlayerIndex, cardIndexToPlay, cardsToDiscard);
 
                     return true;
                 }
-
-                cardIndexToPlay++;
             }
 
             return false;
