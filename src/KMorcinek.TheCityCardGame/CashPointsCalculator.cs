@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
-    public class CashPointsCalculator
+    public class CashPointsCalculator : ICashPointsCalculator
     {
         public int HowManyCashPoints(IEnumerable<Card> playedCards)
         {
@@ -47,5 +47,10 @@ namespace KMorcinek.TheCityCardGame
                 return extraPointsCard.Count * count;
             }).Sum();
         }
+    }
+
+    public interface ICashPointsCalculator
+    {
+        int HowManyCashPoints(IEnumerable<Card> playedCards);
     }
 }

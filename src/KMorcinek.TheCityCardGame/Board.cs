@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Serilog;
 
@@ -28,14 +29,15 @@ namespace KMorcinek.TheCityCardGame
         {
             player.UpdatePoints();
 
-            DrawNewCards(player);
+            DrawNewCards(new CashPointsCalculator(), player);
         }
 
-        public void DrawNewCards(Player player)
+        public void DrawNewCards(ICashPointsCalculator cashPointsCalculator, Player player)
         {
-            int cardsToDeal = new CashPointsCalculator().HowManyCashPoints(player.PlayedCards);
+            int cardsToDeal = cashPointsCalculator.HowManyCashPoints(player.PlayedCards);
 
-            // TODO: can not deal more than 12
+            cardsToDeal = Math.Min(cardsToDeal, Player.HandCapacity - player.CardsInHand.Count());
+
             player.AddDealtCards(DrawCards(Deck, cardsToDeal));
         }
 
