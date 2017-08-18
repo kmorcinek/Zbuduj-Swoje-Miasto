@@ -43,7 +43,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                 {
                     if (player.Points >= Player.PointsGoal)
                     {
-                        Log.Information("Game took {turns} turns", player.Turn);
+                        Log.Information("====> Game took {turns} turns", player.Turn);
                         return;
                     }
 

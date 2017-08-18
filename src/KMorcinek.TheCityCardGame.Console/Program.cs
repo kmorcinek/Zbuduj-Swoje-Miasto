@@ -32,6 +32,8 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
                 var client = new Bot();
 
                 client.Start();
+
+                Console.ReadLine();
             }
         }
 
