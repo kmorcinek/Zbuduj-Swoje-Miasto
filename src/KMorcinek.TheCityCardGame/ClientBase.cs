@@ -20,7 +20,7 @@ namespace KMorcinek.TheCityCardGame
         protected IGameServer GameServer => _game;
         protected int PlayerIndex => _playerIndex;
 
-        public void Start()
+        public int Start()
         {
             int playerIndex = _game.Connect();
 
@@ -37,7 +37,7 @@ namespace KMorcinek.TheCityCardGame
                     if (player.Points >= Player.PointsGoal)
                     {
                         Log.Information("====> Game took {turns} turns", player.Turn);
-                        return;
+                        return player.Turn;
                     }
 
                     MakeNextMove(player);

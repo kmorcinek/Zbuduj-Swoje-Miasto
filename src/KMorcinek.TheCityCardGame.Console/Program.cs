@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using KMorcinek.TheCityCardGame.Bots;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
@@ -27,14 +29,20 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         static void PlayBots()
         {
-            while (true)
+            List<int> turns = new List<int>();
+
+            for (int i = 0; i < 100; i++)
             {
                 var client = new Bot();
 
-                client.Start();
+                int turn = client.Start();
 
-                Console.ReadLine();
+                turns.Add(turn);
             }
+
+            Console.WriteLine($"Average: {turns.Average()}");
+
+            Console.ReadLine();
         }
 
         static void PlayDisconnectedGame(bool restartGame)
