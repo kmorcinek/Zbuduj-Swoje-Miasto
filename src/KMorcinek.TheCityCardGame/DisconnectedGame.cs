@@ -117,8 +117,6 @@ namespace KMorcinek.TheCityCardGame
 
             lock (_syncRoot)
             {
-                Log.Debug("_drawAndSee5Cards.Count = {count}", _drawAndSee5Cards.Count());
-
                 // TODO: implemet 5 cards shown to who
                 Card choosenCard = _drawAndSee5Cards.First(x => x.CardEnum == card);
 
