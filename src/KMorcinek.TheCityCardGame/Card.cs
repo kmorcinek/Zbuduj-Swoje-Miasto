@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
+    [DebuggerDisplay("{CardEnum}")]
     public class Card
     {
         public CardEnum CardEnum { get; }
