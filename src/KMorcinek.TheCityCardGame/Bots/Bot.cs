@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
 using KMorcinek.TheCityCardGame.SharedDtos;
 
-namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
+namespace KMorcinek.TheCityCardGame.Bots
 {
-    public class Bot : DisconnectedClient
+    public class Bot : ClientBase
     {
         public Bot()
             : this(new DisconnectedGame(1), TimeSpan.Zero)

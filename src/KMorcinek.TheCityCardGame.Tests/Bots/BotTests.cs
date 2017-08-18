@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using KMorcinek.TheCityCardGame.ConsoleUI.Bots;
+using KMorcinek.TheCityCardGame.Bots;
 using Xunit;
 
 namespace KMorcinek.TheCityCardGame.Tests.Bots

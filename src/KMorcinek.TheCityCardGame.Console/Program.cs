@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using KMorcinek.TheCityCardGame.ConsoleUI.Bots;
+using KMorcinek.TheCityCardGame.Bots;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
 using RestSharp;
 using Serilog;

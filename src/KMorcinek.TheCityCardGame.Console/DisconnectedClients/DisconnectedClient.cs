@@ -1,62 +1,24 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using KMorcinek.TheCityCardGame.SharedDtos;
-using Serilog;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 {
-    public class DisconnectedClient
+    public class DisconnectedClient : ClientBase
     {
-        protected IGameServer GameServer => _game;
-        protected int PlayerIndex => _playerIndex;
-
-        readonly IGameServer _game;
-        readonly TimeSpan _waitForMove;
-
-        int _playerIndex;
-
         public DisconnectedClient()
             : this(DisconnectedGame.Instance, TimeSpan.FromSeconds(1))
         {
         }
 
         protected DisconnectedClient(IGameServer game, TimeSpan waitForMove)
+            : base(game, waitForMove)
         {
-            _game = game;
-            _waitForMove = waitForMove;
         }
 
-        public void Start()
+        protected override void MakeNextMove(IPlayer player)
         {
-            int playerIndex = _game.Connect();
-
-            Log.Information("Client get {playerIndex}", playerIndex);
-
-            _playerIndex = playerIndex;
-
-            while (true)
-            {
-                IPlayer player = _game.GetState(_playerIndex);
-
-                if (player != null)
-                {
-                    if (player.Points >= Player.PointsGoal)
-                    {
-                        Log.Information("====> Game took {turns} turns", player.Turn);
-                        return;
-                    }
-
-                    MakeNextMove(player);
-                }
-
-                Task.Delay(_waitForMove).Wait();
-            }
-        }
-
-        protected virtual void MakeNextMove(IPlayer player)
-        {
-            using (new ConsoleColorChanger(Game.Colors[_playerIndex]))
+            using (new ConsoleColorChanger(Game.Colors[PlayerIndex]))
             {
                 Game.ShowCards(player);
 
@@ -72,12 +34,12 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
                         Card playedCard = player.CardsInHand.ElementAt(cardIndexToPlay);
 
-                        _game.PlayCard(_playerIndex, cardIndexToPlay, cardsToDiscard);
+                        GameServer.PlayCard(PlayerIndex, cardIndexToPlay, cardsToDiscard);
 
                         Game.ShowPlayedCard(playedCard);
                         break;
                     case Move.Architect:
-                        _game.PlayArchitect(_playerIndex);
+                        GameServer.PlayArchitect(PlayerIndex);
                         Console.WriteLine("Architect played");
                         break;
                     case Move.WaitAndTakeCard:
@@ -89,14 +51,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             }
         }
 
-        protected static bool IsArchitectPlayed(IPlayer player)
-        {
-            return player.PlayedCards.Any(x => x.CardEnum == CardEnum.Architect);
-        }
-
         void WaitAndTakeCard()
         {
-            See5CardsDto see5CardsDto = _game.See5Cards(_playerIndex);
+            See5CardsDto see5CardsDto = GameServer.See5Cards(PlayerIndex);
 
             Game.WriteCards(see5CardsDto.Cards.Select(Deck.GetCard));
             Console.Write("Choose card index to take into hand:");
@@ -105,7 +62,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             int cardIndex = int.Parse(line);
             CardEnum card = see5CardsDto.Cards.ElementAt(cardIndex);
 
-            _game.TakeOneCard(_playerIndex, card);
+            GameServer.TakeOneCard(PlayerIndex, card);
         }
 
         static MoveAndCardIndex GetMove(bool isArchitectPlayed)

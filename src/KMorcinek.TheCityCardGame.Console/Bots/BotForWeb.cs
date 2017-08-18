@@ -1,4 +1,5 @@
 ﻿using System;
+using KMorcinek.TheCityCardGame.Bots;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
 {

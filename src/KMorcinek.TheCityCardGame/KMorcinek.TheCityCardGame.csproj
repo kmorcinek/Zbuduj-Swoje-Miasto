@@ -49,9 +49,11 @@
   <ItemGroup>
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="Bots\Bot.cs" />
     <Compile Include="CannotPlayCardException.cs" />
     <Compile Include="CardWithCount.cs" />
     <Compile Include="CashPointsCalculator.cs" />
+    <Compile Include="ClientBase.cs" />
     <Compile Include="DisconnectedGame.cs" />
     <Compile Include="IGameServer.cs" />
     <Compile Include="IPlayer.cs" />
