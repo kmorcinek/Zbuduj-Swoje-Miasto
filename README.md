@@ -18,8 +18,8 @@ Answers:
 - API should take indexes cause it will communicate over network
 
 Next to implement:
-- DisconnectedClient and Bot to Core project
-- Finish game (by 50? points) - needed only for Bots
+- Maybe instead of index play cards in PlayCard()
+  - How to handle situation when I have two Houses and play one and discard another.
 - Bots:
   - funkcja celu: zdobyć 50 punktów w jak najkrótszej liczbie ruchów.
   - nie ma sensu grać przeciwko sobie, bo to jest bardziej OnePlayer game
