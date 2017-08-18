@@ -48,6 +48,10 @@ namespace KMorcinek.TheCityCardGame.Bots
 
             IEnumerable<Card> playableCards = cardsInHand.Where(x => CanBePlayed(x, player));
 
+            playableCards = new CashPointsCalculator().HowManyCashPoints(player.PlayedCards) > 2
+                ? playableCards.OrderByDescending(x => x.WinPoints)
+                : playableCards.OrderByDescending(x => x.CashPoints);
+
             Card card = playableCards.FirstOrDefault();
 
             if (card == null)
