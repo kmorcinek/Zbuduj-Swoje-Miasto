@@ -21,9 +21,9 @@ Next to implement:
 - Maybe instead of index play cards in PlayCard()
   - How to handle situation when I have two Houses and play one and discard another.
 - Bots:
-  - funkcja celu: zdobyć 50 punktów w jak najkrótszej liczbie ruchów.
+  - How to choose best card?
+    - gives you best Cash
   - nie ma sensu grać przeciwko sobie, bo to jest bardziej OnePlayer game
-  - Odpala się bot i gdy skończy to na konsoli wypisuje w ilu ruchach skończył. i w kółko.
   - Play against bot, a lot of interaction here
 - each separate Console App to the same Server (2) - just to check
   - Problem:
