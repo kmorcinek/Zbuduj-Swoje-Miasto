@@ -12,17 +12,19 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
         protected int PlayerIndex => _playerIndex;
 
         readonly IGameServer _game;
+        readonly TimeSpan _waitForMove;
 
         int _playerIndex;
 
         public DisconnectedClient()
-            : this(DisconnectedGame.Instance)
+            : this(DisconnectedGame.Instance, TimeSpan.FromSeconds(1))
         {
         }
 
-        protected DisconnectedClient(IGameServer game)
+        protected DisconnectedClient(IGameServer game, TimeSpan waitForMove)
         {
             _game = game;
+            _waitForMove = waitForMove;
         }
 
         public void Start()
@@ -48,7 +50,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                     MakeNextMove(player);
                 }
 
-                Task.Delay(TimeSpan.FromSeconds(1)).Wait();
+                Task.Delay(_waitForMove).Wait();
             }
         }
 

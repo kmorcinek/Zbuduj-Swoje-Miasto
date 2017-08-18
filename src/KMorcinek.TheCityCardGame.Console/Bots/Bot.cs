@@ -9,12 +9,12 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.Bots
     public class Bot : DisconnectedClient
     {
         public Bot()
-            : base(new DisconnectedGame(1))
+            : this(new DisconnectedGame(1), TimeSpan.Zero)
         {
         }
 
-        protected Bot(IGameServer gameServer)
-            : base(gameServer)
+        protected Bot(IGameServer gameServer, TimeSpan waitForMove)
+            : base(gameServer, waitForMove)
         {
         }
 
