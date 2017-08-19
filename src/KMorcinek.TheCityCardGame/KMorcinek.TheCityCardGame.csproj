@@ -58,7 +58,7 @@
     <Compile Include="IGameServer.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="Move.cs" />
-    <Compile Include="PlayerDto.cs" />
+    <Compile Include="SharedDtos\PlayerDto.cs" />
     <Compile Include="PlayerDtoProfile.cs" />
     <Compile Include="SharedDtos\PlayCardDto.cs" />
     <Compile Include="SharedDtos\See5CardsDto.cs" />

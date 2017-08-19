@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KMorcinek.TheCityCardGame
+namespace KMorcinek.TheCityCardGame.SharedDtos
 {
     public class PlayerDto : IPlayer
     {

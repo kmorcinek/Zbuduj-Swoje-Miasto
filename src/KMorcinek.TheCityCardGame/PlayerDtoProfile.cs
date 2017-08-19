@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KMorcinek.TheCityCardGame.SharedDtos;
 
 namespace KMorcinek.TheCityCardGame
 {
