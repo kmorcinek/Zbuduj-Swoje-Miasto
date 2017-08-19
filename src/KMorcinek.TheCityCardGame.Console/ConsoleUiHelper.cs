@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
-    public class Game
+    public static class ConsoleUiHelper
     {
         public static ConsoleColor[] Colors => new[]
         {

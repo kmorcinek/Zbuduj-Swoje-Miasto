@@ -18,9 +18,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
         protected override void MakeNextMove(IPlayer player)
         {
-            using (new ConsoleColorChanger(Game.Colors[PlayerIndex]))
+            using (new ConsoleColorChanger(ConsoleUiHelper.Colors[PlayerIndex]))
             {
-                Game.ShowCards(player);
+                ConsoleUiHelper.ShowCards(player);
 
                 bool isArchitectPlayed = IsArchitectPlayed(player);
 
@@ -29,14 +29,14 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
                 switch (move.Move)
                 {
                     case Move.PlayCard:
-                        int cardIndexToPlay = move.CardIndex ?? Game.GetCardIndexToPlay();
-                        int[] cardsToDiscard = Game.GetCardIndexesToDiscard();
+                        int cardIndexToPlay = move.CardIndex ?? ConsoleUiHelper.GetCardIndexToPlay();
+                        int[] cardsToDiscard = ConsoleUiHelper.GetCardIndexesToDiscard();
 
                         Card playedCard = player.CardsInHand.ElementAt(cardIndexToPlay);
 
                         GameServer.PlayCard(PlayerIndex, cardIndexToPlay, cardsToDiscard);
 
-                        Game.ShowPlayedCard(playedCard);
+                        ConsoleUiHelper.ShowPlayedCard(playedCard);
                         break;
                     case Move.Architect:
                         GameServer.PlayArchitect(PlayerIndex);
@@ -55,7 +55,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
         {
             See5CardsDto see5CardsDto = GameServer.See5Cards(PlayerIndex);
 
-            Game.WriteCards(see5CardsDto.Cards.Select(Deck.GetCard));
+            ConsoleUiHelper.WriteCards(see5CardsDto.Cards.Select(Deck.GetCard));
             Console.Write("Choose card index to take into hand:");
 
             string line = Console.ReadLine();
