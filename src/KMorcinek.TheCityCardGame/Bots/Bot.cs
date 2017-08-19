@@ -100,10 +100,8 @@ namespace KMorcinek.TheCityCardGame.Bots
         {
             See5CardsDto see5CardsDto = GameServer.See5Cards(PlayerIndex);
 
-            // TODO: write output
-            // Game.WriteCards(see5CardsDto.Cards.Select(Deck.GetCard));
             CardEnum card = see5CardsDto.Cards.First();
-            Console.WriteLine($"Choosen card: {card}");
+            Console.WriteLine($"Chosen card: {card}");
 
             GameServer.TakeOneCard(PlayerIndex, card);
         }

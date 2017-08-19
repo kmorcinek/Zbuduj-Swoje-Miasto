@@ -101,7 +101,7 @@ namespace KMorcinek.TheCityCardGame
 
             lock (_syncRoot)
             {
-                // TODO: implemet 5 cards shown to who per user, and disallow brute force choosing cards
+                // TODO: implement 5 cards shown to who per user, and disallow brute force choosing cards
                 _drawAndSee5Cards = _board.DrawAndSee5Cards().ToArray();
 
                 return new See5CardsDto
@@ -117,10 +117,9 @@ namespace KMorcinek.TheCityCardGame
 
             lock (_syncRoot)
             {
-                // TODO: implemet 5 cards shown to who
-                Card choosenCard = _drawAndSee5Cards.First(x => x.CardEnum == card);
+                Card chosenCard = _drawAndSee5Cards.First(x => x.CardEnum == card);
 
-                _board.TakeOneCard(playerIndex, choosenCard);
+                _board.TakeOneCard(playerIndex, chosenCard);
 
                 JumpToNextPlayer();
             }
