@@ -93,7 +93,7 @@ namespace KMorcinek.TheCityCardGame
 
         public IEnumerable<Card> DrawAndSee5Cards()
         {
-            // TODO: implemet 5 cards shown to who
+            // TODO: implement 5 cards shown to who
             return DrawCards(Deck, 5);
         }
     }
