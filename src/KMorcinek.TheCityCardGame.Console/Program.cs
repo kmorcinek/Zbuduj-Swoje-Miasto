@@ -14,16 +14,22 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         {
             SerilogConfiguration.Configure();
 
-            PlayBots();
-            return;
+            bool isBotSetting = IsSetting(args, "--bot");
 
-            bool restartGame = false;
-            if (args != null && args.Length > 0 && args[0] == "--restart")
+            if (isBotSetting)
             {
-                restartGame = true;
+                PlayBots();
+                return;
             }
 
+            bool restartGame = IsSetting(args, "--restart");
+
             PlayDisconnectedGame(restartGame);
+        }
+
+        static bool IsSetting(string[] args, string switchName)
+        {
+            return args != null && args.Length > 0 && args[0] == switchName;
         }
 
         static void PlayBots()
