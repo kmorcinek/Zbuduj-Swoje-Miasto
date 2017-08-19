@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using KMorcinek.TheCityCardGame.Bots;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
-using RestSharp;
+using Refit;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
@@ -76,10 +76,9 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         static void RestartServer()
         {
             // HACK: I have problems with debugging, so best is to always restart server explicit
-            var client = new RestClient(GameServerWrapper.ServerUrl);
-            var request = new RestRequest("restart-server", Method.GET);
+            IServerApi serverApi = RestService.For<IServerApi>(GameServerWrapper.ServerUrl);
 
-            client.Execute(request);
+            serverApi.RestartServer().Wait();
         }
 
         static void StartClient()
