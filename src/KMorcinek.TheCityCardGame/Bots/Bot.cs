@@ -24,10 +24,12 @@ namespace KMorcinek.TheCityCardGame.Bots
                 return;
             }
 
-            if (PlayFirstCard(player) == false)
+            if (PlayFirstCard(player))
             {
-                WaitAndTakeCard();
+                return;
             }
+
+            WaitAndTakeCard();
         }
 
         bool PlayArchitect(IPlayer player)
