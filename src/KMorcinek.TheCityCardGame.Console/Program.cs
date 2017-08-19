@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using KMorcinek.TheCityCardGame.Bots;
 using KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients;
 using RestSharp;
-using Serilog;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
@@ -13,7 +12,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
     {
         static void Main(string[] args)
         {
-            EnableSerilog();
+            SerilogConfiguration.Configure();
 
             PlayBots();
             return;
@@ -82,17 +81,6 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
             var client = new ClientForWeb();
 
             client.Start();
-        }
-
-        static void EnableSerilog()
-        {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console()
-                .WriteTo.Seq("http://localhost:5341")
-                .CreateLogger();
-
-            Log.Information("App started");
         }
     }
 }
