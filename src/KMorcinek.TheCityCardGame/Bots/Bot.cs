@@ -19,11 +19,6 @@ namespace KMorcinek.TheCityCardGame.Bots
 
         protected override void MakeNextMove(IPlayer player)
         {
-            if (PlayArchitect(player))
-            {
-                return;
-            }
-
             if (PlayFirstCard(player))
             {
                 return;
@@ -32,27 +27,11 @@ namespace KMorcinek.TheCityCardGame.Bots
             WaitAndTakeCard();
         }
 
-        bool PlayArchitect(IPlayer player)
-        {
-            if (IsArchitectPlayed(player))
-            {
-                return false;
-            }
-
-            GameServer.PlayArchitect(PlayerIndex);
-
-            return true;
-        }
-
         bool PlayFirstCard(IPlayer player)
         {
             Card[] cardsInHand = player.CardsInHand.ToArray();
 
             IEnumerable<Card> playableCards = cardsInHand.Where(x => CanBePlayed(x, player));
-
-            playableCards = new CashPointsCalculator().HowManyCashPoints(player.PlayedCards) > 2
-                ? playableCards.OrderByDescending(x => x.WinPoints)
-                : playableCards.OrderByDescending(x => x.CashPoints);
 
             Card card = playableCards.FirstOrDefault();
 
