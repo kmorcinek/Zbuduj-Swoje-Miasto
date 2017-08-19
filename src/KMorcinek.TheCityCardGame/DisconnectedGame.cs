@@ -79,7 +79,7 @@ namespace KMorcinek.TheCityCardGame
             {
                 _board.PlayCard(playerIndex, cardIndexToPlay, cardsToDiscard);
 
-                JumbToNextPlayer();
+                JumpToNextPlayer();
             }
         }
 
@@ -91,7 +91,7 @@ namespace KMorcinek.TheCityCardGame
             {
                 _board.PlayArchitect(playerIndex);
 
-                JumbToNextPlayer();
+                JumpToNextPlayer();
             }
         }
 
@@ -122,13 +122,13 @@ namespace KMorcinek.TheCityCardGame
 
                 _board.TakeOneCard(playerIndex, choosenCard);
 
-                JumbToNextPlayer();
+                JumpToNextPlayer();
             }
         }
 
-        void JumbToNextPlayer()
+        void JumpToNextPlayer()
         {
-            Log.Debug("JumbToNextPlayer");
+            Log.Debug("JumpToNextPlayer()");
 
             _waitingForPlayerIndex++;
 
