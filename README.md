@@ -4,20 +4,18 @@ Card game about building city
 Based on:
 http://www.planszomania.pl/karciane/4006/Zbuduj-swoje-miasto.html
 
+# How to Debug
+### Web Server communication:
+- Run multiple startup projects (Web and ConsoleUi)
+- pass "--restart" to ConsoleUI, can be set in Properties->Debug->"Command line arguments:"
+- (see how it works in Program.cs)
+- based on colors you are player 1 or 2.
 
-Rewrite to not be so immutable, objects like Game should have methods that change its state
-- done.
+### Running bot locally
+- pass "--bot" to ConsoleUI, can be set in Properties->Debug->"Command line arguments:"
 
-Board should have all actions as methods, Game should orchestrate, play agains Board and take inputs
-- done
 
-Questions:
-- Will Monad Serialize correctly over network?
-
-Answers:
-- API should take indexes cause it will communicate over network
-
-Next to implement:
+# Next to implement:
 - Maybe instead of index play cards in PlayCard()
   - How to handle situation when I have two Houses and play one and discard another.
 - Bots:
@@ -30,10 +28,24 @@ Next to implement:
     - only me testing is going to use it
     - ?explicit ask to cancel of game?
     - even after finishing a game (50p) we have to start another one (new id?)
-  - pass an argument that will (--restart) old game and start new.
 - How Move is implemented on UI side is up to the consumer, focus on Server API
 - Take 5 out of 7 at the begginging
 - Allow only one Per Game
+
+
+# Other
+
+Rewrite to not be so immutable, objects like Game should have methods that change its state
+- done.
+
+Board should have all actions as methods, Game should orchestrate, play agains Board and take inputs
+- done
+
+Questions:
+- Will Monad Serialize correctly over network?
+
+Answers:
+- API should take indexes cause it will communicate over network
 
 
 Card for later:
