@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using KMorcinek.TheCityCardGame.Utils;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI
 {
@@ -54,14 +55,10 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
 
         public static void WriteCards(IEnumerable<Card> playerCardsInHand)
         {
-            // TODO: add foreachWithIndex method
-            int i = 0;
-            foreach (var card in playerCardsInHand)
+            playerCardsInHand.ForEachWithIndex((card, index) =>
             {
-                Console.WriteLine($"\t[{i}]{card.CardEnum} \t({card.Cost}, {card.CashPoints}, {card.WinPoints})");
-
-                i++;
-            }
+                Console.WriteLine($"\t[{index}]{card.CardEnum} \t({card.Cost}, {card.CashPoints}, {card.WinPoints})");
+            });
 
             Console.WriteLine();
         }

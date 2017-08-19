@@ -104,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KMorcinek.TheCityCardGame.Utils\KMorcinek.TheCityCardGame.Utils.csproj">
+      <Project>{06FDC323-1CE9-4DD1-AE4D-57D0020F6010}</Project>
+      <Name>KMorcinek.TheCityCardGame.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KMorcinek.TheCityCardGame\KMorcinek.TheCityCardGame.csproj">
       <Project>{85ffed1b-8da3-49fc-81f7-a1de0ef1e1fc}</Project>
       <Name>KMorcinek.TheCityCardGame</Name>

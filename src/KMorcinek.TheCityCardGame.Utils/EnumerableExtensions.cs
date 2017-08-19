@@ -13,5 +13,15 @@ namespace KMorcinek.TheCityCardGame.Utils
                 action(item);
             }
         }
+
+        public static void ForEachWithIndex<T>(this IEnumerable<T> enumerable, Action<T, int> handler)
+        {
+            var index = 0;
+            foreach (var item in enumerable)
+            {
+                handler(item, index);
+                index++;
+            }
+        }
     }
 }
