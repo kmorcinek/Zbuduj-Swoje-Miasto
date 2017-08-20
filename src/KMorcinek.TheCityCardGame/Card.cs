@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace KMorcinek.TheCityCardGame
 {
-    [DebuggerDisplay("{CardEnum}")]
+    [DebuggerDisplay("{CardEnum} ({Cost}, {CashPoints}, {WinPoints})")]
     public class Card
     {
         public CardEnum CardEnum { get; }
