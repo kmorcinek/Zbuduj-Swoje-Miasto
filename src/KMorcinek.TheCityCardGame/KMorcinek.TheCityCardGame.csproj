@@ -63,6 +63,7 @@
     <Compile Include="PlayerDtoProfile.cs" />
     <Compile Include="SharedDtos\PlayCardDto.cs" />
     <Compile Include="SharedDtos\See5CardsDto.cs" />
+    <Compile Include="SymbolsCalculator.cs" />
     <Compile Include="WinningPointsCalculator.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="CardBuilder.cs" />

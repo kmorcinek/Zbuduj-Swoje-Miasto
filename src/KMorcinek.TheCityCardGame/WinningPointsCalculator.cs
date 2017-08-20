@@ -12,12 +12,10 @@ namespace KMorcinek.TheCityCardGame
             int extraPerSymbolPoints = 0;
             foreach (var playedCard in playedCards)
             {
-                var extraSymbol = playedCard.ExtraWinPointsPerSymbol;
+                Symbol? extraSymbol = playedCard.ExtraWinPointsPerSymbol;
                 if (extraSymbol != null)
                 {
-                    var sum = playedCards.Sum(x => x.Symbols.Count(y => y == extraSymbol));
-
-                    extraPerSymbolPoints += sum;
+                    extraPerSymbolPoints += SymbolsCalculator.CountSymbols(playedCards, extraSymbol.Value);
                 }
             }
 
