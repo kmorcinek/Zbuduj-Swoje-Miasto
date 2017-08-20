@@ -10,6 +10,7 @@ namespace KMorcinek.TheCityCardGame
         public int WinPoints { get; }
         public IEnumerable<Symbol> Symbols { get; set; }
         public Symbol? ExtraWinPointsPerSymbol { get; set; }
+        public Symbol? ExtraCashPointsPerSymbol { get; set; }
         public IEnumerable<CardEnum> RequiredCards { get; set; }
         public CardWithCount CashPerOneCard { get; set; }
         public CardWithCount CashPerEachCard { get; set; }
@@ -40,6 +41,7 @@ namespace KMorcinek.TheCityCardGame
                 builder.CashPoints,
                 builder.WinPoints,
                 builder.Symbols,
+                builder.ExtraCashPointsPerSymbol,
                 builder.ExtraWinPointsPerSymbol,
                 builder.RequiredCards,
                 builder.CashPerOneCard,
@@ -115,6 +117,8 @@ namespace KMorcinek.TheCityCardGame
         /// </summary>
         public CardBuilder ExtraCashPoints(Symbol symbol)
         {
+            ExtraCashPointsPerSymbol = symbol;
+
             return this;
         }
 

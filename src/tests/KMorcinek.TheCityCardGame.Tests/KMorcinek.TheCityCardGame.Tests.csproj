@@ -80,6 +80,7 @@
     <Compile Include="BoardTests.cs" />
     <Compile Include="Bots\BotTests.cs" />
     <Compile Include="CashPointsCalculatorTests.cs" />
+    <Compile Include="CashPointsCalculatorTests_CalculateCashPerSymbol.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequiredCardsCalculatorTests.cs" />

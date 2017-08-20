@@ -9,7 +9,10 @@ namespace KMorcinek.TheCityCardGame
         {
             int simplePoints = playedCards.Sum(c => c.CashPoints);
 
-            return simplePoints + CalculateCashPerOneCard(playedCards) + CalculateCashPerEachCard(playedCards);
+            return simplePoints
+                + CalculateCashPerOneCard(playedCards)
+                + CalculateCashPerEachCard(playedCards)
+                + CalculateCashPerSymbol(playedCards);
         }
 
         static int CalculateCashPerOneCard(IEnumerable<Card> playedCards)
@@ -46,6 +49,22 @@ namespace KMorcinek.TheCityCardGame
 
                 return extraPointsCard.Count * count;
             }).Sum();
+        }
+
+        public static int CalculateCashPerSymbol(IEnumerable<Card> playedCards)
+        {
+            int extraCashPoints = 0;
+
+            foreach (var playedCard in playedCards)
+            {
+                Symbol? extraSymbol = playedCard.ExtraCashPointsPerSymbol;
+                if (extraSymbol != null)
+                {
+                    extraCashPoints += SymbolsCalculator.CountSymbols(playedCards, extraSymbol.Value);
+                }
+            }
+
+            return extraCashPoints;
         }
     }
 

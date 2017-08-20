@@ -15,6 +15,7 @@ namespace KMorcinek.TheCityCardGame
         public IEnumerable<Symbol> Symbols { get; }
         public CardWithCount CashPerOneCard { get; }
         public CardWithCount CashPerEachCard { get; }
+        public Symbol? ExtraCashPointsPerSymbol { get; }
         public Symbol? ExtraWinPointsPerSymbol { get; }
         public bool IsOnePerPlayer { get; }
 
@@ -24,6 +25,7 @@ namespace KMorcinek.TheCityCardGame
             int cashPoints,
             int winPoints,
             IEnumerable<Symbol> symbols,
+            Symbol? extraCashPointsPerSymbol,
             Symbol? extraWinPointsPerSymbol,
             IEnumerable<CardEnum> requiredCards,
             CardWithCount cashPerOneCard,
@@ -35,6 +37,7 @@ namespace KMorcinek.TheCityCardGame
             CashPoints = cashPoints;
             WinPoints = winPoints;
             Symbols = symbols ?? Enumerable.Empty<Symbol>();
+            ExtraCashPointsPerSymbol = extraCashPointsPerSymbol;
             ExtraWinPointsPerSymbol = extraWinPointsPerSymbol;
             CashPerOneCard = cashPerOneCard;
             CashPerEachCard = cashPerEachCard;
