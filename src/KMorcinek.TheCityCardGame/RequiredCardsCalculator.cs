@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 
 namespace KMorcinek.TheCityCardGame
 {
@@ -18,6 +19,8 @@ namespace KMorcinek.TheCityCardGame
             }
 
             EnsureCardRequirementMet(card.RequiredCards, player.PlayedCards);
+
+            EnsureCardThatCanBePlayedOnceWasNotPlayed(card, player.PlayedCards);
         }
 
         public bool CanBePlayed(Card card, IPlayer player)
@@ -45,6 +48,19 @@ namespace KMorcinek.TheCityCardGame
             if (isAnyRequiredCard == false)
             {
                 throw new CannotPlayCardException();
+            }
+        }
+
+        static void EnsureCardThatCanBePlayedOnceWasNotPlayed(Card card, IEnumerable<Card> playedCards)
+        {
+            if (card.IsOnePerPlayer == false)
+            {
+                return;
+            }
+
+            if (playedCards.Any(x => x.CardEnum == card.CardEnum))
+            {
+                throw new CardCanBePlayedOnlyOnceException(card.CardEnum);
             }
         }
     }

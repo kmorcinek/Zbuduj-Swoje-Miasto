@@ -13,6 +13,7 @@ namespace KMorcinek.TheCityCardGame
         public IEnumerable<CardEnum> RequiredCards { get; set; }
         public CardWithCount CashPerOneCard { get; set; }
         public CardWithCount CashPerEachCard { get; set; }
+        public bool IsOnePerPlayer { get; set; }
 
         public CardBuilder(
             CardEnum cardEnum,
@@ -42,7 +43,8 @@ namespace KMorcinek.TheCityCardGame
                 builder.ExtraPointsPerSymbol,
                 builder.RequiredCards,
                 builder.CashPerOneCard,
-                builder.CashPerEachCard);
+                builder.CashPerEachCard,
+                builder.IsOnePerPlayer);
         }
 
         public CardBuilder WithSymbols(params Symbol[] symbols)
@@ -57,6 +59,8 @@ namespace KMorcinek.TheCityCardGame
         /// </summary>
         public CardBuilder OnePerPlayer()
         {
+            IsOnePerPlayer = true;
+
             return this;
         }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Ploeh.AutoFixture;
 using Xunit;
 
@@ -67,6 +66,35 @@ namespace KMorcinek.TheCityCardGame.Tests
                 .Requires(requiredCardEnum);
 
             sut.CanBePlayed(cardToPlay, player).Should().BeFalse();
+        }
+
+        [Fact]
+        public void When_card_can_be_played_only_once_And_was_already_played_Then_throw_Ex()
+        {
+            var sut = CreateSut();
+
+            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>())
+                .OnePerPlayer();
+
+            Player player = Player.CreateWithPlayedCards(cardToPlay);
+
+            Assert.Throws<CardCanBePlayedOnlyOnceException>(() =>
+            {
+                sut.EnsureCanBePlayed(cardToPlay, player);
+            });
+        }
+
+        [Fact]
+        public void When_card_can_be_played_many_times_And_was_already_played_Then_dont_throw_Ex()
+        {
+            var sut = CreateSut();
+
+            Card cardToPlay = new CardBuilder(Fixture.Create<CardEnum>());
+
+            Player player = Player.CreateWithPlayedCards(cardToPlay, cardToPlay);
+
+            // No Ex thrown
+            sut.EnsureCanBePlayed(cardToPlay, player);
         }
 
         static RequiredCardsCalculator CreateSut()
