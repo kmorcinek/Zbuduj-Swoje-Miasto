@@ -14,7 +14,7 @@ namespace KMorcinek.TheCityCardGame
 
         public static Deck GetHardcodedDeck()
         {
-            var deck = new Card[]
+            var deck = new[]
             {
                 Card.BusStation,
                 Card.BusinessCenter,

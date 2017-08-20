@@ -51,6 +51,7 @@ namespace KMorcinek.TheCityCardGame
             }
         }
 
+        // ReSharper disable once UnusedParameter.Local
         static void EnsureCardThatCanBePlayedOnceWasNotPlayed(Card card, IEnumerable<Card> playedCards)
         {
             if (card.IsOnePerPlayer == false)
