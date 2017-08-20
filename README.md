@@ -16,9 +16,13 @@ http://www.planszomania.pl/karciane/4006/Zbuduj-swoje-miasto.html
 
 
 # Next to implement:
-- Maybe instead of index play cards in PlayCard()
+- Maybe instead of index play cards (CardEnum) in PlayCard()
   - How to handle situation when I have two Houses and play one and discard another.
 - Bots:
+  - Bots fighting:
+    - There is Server and multiple bots
+    - Server decides which two Bots will fight together and sends them to a "Game"
+    - Bots play there like 100 games and best average is winner.
   - How to choose best card?
     - gives you best Cash
   - nie ma sensu grać przeciwko sobie, bo to jest bardziej OnePlayer game
