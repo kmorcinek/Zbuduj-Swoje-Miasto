@@ -22,7 +22,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         {
             Console.Write("Choose card to play by index: ");
 
-            string cardToPlayAsString = Console.ReadLine();
+            string cardToPlayAsString = ConsoleEx.ReadLine();
 
             return int.Parse(cardToPlayAsString);
         }
@@ -31,7 +31,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI
         {
             Console.Write("Choose cards to discard by indices (separated by space): ");
 
-            string asString = Console.ReadLine();
+            string asString = ConsoleEx.ReadLine();
 
             string[] strings = asString.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 

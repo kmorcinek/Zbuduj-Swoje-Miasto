@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using KMorcinek.TheCityCardGame.SharedDtos;
+using KMorcinek.TheCityCardGame.Utils;
 
 namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 {
@@ -58,7 +59,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
             ConsoleUiHelper.WriteCards(see5CardsDto.Cards.Select(Deck.GetCard));
             Console.Write("Choose card index to take into hand:");
 
-            string line = Console.ReadLine();
+            string line = ConsoleEx.ReadLine();
             int cardIndex = int.Parse(line);
             CardEnum card = see5CardsDto.Cards.ElementAt(cardIndex);
 
@@ -76,7 +77,7 @@ namespace KMorcinek.TheCityCardGame.ConsoleUI.DisconnectedClients
 
             Console.Write($"Choose action: {architectAction}P - play card, W - Wait and check 5 card and take 1: ");
 
-            string moveAsString = Console.ReadLine().Trim().ToUpperInvariant();
+            string moveAsString = ConsoleEx.ReadLine().Trim().ToUpperInvariant();
 
             switch (moveAsString)
             {
