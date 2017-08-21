@@ -7,9 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("KMorcinek.TheCityCardGame.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ABB")]
 [assembly: AssemblyProduct("KMorcinek.TheCityCardGame.Web")]
-[assembly: AssemblyCopyright("Copyright © ABB 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
