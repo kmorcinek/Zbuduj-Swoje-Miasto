@@ -53,7 +53,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Card.fs" />
     <None Include="Script.fsx" />
-    <Compile Include="WinningPointsCalculator.fs" />
+    <Compile Include="TheCityCardGameMethods.fs" />
     <Compile Include="Tests.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
