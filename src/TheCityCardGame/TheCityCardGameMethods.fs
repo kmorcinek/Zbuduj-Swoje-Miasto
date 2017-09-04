@@ -19,4 +19,4 @@ let playCard (player: Player) index (cardsToDiscard: int List) =
 
 // Just for tests
 let getMeAnyCard =
-    {Cost = 0; CashPoints = 0; WinPoints = 0}
+    {Cost = 0; CashPoints = 0; WinPoints = 0; CardEnum=CardEnum.Parking}
