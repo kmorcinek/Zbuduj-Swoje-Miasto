@@ -17,6 +17,6 @@ open Xunit
 
             let player = {CardsInHand = [parking]; PlayedCards = []}
 
-            let playedPlayer = playCard player
+            let playedPlayer = playCard player 0 []
             Assert.Equal(0, playedPlayer.CardsInHand.Length)
             Assert.Equal(1, playedPlayer.PlayedCards.Length)
