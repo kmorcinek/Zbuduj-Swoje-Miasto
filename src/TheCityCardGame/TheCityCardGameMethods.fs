@@ -16,9 +16,7 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
 
 
     let player1 = { player with CardsInHand = [] }
-    let playedPlayer = { player1 with PlayedCards = [playedCard] }
-
-    playedPlayer
+    { player1 with PlayedCards = [playedCard] }
 
 // Just for tests
 let getMeAnyCard =
