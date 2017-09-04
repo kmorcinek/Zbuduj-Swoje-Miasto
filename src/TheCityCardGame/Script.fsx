@@ -26,13 +26,13 @@ let t5 = ("hello",42)
 let action2 (forTuple: string*int) =
     fst forTuple
         
-let action (stateSoFar: int List*bool) current =
-    let (lista, isAlreadyRemoved) = stateSoFar
+let action (stateSoFar: int List*int*bool) current =
+    let (lista, treshold, isAlreadyRemoved) = stateSoFar
     if isAlreadyRemoved
-        then (current::lista, isAlreadyRemoved)
-        else if current >= 2 then (lista, true) else (current::lista, isAlreadyRemoved)
+        then (current::lista, treshold, isAlreadyRemoved)
+        else if current >= treshold then (lista, treshold, true) else (current::lista, treshold, isAlreadyRemoved)
 
 let items = [1;2;3]
 
-let r = items |> List.fold action ([], false)
+let r = items |> List.fold action ([], 2, false)
 
