@@ -52,8 +52,8 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Card.fs" />
-    <None Include="Script.fsx" />
     <Compile Include="TheCityCardGameMethods.fs" />
+    <None Include="Script.fsx" />
     <Compile Include="Tests.fs" />
     <Content Include="packages.config" />
   </ItemGroup>

@@ -41,3 +41,12 @@ open System
             let player = {CardsInHand = [card; card]; PlayedCards = []}
 
             (fun () -> playCard player card.CardEnum [] |> ignore) |> should throw typeof<InvalidOperationException>
+
+    [<Fact>]
+        let ``Just test``() = 
+            let a = { getMeAnyCard with Cost = 1 }
+            let b = { getMeAnyCard with Cost = 1 }
+
+            let result = a = b
+
+            result |> should equal true
