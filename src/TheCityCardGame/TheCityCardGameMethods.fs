@@ -10,8 +10,6 @@ let calculateWinningPoints cards =
 let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
     let playedCard = (List.filter (fun x -> x.CardEnum = cardToPlay) player.CardsInHand).Head
 
-    if playedCard.Cost > 0 then invalidOp "Cannot discard the same card twice"
-
     let removeFirstCard bigList card =
         let action (stateSoFar: Card List*CardEnum*bool) current =
             let (items, cardToFind, isAlreadyRemoved) = stateSoFar
