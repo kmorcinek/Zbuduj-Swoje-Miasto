@@ -7,8 +7,8 @@ let calculateWinningPoints cards =
     let action sumSoFar (x:Card) = sumSoFar + x.WinPoints
     cards |> List.fold action initialValue
 
-let playCard (player: Player) index (cardsToDiscard: int List) =
-    let playedCard = player.CardsInHand.[index]
+let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
+    let playedCard = (List.filter (fun x -> x.CardEnum = cardToPlay) player.CardsInHand).Head
 
     if playedCard.Cost > 0 then invalidOp "Cannot discard the same card twice"
 
