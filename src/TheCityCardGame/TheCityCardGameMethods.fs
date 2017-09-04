@@ -7,3 +7,5 @@ let calculateWinningPoints cards =
     let action sumSoFar (x:Card) = sumSoFar + x.WinPoints
     cards |> List.fold action initialValue
 
+let playCard player =
+    player
