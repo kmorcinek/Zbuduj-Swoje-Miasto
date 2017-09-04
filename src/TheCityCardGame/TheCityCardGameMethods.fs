@@ -12,6 +12,9 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
 
     if playedCard.Cost > 0 then invalidOp "Cannot discard the same card twice"
 
+    // remove first occurence of ...
+
+
     let player1 = { player with CardsInHand = [] }
     let playedPlayer = { player1 with PlayedCards = [playedCard] }
 
