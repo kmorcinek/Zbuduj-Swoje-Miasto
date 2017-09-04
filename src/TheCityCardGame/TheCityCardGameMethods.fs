@@ -10,7 +10,9 @@ let calculateWinningPoints cards =
 let playCard (player: Player) index (cardsToDiscard: int List) =
     let playedCard = player.CardsInHand.[index]
 
-    let player1 = { player with CardsInHand = [] }
-    let player2 = { player1 with PlayedCards = [playedCard] }
+    if playedCard.Cost > 0 then invalidOp "Cannot discard the same card twice"
 
-    player2
+    let player1 = { player with CardsInHand = [] }
+    let playedPlayer = { player1 with PlayedCards = [playedCard] }
+
+    playedPlayer
