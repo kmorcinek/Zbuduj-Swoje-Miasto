@@ -24,16 +24,9 @@ let maxNameAndSize list =
 let action (stateSoFar: int List*int*bool) current =
     let (lista, treshold, isAlreadyRemoved) = stateSoFar
 
-//     if isAlreadyRemoved = false &&  current >= treshold
-    if isAlreadyRemoved
-        then (current::lista, treshold, isAlreadyRemoved)
-        else if current >= treshold then (lista, treshold, true) else (current::lista, treshold, isAlreadyRemoved)
+    if isAlreadyRemoved = false &&  current >= treshold then (lista, treshold, true)
+    else (current::lista, treshold, isAlreadyRemoved)
 
 let items = [1;2;3]
 
 let r = items |> List.fold action ([], 2, false)
-
-
-let xs =
-    if false && false then 1
-    else 2
