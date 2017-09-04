@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{198E46D2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMorcinek.TheCityCardGame.Tests", "tests\KMorcinek.TheCityCardGame.Tests\KMorcinek.TheCityCardGame.Tests.csproj", "{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TheCityCardGame", "TheCityCardGame\TheCityCardGame.fsproj", "{7F39AC4C-AA7E-41C2-856C-369999DCCB03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2F8B2B2-3FE8-4DEB-8019-72560E2E9226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F39AC4C-AA7E-41C2-856C-369999DCCB03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F39AC4C-AA7E-41C2-856C-369999DCCB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F39AC4C-AA7E-41C2-856C-369999DCCB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F39AC4C-AA7E-41C2-856C-369999DCCB03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
