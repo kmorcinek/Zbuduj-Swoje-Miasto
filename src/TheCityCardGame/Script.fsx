@@ -25,20 +25,14 @@ let t5 = ("hello",42)
   
 let action2 (forTuple: string*int) =
     fst forTuple
-
-let a = action2 t5
         
-//let maxNameAndSize2 list = 
-//
-//    
-//    let innerMaxNameAndSize initialValue rest = 
-//        let action maxSoFar x = if maxSoFar.Size < x.Size then x else maxSoFar
-//        rest |> List.fold action initialValue 
-//
-//    // handle empty lists
-//    match list with
-//    | [] -> 
-//        None
-//    | first::rest -> 
-//        let max = innerMaxNameAndSize first rest
-//        Some max  
+let action (stateSoFar: int List*bool) current =
+    let (lista, isAlreadyRemoved) = stateSoFar
+    if isAlreadyRemoved
+        then (current::lista, isAlreadyRemoved)
+        else if current >= 2 then (lista, true) else (current::lista, isAlreadyRemoved)
+
+let items = [1;2;3]
+
+let r = items |> List.fold action ([], false)
+
