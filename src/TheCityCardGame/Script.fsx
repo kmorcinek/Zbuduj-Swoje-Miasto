@@ -5,5 +5,3 @@
 open TheCityCardGame
 
 // Define your library scripting code here
-let card = {Cost = 2; CashPoints = 1; WinPoints = 3}
-
