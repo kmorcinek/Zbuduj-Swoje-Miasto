@@ -29,6 +29,8 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
         if wasRemoved = false then invalidOp "Cannot discard the same card twice"
         else withoutDiscardedCard
 
+    let leftInHand = cardsToDiscard |> List.fold (fun x acc -> removeExactlyOne acc x) withoutPlayedCard
+
     let player1 = { player with CardsInHand = [] }
     { player1 with PlayedCards = [playedCard] }
 
