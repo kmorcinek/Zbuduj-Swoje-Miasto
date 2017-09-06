@@ -23,17 +23,14 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
 
     let withoutPlayedCard = removeFirst (fun x -> x.CardEnum = cardToPlay) player.CardsInHand
 
-//    let removeExactlyOne (bigLista: Card List) card =
-//        let (withoutDiscardedCard, _, wasRemoved) = removeFirstCard player.CardsInHand cardToPlay
-//
-//        if wasRemoved = false then invalidOp "Cannot discard the same card twice"
-//        else withoutDiscardedCard
-//
-//    let leftInHand = cardsToDiscard |> List.fold (fun x acc -> removeExactlyOne acc x) withoutPlayedCard
+    let p enum card =
+        card.CardEnum = enum
+
+    let leftInHand = removeFromFirstList p player.CardsInHand cardsToDiscard
 
     { player with
         PlayedCards = [playedCard]
-        CardsInHand = []  }
+        CardsInHand = leftInHand  }
 
 // Just for tests
 let getMeAnyCard =

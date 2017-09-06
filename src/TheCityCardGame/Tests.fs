@@ -25,13 +25,18 @@ open System
 
     [<Fact>]
         let ``Can play House card``() = 
-            let smallCost = { getMeAnyCard with Cost = 1 }
-            let house = { smallCost with CardEnum = CardEnum.House }
+            let house = { getMeAnyCard with
+                            CardEnum = CardEnum.House
+                            Cost = 1}
 
-            let player = {CardsInHand = [house; house]; PlayedCards = []}
+            let player = {
+                CardsInHand = [house; house]
+                PlayedCards = [] }
 
             let playedPlayer = playCard player house.CardEnum [house.CardEnum]
+
             Assert.Equal(0, playedPlayer.CardsInHand.Length)
+
             Assert.Equal(1, playedPlayer.PlayedCards.Length)
 
     [<Fact>]
@@ -47,6 +52,11 @@ open System
             let p a b=
                 a = b
 
-            let xs = removeFromFirstList p [1;2;0] [2;1] 
+//            let xs = removeFromFirstList p [1;2;0] [2;1] 
 
-            xs.Length |> should equal 1
+            let pCard enum card =
+                card.CardEnum = enum
+
+            let xs2 = removeFromFirstList pCard [getMeAnyCard;getMeAnyCard] [CardEnum.Parking; CardEnum.Parking]
+
+            xs2.Length |> should equal 0
