@@ -23,6 +23,8 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
 
     let withoutPlayedCard = removeFirst (fun x -> x.CardEnum = cardToPlay) player.CardsInHand
 
+    if cardsToDiscard.Length <> playedCard.Cost then invalidOp "Cost requires to discard more cards (details later)"   
+
     let p enum card =
         card.CardEnum = enum
 
