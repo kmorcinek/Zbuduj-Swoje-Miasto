@@ -7,13 +7,22 @@ let calculateWinningPoints cards =
     let action sumSoFar (x:Card) = sumSoFar + x.WinPoints
     cards |> List.fold action initialValue
 
-let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
-    let playedCard = (List.filter (fun x -> x.CardEnum = cardToPlay) player.CardsInHand).Head
-
-    let rec removeFirst predicate = function
+let rec removeFirst predicate = function
     | [] -> []
     | h :: t when predicate h -> t
     | h :: t -> h :: removeFirst predicate t
+
+let rec removeFromFirstList (cardsInHand: Card List) (toDiscard: CardEnum List) =
+    match toDiscard with
+    | [] -> cardsInHand
+    | h :: t -> match List.tryFindIndex (fun x->x.CardEnum = h) cardsInHand with
+            | Some i -> removeFromFirstList (List.take i cardsInHand @ List.skip (i+1) cardsInHand) t
+            | None -> invalidOp "Cannot discard the same card twice"
+//     when List.exists (fun x->x.CardEnum = h) cardsInHand -> removeFromFirstList (removeFirst (fun x->x.CardEnum = h) cardsInHand) t
+//    | h :: t -> invalidOp "Cannot discard the same card twice"
+
+let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
+    let playedCard = (List.filter (fun x -> x.CardEnum = cardToPlay) player.CardsInHand).Head
 
     let withoutPlayedCard = removeFirst (fun x -> x.CardEnum = cardToPlay) player.CardsInHand
 
