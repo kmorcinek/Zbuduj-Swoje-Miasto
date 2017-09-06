@@ -36,7 +36,6 @@ open System
             let playedPlayer = playCard player house.CardEnum [house.CardEnum]
 
             Assert.Equal(0, playedPlayer.CardsInHand.Length)
-
             Assert.Equal(1, playedPlayer.PlayedCards.Length)
 
     [<Fact>]

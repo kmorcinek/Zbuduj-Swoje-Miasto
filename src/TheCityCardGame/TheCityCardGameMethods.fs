@@ -26,7 +26,7 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
     let p enum card =
         card.CardEnum = enum
 
-    let leftInHand = removeFromFirstList p player.CardsInHand cardsToDiscard
+    let leftInHand = removeFromFirstList p withoutPlayedCard cardsToDiscard
 
     { player with
         PlayedCards = [playedCard]
