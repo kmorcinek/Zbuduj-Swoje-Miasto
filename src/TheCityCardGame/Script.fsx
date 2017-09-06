@@ -21,9 +21,19 @@ let action (stateSoFar: 'T List*'T*bool) current =
 //let r = items |> List.fold action ([], a, false)
 
 let numbers = [1;2;2;2;3]
-let result = numbers |> List.fold action ([], 2, false)
-//let action2 (stateSoFar: Card List*CardEnum*bool) current =
-//    let (lista, treshold, isAlreadyRemoved) = stateSoFar
-//
-//    if isAlreadyRemoved = false &&  current >= treshold then (lista, treshold, true)
-//    else (current::lista, treshold, isAlreadyRemoved)
+//let result = numbers |> List.fold action ([], 2, false)
+
+let rec removeFirst predicate = function
+    | [] -> []
+    | h :: t when predicate h -> t
+    | h :: t -> h :: removeFirst predicate t
+
+let pred item = 
+    item >= 2
+
+let r = removeFirst pred numbers
+
+let removeFirst2 p xs =
+    match List.tryFindIndex p xs with
+    | Some i -> List.take i xs @ List.skip (i+1) xs
+    | None -> xs

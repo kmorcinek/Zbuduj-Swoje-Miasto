@@ -10,29 +10,24 @@ let calculateWinningPoints cards =
 let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
     let playedCard = (List.filter (fun x -> x.CardEnum = cardToPlay) player.CardsInHand).Head
 
-    let removeFirstCard bigList card =
-        let action (stateSoFar: Card List*CardEnum*bool) current =
-            let (items, cardToFind, isAlreadyRemoved) = stateSoFar
+    let rec removeFirst predicate = function
+    | [] -> []
+    | h :: t when predicate h -> t
+    | h :: t -> h :: removeFirst predicate t
 
-            if isAlreadyRemoved = false &&  current.CardEnum = cardToFind
-                then (items, cardToFind, true)
-                else (current::items, cardToFind, isAlreadyRemoved)
+    let withoutPlayedCard = removeFirst (fun x -> x.CardEnum = cardToPlay) player.CardsInHand
 
-        bigList |> List.fold action ([], cardToPlay, false)
+//    let removeExactlyOne (bigLista: Card List) card =
+//        let (withoutDiscardedCard, _, wasRemoved) = removeFirstCard player.CardsInHand cardToPlay
+//
+//        if wasRemoved = false then invalidOp "Cannot discard the same card twice"
+//        else withoutDiscardedCard
+//
+//    let leftInHand = cardsToDiscard |> List.fold (fun x acc -> removeExactlyOne acc x) withoutPlayedCard
 
-    // remove first occurence of ...
-    let (withoutPlayedCard, _, _) = (removeFirstCard player.CardsInHand cardToPlay)
-
-    let removeExactlyOne (bigLista: Card List) card =
-        let (withoutDiscardedCard, _, wasRemoved) = removeFirstCard player.CardsInHand cardToPlay
-
-        if wasRemoved = false then invalidOp "Cannot discard the same card twice"
-        else withoutDiscardedCard
-
-    let leftInHand = cardsToDiscard |> List.fold (fun x acc -> removeExactlyOne acc x) withoutPlayedCard
-
-    let player1 = { player with CardsInHand = [] }
-    { player1 with PlayedCards = [playedCard] }
+    { player with
+        PlayedCards = [playedCard]
+        CardsInHand = []  }
 
 // Just for tests
 let getMeAnyCard =
