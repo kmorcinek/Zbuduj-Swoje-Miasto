@@ -36,4 +36,7 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
 
 // Just for tests
 let getMeAnyCard =
-    {Cost = 0; CashPoints = 0; WinPoints = 0; CardEnum=CardEnum.Parking}
+    {   Cost = 0
+        CashPoints = 0
+        WinPoints = 0
+        CardEnum = CardEnum.Parking}
