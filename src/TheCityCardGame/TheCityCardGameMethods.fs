@@ -12,10 +12,10 @@ let rec removeFirst predicate = function
     | h :: t when predicate h -> t
     | h :: t -> h :: removeFirst predicate t
 
-let rec removeFromFirstList (cardsInHand: Card List) (toDiscard: CardEnum List) =
+let rec removeFromFirstList p (cardsInHand: 'T List) (toDiscard: 'TT List) =
     match toDiscard with
     | [] -> cardsInHand
-    | h :: t  when List.exists (fun x->x.CardEnum = h) cardsInHand -> removeFromFirstList (removeFirst (fun x->x.CardEnum = h) cardsInHand) t
+    | h :: t  when List.exists (p h) cardsInHand -> removeFromFirstList p (removeFirst (p h) cardsInHand) t
     | h :: t -> invalidOp "Cannot discard the same card twice"
 
 let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =

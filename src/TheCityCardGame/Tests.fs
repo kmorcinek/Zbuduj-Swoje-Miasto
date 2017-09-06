@@ -44,9 +44,9 @@ open System
 
     [<Fact>]
         let ``Just test``() = 
-            let a = { getMeAnyCard with Cost = 1 }
-            let b = { getMeAnyCard with Cost = 1 }
+            let p a b=
+                a = b
 
-            let result = a = b
+            let xs = removeFromFirstList p [1;2;0] [2;1] 
 
-            result |> should equal true
+            xs.Length |> should equal 1
