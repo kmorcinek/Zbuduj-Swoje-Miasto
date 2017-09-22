@@ -43,13 +43,16 @@ let rec drawCards = function
     | (toAdd,h :: t, 0) -> (h :: toAdd, t)
     | (a, b, x) -> drawCards (a, b, x-1)
 
-let drawNewCards (player: Player) (deck: Card List) =
-    let cardToDeal = 1
-    
-    let (newCards, newDeck) = drawCards (player.CardsInHand, deck, 1)
+let calculateCashPoints cards =
+    List.sumBy (fun x -> x.CashPoints) cards 
 
-    let newPlayer = { player with
-                             CardsInHand = newCards }
+let drawNewCards (player: Player) (deck: Card List) =
+    let cardsToDeal = calculateCashPoints player.PlayedCards
+    
+    let (newCards, newDeck) = drawCards (player.CardsInHand, deck, cardsToDeal)
+
+    let newPlayer = { player with CardsInHand = newCards }
+
     (newPlayer, newDeck)
 
 // Just for tests
