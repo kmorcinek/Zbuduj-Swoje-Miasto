@@ -20,6 +20,7 @@ open System
             let player = {CardsInHand = [parking]; PlayedCards = []}
 
             let playedPlayer = playCard player parking.CardEnum []
+
             Assert.Equal(0, playedPlayer.CardsInHand.Length)
             Assert.Equal(1, playedPlayer.PlayedCards.Length)
 
