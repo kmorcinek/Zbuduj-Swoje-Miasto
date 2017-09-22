@@ -46,10 +46,6 @@ let rec drawCards = function
 let calculateCashPoints cards =
     List.sumBy (fun x -> x.CashPoints) cards 
 
-let min (a: int) (b: int) =
-    if a < b then a
-    else b
-
 let drawNewCards (player: Player) (deck: Card List) =
     let cardsToDeal = min (calculateCashPoints player.PlayedCards) (12 - player.CardsInHand.Length)
 
