@@ -48,6 +48,16 @@ open System
             (fun () -> playCard player card.CardEnum [] |> ignore) |> should throw typeof<InvalidOperationException>
 
     [<Fact>]
+        let ``Can draw new cards``() = 
+            let card = { getMeAnyCard with Cost = 1 }
+            let deck = [getMeAnyCard]
+            let player = {CardsInHand = [card; card]; PlayedCards = []}
+
+            // Player, deck
+            // Player, deck
+            [1;2].Length |> should equal 0
+
+    [<Fact>]
         let ``Just test``() = 
             let p a b=
                 a = b

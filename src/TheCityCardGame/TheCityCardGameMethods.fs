@@ -34,6 +34,22 @@ let playCard (player: Player) cardToPlay (cardsToDiscard: CardEnum List) =
         PlayedCards = [playedCard]
         CardsInHand = leftInHand  }
 
+let rec removeFirst1 predicate = function
+    | [] -> []
+    | h :: t when predicate h -> t
+    | h :: t -> h :: removeFirst predicate t
+
+let rec drawCards = function
+    | (toAdd,h :: t, 0) -> (h :: toAdd, t)
+    | (a, b, x) -> drawCards (a, b, x-1)
+
+let drawNewCards (player: Player) (deck: Card List) =
+    let cardToDeal = 1
+    
+    let newPlayer = { player with
+                             CardsInHand = deck.Head :: player.CardsInHand }
+    (newPlayer, deck.Tail)
+
 // Just for tests
 let getMeAnyCard =
     {   Cost = 0
