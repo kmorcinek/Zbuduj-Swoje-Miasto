@@ -46,9 +46,11 @@ let rec drawCards = function
 let drawNewCards (player: Player) (deck: Card List) =
     let cardToDeal = 1
     
+    let (newCards, newDeck) = drawCards (player.CardsInHand, deck, 1)
+
     let newPlayer = { player with
-                             CardsInHand = deck.Head :: player.CardsInHand }
-    (newPlayer, deck.Tail)
+                             CardsInHand = newCards }
+    (newPlayer, newDeck)
 
 // Just for tests
 let getMeAnyCard =
