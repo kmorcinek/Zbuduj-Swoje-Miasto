@@ -91,6 +91,13 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KMorcinek.TheCityCardGame\KMorcinek.TheCityCardGame.csproj">
+      <Name>KMorcinek.TheCityCardGame</Name>
+      <Project>{85ffed1b-8da3-49fc-81f7-a1de0ef1e1fc}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

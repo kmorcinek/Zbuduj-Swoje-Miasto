@@ -6,3 +6,4 @@ type Card = {Cost:int; CashPoints:int; WinPoints:int; CardEnum:CardEnum }
 
 type Player = {CardsInHand: Card List; PlayedCards: Card List}
 
+type Board = {Deck: Card List; Players: Player List}

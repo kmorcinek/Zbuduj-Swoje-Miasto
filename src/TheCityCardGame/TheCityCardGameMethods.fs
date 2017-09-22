@@ -70,6 +70,9 @@ let startGame deck playersCount =
 
     drawStartingPlayer ([], deck, playersCount)
 
+// TODO: Move to type
+//let playArchitect board playerIndex card cardsToDiscard
+
 // Just for tests
 let getMeAnyCard =
     {   Cost = 0
