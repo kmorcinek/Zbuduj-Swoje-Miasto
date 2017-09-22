@@ -59,6 +59,17 @@ let drawNewCards (player: Player) (deck: Card List) =
 
     (newPlayer, newDeck)
 
+let startGame deck playersCount =
+    let rec drawStartingPlayer  = function
+        | (players, deck, 0) -> 
+            let (newCards, newDeck) = drawCards ([], deck, 5)    
+            let player = {CardsInHand = newCards; PlayedCards = []}
+
+            (player :: players, newDeck)
+        | (players, deck, counter) -> drawStartingPlayer (players, deck, counter - 1)
+
+    drawStartingPlayer ([], deck, playersCount)
+
 // Just for tests
 let getMeAnyCard =
     {   Cost = 0
