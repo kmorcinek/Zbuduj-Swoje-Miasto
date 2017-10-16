@@ -66,12 +66,30 @@ let startGame deck playersCount =
 
     drawStartingPlayer ([], deck, playersCount)
 
-// TODO: Move to type
-//let playArchitect board playerIndex card cardsToDiscard
-
 // Just for tests
 let getMeAnyCard =
     {   Cost = 0
         CashPoints = 0
         WinPoints = 0
-        CardEnum = CardEnum.Parking}
+        CardEnum = CardEnum.Parking
+    }
+
+let createDeck =
+    [getMeAnyCard; getMeAnyCard]
+
+let players = startGame createDeck 1
+    // infiniteSequence like from console
+    // Just play 4 moves the same
+    // mutable is Server
+    // metoda która zwraca mi nowy obiekt "client", a mutuje stary server. (globalny)
+// TODO: Move to type
+//let playArchitect board playerIndex card cardsToDiscard
+let mutable server = {i = 1}
+
+
+let play client deck = 
+    let client = {i = 1}
+    let result = 1
+
+    (client, result)
+
