@@ -86,10 +86,9 @@ let players = startGame createDeck 1
 //let playArchitect board playerIndex card cardsToDiscard
 let mutable server = {i = 1}
 
-
 let play client deck = 
     let client = {i = 1}
     let result = 1
 
-    (client, result)
+    (client, result, deck)
 
