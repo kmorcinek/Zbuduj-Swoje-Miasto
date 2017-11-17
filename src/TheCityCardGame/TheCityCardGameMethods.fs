@@ -56,7 +56,7 @@ let drawNewCards (player: Player) (deck: Card List) =
     (newPlayer, newDeck)
 
 let startGame deck playersCount =
-    let rec drawStartingPlayer  = function
+    let rec drawStartingPlayer = function
         | (players, deck, 0) -> 
             let (newCards, newDeck) = drawCards ([], deck, 5)    
             let player = {CardsInHand = newCards; PlayedCards = []}
@@ -74,10 +74,10 @@ let getMeAnyCard =
         CardEnum = CardEnum.Parking
     }
 
-let createDeck =
+let createStartingDeck =
     [getMeAnyCard; getMeAnyCard]
 
-let players = startGame createDeck 1
+let (players, deck) = startGame createStartingDeck 1
     // infiniteSequence like from console
     // Just play 4 moves the same
     // mutable is Server
@@ -86,9 +86,17 @@ let players = startGame createDeck 1
 //let playArchitect board playerIndex card cardsToDiscard
 let mutable server = {i = 1}
 
-let play client deck = 
-    let client = {i = 1}
-    let result = 1
+// czym jest "server": po zagraniu karty musi wylosować nowe
+// chyba nie potrzebuję Server gdy gram lokalnie.
+// a gdy server będzie (nawet lokalnie) to on trzyma deck.
+let playFirstCard (client, server, deck) =
+    // logika zmieni na nextClient i nextServer
+    let result = {i = 1}
+    (client, server, result)
 
-    (client, result, deck)
+let play playNextMove client server = 
+    let (nextClient, nextServer, result) = playNextMove (client, server)
+
+    (nextClient, nextServer, result)
+
 

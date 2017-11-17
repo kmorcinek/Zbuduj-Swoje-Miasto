@@ -11,3 +11,12 @@ type Board = {Deck: Card List; Players: Player List}
 type Bot = {i: int}
 
 type DisconnectedServer = {i: int}
+
+    type DisconnectedServerT = {First:string; Last:string} with
+        // member defined with type declaration
+        member this.PlayCard playedCard client= 
+            let newOne =  { this with
+                First = ""
+                Last = "dsfa"
+            }
+            (newOne, client, 1)
