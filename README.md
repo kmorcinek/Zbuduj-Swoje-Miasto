@@ -56,3 +56,8 @@ Card for later:
 - Ekipa budowlana
 - Szkoła
 - Park przemysłowy
+
+
+#learing resources:
+
+https://github.com/cezarypiatek/FGameOfLife
